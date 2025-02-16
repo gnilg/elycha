@@ -4,6 +4,7 @@ use App\Models\Admin;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 return new class extends Migration
 {
@@ -31,7 +32,7 @@ return new class extends Migration
             'last_name' => "KOUGBADA",
             'first_name' => "Omar Farouk",
             'status' => 1,
-            'token' => getRamdomText(20),
+            'token' => Str::random(20),
             'password' => bcrypt('r@dy@t1999')
         ]);
 
@@ -41,8 +42,8 @@ return new class extends Migration
             'last_name' => "ALKEBULAN",
             'first_name' => "IMMO",
             'status' => 1,
-            'token' => getRamdomText(20),
-            'password' => bcrypt('alkebulan@2023')
+            'token' => Str::random(20), // Correction ici
+            'password' => bcrypt('er')
         ]);
     }
 
