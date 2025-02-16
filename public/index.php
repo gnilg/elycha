@@ -16,7 +16,7 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
-if (file_exists($maintenance = __DIR__.'./elycha/storage/framework/maintenance.php')) {
+if (file_exists($maintenance = __DIR__.'../alkebulan/storage/framework/maintenance.php')) {
     require $maintenance;
 }
 
@@ -31,7 +31,7 @@ if (file_exists($maintenance = __DIR__.'./elycha/storage/framework/maintenance.p
 |
 */
 
-require __DIR__.'./elycha/vendor/autoload.php';
+require __DIR__.'../alkebulan/vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +44,7 @@ require __DIR__.'./elycha/vendor/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'./elycha/bootstrap/app.php';
+$app = require_once __DIR__.'.../alkebulan/bootstrap/app.php';
 
 $kernel = $app->make(Kernel::class);
 
