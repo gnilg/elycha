@@ -8,16 +8,16 @@
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <link rel="stylesheet" href="/front/app/dist/font-awesome.css">
+    <link rel="stylesheet" href={{asset('/front/app/dist/font-awesome.css')}}>
 
-    <link rel="stylesheet" href="/front/app/dist/app.css">
-    <link rel="stylesheet" href="/front/app/dist/responsive.css">
-    <link rel="stylesheet" href="/front/app/dist/owl.css">
+    <link rel="stylesheet" href={{asset('/front/app/dist/app.css')}}>
+    <link rel="stylesheet" href={{asset('/front/app/dist/responsive.css')}}>
+    <link rel="stylesheet" href={{asset('/front/app/dist/owl.css')}}>
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="/front/assets/images/logo/Favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="/front/assets/images/logo/Favicon.png">
-    
+    <link rel="shortcut icon" href={{asset('/front/assets/images/logo/Favicon.png')}}>
+    <link rel="apple-touch-icon-precomposed" href={{asset('/front/assets/images/logo/Favicon.png')}}>
+
 
     <style>
         .primary-background {
@@ -297,20 +297,20 @@
     <script data-cfasync="false" src="https://themesflat.co/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-    <script src="/front/app/js/apexcharts.js"></script>
-    <script src="/front/app/js/jquery.min.js"></script>
-    <script src="/front/app/js/jquery.easing.js"></script>
-    <script src="/front/app/js/jquery.nice-select.min.js"></script>
-    <script src="/front/app/js/jquery.cookie.js"></script>
-    <script src="/front/app/js/bootstrap.min.js"></script>
-    <script src="/front/app/js/swiper-bundle.min.js"></script>
-    <script src="/front/app/js/countto.js"></script>
+    <script src={{asset('/front/app/js/apexcharts.js')}}></script>
+    <script src={{asset('/front/app/js/jquery.min.js')}}></script>
+    <script src={{asset('/front/app/js/jquery.easing.js')}}></script>
+    <script src={{asset('/front/app/js/jquery.nice-select.min.js')}}></script>
+    <script src={{asset('/front/app/js/jquery.cookie.js')}}></script>
+    <script src={{asset('/front/app/js/bootstrap.min.js')}}></script>
+    <script src={{asset('/front/app/js/swiper-bundle.min.js')}}></script>
+    <script src={{asset('/front/app/js/countto.js')}}></script>
 
-    <script src="/front/app/js/plugin.js"></script>
-    <script src="/front/app/js/shortcodes.js"></script>
-    <script src="/front/app/js/main.js"></script>
-    <script src="/front/app/js/dashboard-menu.min.js"></script>
-    <script src="/front/app/js/dashboard-menu.js"></script>
+    <script src={{asset('/front/app/js/plugin.js')}}></script>
+    <script src={{asset('/front/app/js/shortcodes.js')}}></script>
+    <script src={{asset('/front/app/js/main.js')}}></script>
+    <script src={{asset('/front/app/js/dashboard-menu.min.js')}}></script>
+    <script src={{asset('/front/app/js/dashboard-menu.js')}}></script>
 
     @yield('scripts')
 </body>
