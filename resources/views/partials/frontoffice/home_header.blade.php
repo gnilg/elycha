@@ -14,6 +14,11 @@
                                         <li><a href="/">Accueil</a></li>
                                         <li><a href="/posts/all?is_immo=1">Immobilier</a></li>
                                         <li><a href="/posts/all?is_immo=2">Automobile</a></li>
+                                        <li><a href="#">Architecture</a></li>
+                                        <li><a href="#">Billeterie</a></li>
+                                        <li><a href="#">Hôtelerie</a></li>
+                                        <li><a href="#">Tourisme</a></li>
+                                        <li><a href="#">Service</a></li>
                                         <li><a href="/about">A propos</a></li>
                                     </ul>
                                 </div>
