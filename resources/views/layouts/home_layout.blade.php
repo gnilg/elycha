@@ -11,13 +11,13 @@
 
     <link rel="stylesheet" href={{asset('/front/app/dist/font-awesome.css')}}>
 
-    <link rel="stylesheet" href={{asset('/front/app/dist/app.css')}}">
-    <link rel="stylesheet" href={{asset('/front/app/dist/responsive.css')}}">
-    <link rel="stylesheet" href={{asset('/front/app/dist/owl.css')}}">
+    <link rel="stylesheet" href={{asset('/front/app/dist/app.css')}}>
+    <link rel="stylesheet" href={{asset('/front/app/dist/responsive.css')}}>
+    <link rel="stylesheet" href={{asset('/front/app/dist/owl.css')}}>
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href={{asset('/front/assets/images/logo/Favicon.png')}}">
-    <link rel="apple-touch-icon-precomposed" href={{asset('/front/assets/images/logo/Favicon.png')}}">
+    <link rel="shortcut icon" href={{asset('/front/assets/images/logo/Favicon.png')}}>
+    <link rel="apple-touch-icon-precomposed" href={{asset('/front/assets/images/logo/Favicon.png')}}>
 
 
 </head>
