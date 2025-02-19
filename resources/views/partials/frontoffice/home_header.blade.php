@@ -44,12 +44,16 @@
     <!-- End Header Lower -->
 
     <!-- Mobile Menu  -->
-    <div class="close-btn"><span class="icon flaticon-cancel-1"></span></div>
+
     <div class="mobile-menu">
         <div class="menu-backdrop"></div>
+        <div class="close-btn"><span class="icon flaticon-cancel-1"></span></div>
+
+
         <nav class="menu-box">
             <div class="nav-logo"><a href="/"><img src="/front/assets/images/logo/logo%402x.png" alt=""
                         width="197" height="48"></a></div>
+
             <div class="bottom-canvas">
                 <div class="login-box flex align-center">
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none"

@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-7">
                     <div class="heading-section">
-                        <h2 class="font-2 fw-8 ">Alkebulan ECA, l'application mobile qui révolutionne les domaines suivants:
+                        <h2 class="font-2 fw-8 ">Elycha, l'application mobile qui révolutionne les domaines suivants:
                         </h2>
                         <p class="text-color-">
                         <ul>

@@ -798,7 +798,7 @@
   display: none;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Mobile Menu
@@ -1166,7 +1166,7 @@
   vertical-align: bottom;
 }
 
-/* button 
+/* button
 --------------------------------------------------*/
 .sc-button {
   display: inline-block;
@@ -1281,7 +1281,7 @@
   	* flat brand
 	* flat featured
     * wg-dream
-    * flat search area 
+    * flat search area
     * flat rent
     * flat meet
     * flat contact
@@ -1292,7 +1292,7 @@
     * flat estate near
     * flat properties rent
     * curved
-    * flat testimonial2 
+    * flat testimonial2
     * flat agents
     * flat search home
     * flat why choose
@@ -1304,11 +1304,11 @@
     * flat why choose2
     * flat icon
     * flat testimonial4
-    * flat pricing 
+    * flat pricing
     * flat property, property grid,list
     * flat map 1 2 3
     * flat agent, agent detail,sidebar
-    * flat agencies, agencies detail,sidebar 
+    * flat agencies, agencies detail,sidebar
     * flat about
     * flat service
     * flat contact page
@@ -6325,7 +6325,7 @@
   margin-right: 6px;
 }
 .slider.home2 {
-  background-image: url(../../assets/images/slider/bg-slider-2.jpg);
+  background-image: url(../../assets/images/slider/bg-slider-5.jpg);
   background-attachment: fixed;
 }
 .slider.home2 .slider-item {
@@ -7437,7 +7437,7 @@
 	* flat counter dash
 	* flat dashboard
     * flat profile
-    * flat all review 
+    * flat all review
 */
 .dashboard .main-header {
   position: fixed;
@@ -8543,12 +8543,12 @@ tbody tr td {
     * Pagination
     * Scroll Top
     * PreLoad
-    * heading 
+    * heading
     * dropdown
     * progress bar
     * map
-    * up load 
-    * price range 
+    * up load
+    * price range
 */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q,
 s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th,

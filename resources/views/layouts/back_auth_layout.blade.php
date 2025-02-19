@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Alkebulan-Eca Admin | @yield('title')</title>
+    <title>Elycha Admin | @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -62,8 +62,8 @@
         2023 -
         <script>
             document.write(new Date().getFullYear())
-        </script> &copy; Alkebulan-Eca Powered by <a style="color:white;font-weight: bold;"
-            href="https://kofcorporation.com" class="text-white-50">KOFCORPORATION</a>
+        </script> &copy; Elycha Powered by <a style="color:white;font-weight: bold;"
+            href="https://kofcorporation.com" class="text-white-50">ELYCHA</a>
     </footer>
 
     <!-- Vendor js -->

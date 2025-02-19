@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Alkebulan Eca | @yield('title')</title>
+    <title>Elycha | @yield('title')</title>
 
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,6 +14,8 @@
     <link rel="stylesheet" href={{asset('/front/app/dist/app.css')}}>
     <link rel="stylesheet" href={{asset('/front/app/dist/responsive.css')}}>
     <link rel="stylesheet" href={{asset('/front/app/dist/owl.css')}}>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href={{asset('/front/assets/images/logo/Favicon.png')}}>
@@ -26,6 +28,7 @@
 </head>
 
 <body class="body  ">
+
 
     <!--<div class="preload preload-container">
         <div class="boxes ">
@@ -62,7 +65,7 @@
         <div id="pagee" class="clearfix">
 
             <!-- Main Header -->
-            <header class="main-header">
+            <header class="main-header" >
                 <!-- Header Lower -->
                 <div class="header-lower">
                     <div class="container6">
@@ -80,9 +83,10 @@
                                         <nav class="main-menu show navbar-expand-md">
                                             <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
                                                 <ul class="navigation clearfix">
-                                                    <li><a href="/">Accueil</a></li>
+                                                    <li><a href="/"><h3>Accueil</h3></a></li>
                                                     <li><a href="/posts/all?is_immo=1">Immobilier</a></li>
                                                     <li><a href="/posts/all?is_immo=2">Automobile</a></li>
+                                                    <li><a href="#">Architecture</a></li>
                                                     <li><a href="/about">A propos</a></li>
                                                 </ul>
                                             </div>
@@ -137,6 +141,28 @@
                     </div>
                 </div>
                 <!-- End Header Lower -->
+
+
+
+                {{-- <div class="container mt-4">
+                    <h2 class="fw-bold">Publications</h2>
+                    <p class="text-muted">Affichage des résultats</p>
+
+                    <ul id="result-list" class="list-group mt-3">
+                        <li class="list-group-item" data-quartier="Quartier 1" data-somme="50000">
+                            🏡 Maison à Quartier 1 - 50 000 FCFA
+                        </li>
+                        <li class="list-group-item" data-quartier="Quartier 2" data-somme="75000">
+                            🏢 Appartement à Quartier 2 - 75 000 FCFA
+                        </li>
+                        <li class="list-group-item" data-quartier="Quartier 1" data-somme="30000">
+                            🏠 Studio à Quartier 1 - 30 000 FCFA
+                        </li>
+                    </ul>
+                </div> --}}
+
+
+
 
                 <!-- Mobile Menu  -->
                 <div class="close-btn"><span class="icon flaticon-cancel-1"></span></div>
@@ -247,11 +273,42 @@
                 </div>
                 <!-- End Mobile Menu -->
 
+                <div class="row py-3 pr-4 filter-bar">
+                    <!-- Quartier -->
+                    <div class="col-md-3 d-flex">
+                        <input type="text" id="search-quartier" class="form-control" placeholder="Nom du quartier">
+                    </div>
+                    <!-- Somme min -->
+                    <div class="col-md-3 d-flex">
+                        <input type="number" id="search-somme-min" class="form-control" placeholder="Somme Min">
+                    </div>
+                    <!-- Somme max -->
+                    <div class="col-md-3 d-flex">
+                        <input type="number" id="search-somme-max" class="form-control" placeholder="Somme Max">
+                    </div>
+                    <!-- Bouton filtrer -->
+                    <div class="col-md-3 d-flex">
+                        <button class="btn btn-warning w-100" onclick="filterResults()">Filtrer</button>
+                    </div>
+                </div>
+
+
+
+
             </header>
             <!-- End Main Header -->
 
 
+
+
+
+
+
+
+
             @yield('content')
+
+
 
 
             <div class="widget-bottom-footer">
@@ -259,7 +316,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="title-bottom center"> Copyright © 2023. Designed & Developed by <a
-                                    href="https://kofcorporation.com" class="text-color-1 fw-bold">KOFCORPORATION</a>
+                                    href="https://kofcorporation.com" class="text-color-1 fw-bold">ELYCHA</a>
                             </div>
                         </div>
                     </div>
@@ -272,7 +329,11 @@
 
     </div>
 
-    <!-- Modal Popup Bid -->
+    {{-- ajoute la barre de rechercher ici --}}
+
+
+
+    <!-- Modal Popup Bid pour la connexion et inscription  -->
 
     <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -434,6 +495,33 @@
     <script src={{asset('/front/app/js/plugin.js')}}></script>
     <script src={{asset('/front/app/js/shortcodes.js')}}></script>
     <script src={{asset('/front/app/js/main.js')}}></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script pour le filtrage -->
+    <script>
+        function filterResults() {
+            let quartierValue = document.getElementById('search-quartier').value.toLowerCase();
+            let sommeMin = document.getElementById('search-somme-min').value;
+            let sommeMax = document.getElementById('search-somme-max').value;
+
+            let items = document.querySelectorAll('#result-list li');
+
+            items.forEach(item => {
+                let quartier = item.getAttribute('data-quartier').toLowerCase();
+                let somme = parseInt(item.getAttribute('data-somme'));
+
+                let matchesQuartier = quartier.includes(quartierValue);
+                let matchesSommeMin = sommeMin === "" || somme >= parseInt(sommeMin);
+                let matchesSommeMax = sommeMax === "" || somme <= parseInt(sommeMax);
+
+                if (matchesQuartier && matchesSommeMin && matchesSommeMax) {
+                    item.style.display = "";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+    </script>
+
 
 </body>
 

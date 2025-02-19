@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Alkebulan-Eca | Accueil</title>
+    <title>Elycha | Accueil</title>
 
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -18,11 +18,19 @@
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href={{asset('/front/assets/images/logo/Favicon.png')}}>
     <link rel="apple-touch-icon-precomposed" href={{asset('/front/assets/images/logo/Favicon.png')}}>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 
 
 </head>
 
 <body class="body">
+
+    <style>
+        .text-custom {
+    font-family: 'Poppins', sans-serif;
+}
+
+    </style>
     @if (Session::has('flash_message_error'))
         <script type="text/javascript" src="{{ asset('sweetalert.min.js') }}"></script>
         <script type="text/javascript">
@@ -70,7 +78,10 @@
     @yield('content')
     <!-- /#wrapper -->
 
-    <!-- Modal Popup Bid -->
+    <!-- Modal Popup Bid pour Inscription et connexion
+
+
+    -->
 
     <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

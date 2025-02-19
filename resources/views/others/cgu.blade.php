@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>ALKEBULAN-ECA | CGU</title>
+    <title>Elycha | CGU</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontoffice/images/favicon.ico') }}" />
     <style type="text/css">
         @import url('https://fonts.googleapis.com/css?family=Pontano+Sans');
@@ -170,15 +170,15 @@
             <div class="col-md-12">
                 <main id="main-doc">
                     <div class="head-box">
-                        <h1>ALKEBULAN-ECA – Conditions Générales d'Utilisation</h1>
+                        <h1>Elycha – Conditions Générales d'Utilisation</h1>
                     </div>
-                    <h2 style="text-align: center;">Bienvenue sur ALKEBULAN-ECA, Voiçi nos CGU & CGV</h2>
+                    <h2 style="text-align: center;">Bienvenue sur Elycha, Voiçi nos CGU & CGV</h2>
                     <section class="main-section" id="Layout" style="margin-left: 2%;margin-right: 2%;">
                         <header>
                             <h2 style="text-align:center;">À PROPOS DE NOUS</h2>
                         </header>
                         <article>
-                            <p>Nous sommes ALKEBULAN-ECA, développée par ALKEBULAN. </p>
+                            <p>Nous sommes Elycha, développée par ALKEBULAN. </p>
                         </article>
                     </section>
 
@@ -194,7 +194,7 @@
                                 Les « Prestataires Tiers » sont des tiers indépendants, notamment les prestataires de
                                 transport indépendants, les partenaires de livraison, les restaurants, les prestataires
                                 de logistique et/ou les prestataires d’autres services de mobilité qui utilisent les
-                                applications mobiles et/ou les sites internet de ALKEBULAN-ECA.
+                                applications mobiles et/ou les sites internet de Elycha.
                             </p>
 
                             <p>Les « Services de Tiers » comprennent notamment les services et les biens dans le domaine
@@ -214,42 +214,42 @@
                         <article>
                             <h4>1. Résumé</h4>
                             <p>1.1. Les présentes conditions générales régissent votre utilisation des applications
-                                mobiles et/ou des sites internet ALKEBULAN-ECA. Vous devez lire attentivement et accepter les
+                                mobiles et/ou des sites internet Elycha. Vous devez lire attentivement et accepter les
                                 présentes Conditions avant toute création de votre compte client via les applications
-                                mobiles et/ou sites internet ALKEBULAN-ECA. La création d’un compte client étant un préalable
-                                obligatoire pour pouvoir solliciter les Services Fournis par ALKEBULAN-ECA ou les Services de
+                                mobiles et/ou sites internet Elycha. La création d’un compte client étant un préalable
+                                obligatoire pour pouvoir solliciter les Services Fournis par Elycha ou les Services de
                                 Tiers. Votre acceptation des présentes Conditions établit une relation contractuelle
-                                entre vous et ALKEBULAN-ECA. Les présentes Conditions remplacent expressément les accords ou
-                                arrangements antérieurs passés entre vous et ALKEBULAN-ECA concernant les Services
+                                entre vous et Elycha. Les présentes Conditions remplacent expressément les accords ou
+                                arrangements antérieurs passés entre vous et Elycha concernant les Services
                                 App(s)/Site(s) Web (tels que définis ci-dessous).</p>
                             <p>
                                 1.2. Les présentes Conditions s’appliquent dans la mesure où elles n’entrent pas en
                                 conflit avec les conditions d’utilisation et les conditions supplémentaires qui
-                                s’appliquent spécifiquement aux applications mobiles et/ou aux sites internet ALKEBULAN-ECA.
+                                s’appliquent spécifiquement aux applications mobiles et/ou aux sites internet Elycha.
                             </p>
                             <p>
-                                1.3. ALKEBULAN-ECA agit en qualité de plateforme technologique d’intermédiation pour les
+                                1.3. Elycha agit en qualité de plateforme technologique d’intermédiation pour les
                                 Services de Tiers et en tant que prestataire de services pour les Services Fournis par
-                                ALKEBULAN-ECA (Cf. article 4 ci-dessous). Dès lors que les Services de Tiers de transport sont
-                                accessibles via les applications mobiles et/ou site internet ALKEBULAN-ECA, ALKEBULAN-ECA s’assure,
+                                Elycha (Cf. article 4 ci-dessous). Dès lors que les Services de Tiers de transport sont
+                                accessibles via les applications mobiles et/ou site internet Elycha, Elycha s’assure,
                                 dans les conditions prévues à l’article 14 des présentes, de la bonne exécution desdits
                                 services de transport par les Prestataires Tiers.
                             </p>
                             <h4>2. Services App(s)/Site(s) Web</h4>
                             <p>
-                                2.1. Les services qui vous sont fournis par ALKEBULAN-ECA incluent :
+                                2.1. Les services qui vous sont fournis par Elycha incluent :
                             </p>
                             <p>
-                                2.1.1. L’accès et l’utilisation des applications mobiles et/ou des sites internet ALKEBULAN-ECA
+                                2.1.1. L’accès et l’utilisation des applications mobiles et/ou des sites internet Elycha
                                 qui vous permettent de solliciter et de recevoir des Services de Tiers et/ou des
-                                Services Fournis par ALKEBULAN-ECA ;
+                                Services Fournis par Elycha ;
                             </p>
                             <p>
                                 2.1.2. Les services de collecte et de traitement des paiements (y compris l’émission de
                                 factures et de reçus pour le compte de Prestataires Tiers) nous permettant de vous
                                 facturer et de reverser les sommes payées sur le compte bancaire des Prestataires Tiers
-                                pour les Services de Tiers ou sur le compte bancaire ALKEBULAN-ECA pour les Services Fournis
-                                par ALKEBULAN-ECA (ALKEBULAN-ECA peut faire fournir ces services en son nom par des sociétés affiliées
+                                pour les Services de Tiers ou sur le compte bancaire Elycha pour les Services Fournis
+                                par Elycha (ALKEBULAN-ECA peut faire fournir ces services en son nom par des sociétés affiliées
                                 ou des tiers) (collectivement les « Services App(s)/Site(s) Web »).
                             </p>
                             <p>
@@ -257,8 +257,8 @@
                                 Web au Togo ;
                             </p>
                             <p>
-                                2.3. Les applications et/ou sites internet mobiles ALKEBULAN-ECA seront mis à votre disposition
-                                sous différentes Marques ALKEBULAN-ECA.
+                                2.3. Les applications et/ou sites internet mobiles Elycha seront mis à votre disposition
+                                sous différentes Marques Elycha.
                             </p>
                             <p>
                                 2.4. Sauf accord écrit distinct, les Services Apps(s)/Site(s) Web sont mis à votre
@@ -266,25 +266,25 @@
                             </p>
                             <p>
                                 2.5. Vous pouvez solliciter et recevoir des Services de Tiers ou des Services Fournis
-                                par ALKEBULAN-ECA via les applications mobiles et/ou les sites internet ALKEBULAN-ECA.
+                                par Elycha via les applications mobiles et/ou les sites internet Elycha.
                             </p>
                             <h4>3. Services de Tiers</h4>
                             <p>
-                                3.1. Pour les Services de Tiers, ALKEBULAN-ECA agit en qualité de plateforme technologique
+                                3.1. Pour les Services de Tiers, Elycha agit en qualité de plateforme technologique
                                 d’intermédiation entre vous et les Prestataires Tiers pour permettre aux Prestataires
-                                Tiers de vous fournir les Services de Tiers. ALKEBULAN-ECA ne fournit pas les Services de
+                                Tiers de vous fournir les Services de Tiers. Elycha ne fournit pas les Services de
                                 Tiers. Tous les Prestataires Tiers sont des entrepreneurs tiers indépendants, des
-                                sociétés commerciales ou autres types d’entreprises et ne sont pas employés par ALKEBULAN-ECA.
+                                sociétés commerciales ou autres types d’entreprises et ne sont pas employés par Elycha.
                             </p>
                             <p>
                                 3.2. Lorsque vous êtes connecté, en ligne et à proximité de Prestataires Tiers qui sont
-                                également connectés aux applications mobiles et/ou aux sites internet ALKEBULAN-ECA, vous
+                                également connectés aux applications mobiles et/ou aux sites internet Elycha, vous
                                 recevez des informations sur les Services de Tiers par les applications mobiles et/ou
-                                les sites internet ALKEBULAN-ECA avant que vous ne décidiez de faire une demande.
+                                les sites internet Elycha avant que vous ne décidiez de faire une demande.
                             </p>
                             <p>
                                 3.3. Dans la mesure permise par la loi, les Prestataires Tiers (pour les Services de
-                                Tiers) et ALKEBULAN-ECA (pour les Services Fournis par ALKEBULAN-ECA) sont libres de décider
+                                Tiers) et Elycha (pour les Services Fournis par Elycha) sont libres de décider
                                 d’accepter ou de rejeter une demande.
                             </p>
                             <p>
@@ -294,19 +294,19 @@
                             <p>
                                 3.5. Il peut vous être demandé de noter le Prestataire Tiers dont vous avez sollicité
                                 les services. Le Prestataire Tiers peut également vous donner une note. Les Prestataires
-                                Tiers verront la notation dans les applications et/sur les sites internet ALKEBULAN-ECA et
+                                Tiers verront la notation dans les applications et/sur les sites internet Elycha et
                                 cette notation pourra avoir une incidence sur leur décision de vous fournir ou non des
                                 Services de Tiers.
                             </p>
-                            <h4>4. Services Fournis par ALKEBULAN-ECA</h4>
+                            <h4>4. Services Fournis par Elycha</h4>
                             <p>
-                                4.1. Pour les Services Fournis par ALKEBULAN-ECA, ALKEBULAN-ECA agit en qualité de prestataire de
-                                services. Les conditions spécifiques régissant les Services Fournis par ALKEBULAN-ECA seront
+                                4.1. Pour les Services Fournis par Elycha, Elycha agit en qualité de prestataire de
+                                services. Les conditions spécifiques régissant les Services Fournis par Elycha seront
                                 stipulées dans des conditions supplémentaires ou dans un accord séparé.
                             </p>
                             <h4>5. Utilisation des Services App(s)/Site(s) Web</h4>
                             <p>
-                                5.1. Les applications mobiles et/ou les sites internet ALKEBULAN-ECA peuvent être téléchargés
+                                5.1. Les applications mobiles et/ou les sites internet Elycha peuvent être téléchargés
                                 ou accessibles sur la plupart des appareils mobiles modernes disposant d’une connexion
                                 internet et équipés de systèmes d’exploitation répandus tels qu’Android ou iOS.
                             </p>
@@ -314,33 +314,33 @@
                                 5.2. Il vous incombe d’obtenir l’accès au réseau nécessaire à l’utilisation des Services
                                 App(s)/Site(s) Web et tous les tarifs et frais de votre prestataire de réseau mobile
                                 sont à votre charge, y compris pour les données afférentes à l’utilisation des
-                                applications mobiles et/ou des sites internet ALKEBULAN-ECA. Il vous incombe également
+                                applications mobiles et/ou des sites internet Elycha. Il vous incombe également
                                 d’accéder à des appareils et systèmes d’exploitation compatibles nécessaires à
                                 l’utilisation des Services App(s)/Site(s) Web, y compris les mises à jour logicielles ou
                                 matérielles.
                             </p>
                             <p>
                                 5.3. Afin de pouvoir utiliser les Services App(s)/Site(s) Web, vous devez vous
-                                enregistrer dans les applications mobiles et/ou sur les sites internet ALKEBULAN-ECA et créer
+                                enregistrer dans les applications mobiles et/ou sur les sites internet Elycha et créer
                                 un compte. Au moment de l’inscription, vous devez avoir dix-huit (18) ans ou l’âge de la
                                 majorité légale dans le pays où vous vous inscrivez s’il est différent de dix-huit (18)
                                 ans, à moins que les conditions régissant le Service de Tiers spécifique ou le Service
-                                Fourni par ALKEBULAN-ECA n’imposent des conditions d’âge différentes.
+                                Fourni par Elycha n’imposent des conditions d’âge différentes.
                             </p>
                             <p>
                                 5.4. Vous devez nous fournir certaines informations personnelles pour vous inscrire,
                                 notamment votre numéro de téléphone et votre adresse email. Pour utiliser les Services
-                                App(s)/Site(s) Web, les Services Fournis par ALKEBULAN-ECA ou certains Services de Tiers, vous
+                                App(s)/Site(s) Web, les Services Fournis par Elycha ou certains Services de Tiers, vous
                                 devrez peut-être indiquer au moins un moyen de paiement valide (carte de crédit, carte
                                 de débit ou tout autre moyen de paiement accepté). Vous pouvez avoir à fournir des
                                 informations, par exemple votre adresse et des documents supplémentaires avant
-                                d’utiliser certains Services Fournis par ALKEBULAN-ECA ou certains Services de Tiers.
+                                d’utiliser certains Services Fournis par Elycha ou certains Services de Tiers.
                             </p>
                             <p>
                                 5.5. Vous n’êtes pas obligé de vous connecter ou d’utiliser les applications mobiles
-                                et/ou les sites internet ALKEBULAN-ECA, et les Prestataires Tiers ne le sont pas non plus. Si
+                                et/ou les sites internet Elycha, et les Prestataires Tiers ne le sont pas non plus. Si
                                 vous choisissez de cesser d’utiliser les applications mobiles et/ou les sites internet
-                                ALKEBULAN-ECA, vous pouvez le faire sans nous en informer.
+                                Elycha, vous pouvez le faire sans nous en informer.
                             </p>
                             <p>
                                 5.6. Nous pouvons restreindre temporairement, votre accès et votre utilisation des
@@ -360,7 +360,7 @@
                                 l’ensemble de la législation applicable. Vous ne pouvez utiliser les Services
                                 App(s)/Site(s) Web qu’à des fins licites et pour lesquelles ils ont été conçus, comme
                                 indiqué dans les présentes Conditions. Vous ne devez pas faire un mauvais usage des
-                                applications mobiles et/ou des sites internet ALKEBULAN-ECA ou tenter de commettre un acte
+                                applications mobiles et/ou des sites internet Elycha ou tenter de commettre un acte
                                 frauduleux envers nous ou envers les Prestataires Tiers.
                             </p>
                             <p>
@@ -369,7 +369,7 @@
                             </p>
                             <p>
                                 6.3. Votre compte est personnel. Il ne peut être ni loué ni partagé, sauf autorisation
-                                expresse ALKEBULAN-ECA. Une fois que vous avez créé un compte :
+                                expresse Elycha. Une fois que vous avez créé un compte :
                             <ul>
                                 <li>Vous ne pouvez pas enregistrer plus d’un compte, sauf accord écrit contraire de
                                     notre part ;</li>
@@ -385,18 +385,18 @@
                             </p>
                             <p>
                                 6.4. Vous serez responsable du paiement de tous les fras pouvant être dus en raison de
-                                la fourniture de Services de Tiers ou de Services Fournis par ALKEBULAN-ECA demandés par
+                                la fourniture de Services de Tiers ou de Services Fournis par Elycha demandés par
                                 l’intermédiaire de votre compte, sauf si l’accès et l’utilisation de votre compte
                                 résultent d’un cas de force majeure, du fait d’un tiers présentant les caractéristiques
                                 de la force majeure (exemple : hacking, piratage informatique) ou encore d’un manquement
-                                ALKEBULAN-ECA à son obligation de sécurité. Dans l’hypothèse d’un vol de carte bleu ou de vol
+                                Elycha à son obligation de sécurité. Dans l’hypothèse d’un vol de carte bleu ou de vol
                                 d’informations bancaires, vous êtes tenus de prévenir immédiatement votre établissement
                                 bancaire afin de réaliser les démarches nécessaires.
                             </p>
                             <p>
                                 6.5. Vous ne devez pas, dans votre utilisation des Services App(s)/Site(s) Web, causer
                                 de nuisances, de problèmes, de désagréments ou de dommages matériels, que ce soit au
-                                Tiers Prestataire, à ALKEBULAN-ECA ou à toute autre personne.
+                                Tiers Prestataire, à Elycha ou à toute autre personne.
                             </p>
                             <h4>7. Frais et paiement</h4>
                             <p>
@@ -406,13 +406,13 @@
                             <p>
                                 8.1. Sauf indication contraire ci-dessous et à l’exception des articles non périssables,
                                 dans certains cas vous n’avez pas le droit d’annuler la demande de Services de Tiers et
-                                de Services Fournis par ALKEBULAN-ECA une fois qu’elle a été acceptée. Toutefois, pour certains
-                                Services de Tiers, ALKEBULAN-ECA ou le Prestataire Tiers peuvent vous permettre d’annuler la
+                                de Services Fournis par Elycha une fois qu’elle a été acceptée. Toutefois, pour certains
+                                Services de Tiers, Elycha ou le Prestataire Tiers peuvent vous permettre d’annuler la
                                 demande, mais des frais d’annulation peuvent vous être facturés.
                             </p>
                             <p>
-                                8.2. ALKEBULAN-ECA peut refuser des demandes et annuler des Services de Tiers ou des Services
-                                Fournis par ALKEBULAN-ECA s’il existe un doute raisonnable quant à l’exactitude ou
+                                8.2. Elycha peut refuser des demandes et annuler des Services de Tiers ou des Services
+                                Fournis par Elycha s’il existe un doute raisonnable quant à l’exactitude ou
                                 l’authenticité de la demande ou de vos coordonnées.
                             </p>
                             <p>
@@ -428,37 +428,37 @@
                                 Sous réserve de votre respect des présentes Conditions, nous vous accordons une licence
                                 personnelle, mondiale, non exclusive, incessible, révocable et ne pouvant faire l’objet
                                 d’aucune sous-licence, pour installer et/ou utiliser les applications mobiles et/ou les
-                                sites internet ALKEBULAN-ECA sur votre appareil, pour votre seul usage et uniquement pour vous
+                                sites internet Elycha sur votre appareil, pour votre seul usage et uniquement pour vous
                                 permettre d’accéder aux informations mises à disposition au moyen des applications
-                                mobiles et/ou des sites internet ALKEBULAN-ECA et de les utiliser. Tous les droits non
-                                expressément accordés dans les présentes sont réservés par ALKEBULAN-ECA et par les concédants
-                                de licence ALKEBULAN-ECA.
+                                mobiles et/ou des sites internet Elycha et de les utiliser. Tous les droits non
+                                expressément accordés dans les présentes sont réservés par Elycha et par les concédants
+                                de licence Elycha.
                             </p>
                             <h4>10. Propriété intellectuelle</h4>
                             <p>
                                 Nous nous réservons tous les droits qui ne sont pas expressément accordés dans les
                                 présentes Conditions. Nos Services App(s)/Site(s) Web, nos appareils et toutes les
-                                données recueillies au moyen des applications mobiles et/ou des sites internet ALKEBULAN-ECA (y
+                                données recueillies au moyen des applications mobiles et/ou des sites internet Elycha (y
                                 compris tous les droits de propriété intellectuelle sur tout ce qui précède) sont et
                                 restent notre propriété ou la propriété de nos concédants de licence. Vous ne pouvez pas
                                 accomplir (et ne pouvez permettre à personne d’autre d’accomplir) les actes suivants :
                                 (a) concéder une licence, une sous-licence, copier, modifier, distribuer, créer, vendre,
                                 revendre, céder ou louer une quelconque partie des applications mobiles et/ou des sites
-                                internet ALKEBULAN-ECA ; (b) faire de l’ingénierie inverse ou tenter d’extraire le code source
-                                des applications mobiles et/ou des sites internet ALKEBULAN-ECA; (c) lancer ou faire lancer
+                                internet Elycha ; (b) faire de l’ingénierie inverse ou tenter d’extraire le code source
+                                des applications mobiles et/ou des sites internet Elycha; (c) lancer ou faire lancer
                                 tout programme ou script dans le but de récupérer, d’indexer, d’étudier ou d’extraire
                                 des données de quelque partie que ce soit des applications mobiles et/ou des sites
-                                internet ou des données ALKEBULAN-ECA ; (d) utiliser, afficher ou manipuler tout Nom, Marque ou
-                                Œuvre ALKEBULAN-ECA dans un but autre que l’utilisation des applications mobiles et/ou des
-                                services ALKEBULAN-ECA ; (e) créer ou enregistrer (i) des entreprises, (ii) des URL, (iii) des
+                                internet ou des données Elycha ; (d) utiliser, afficher ou manipuler tout Nom, Marque ou
+                                Œuvre Elycha dans un but autre que l’utilisation des applications mobiles et/ou des
+                                services Elycha ; (e) créer ou enregistrer (i) des entreprises, (ii) des URL, (iii) des
                                 noms de domaine, (iv) des noms ou titres d’applications logicielles, ou (v) des
                                 pseudonymes ou profils de médias sociaux qui contiennent des Noms, Marques ou Œuvres
-                                ALKEBULAN-ECA ou toute marque, tout nom, titre ou toute œuvre similaire ou de nature à prêter à
-                                confusion ; (f) utiliser des Noms, Marques ou Œuvres ALKEBULAN-ECA comme image ou fond d’écran
+                                Elycha ou toute marque, tout nom, titre ou toute œuvre similaire ou de nature à prêter à
+                                confusion ; (f) utiliser des Noms, Marques ou Œuvres Elycha comme image ou fond d’écran
                                 de votre profil de média social ; (g) acheter des mots-clés (notamment Google AdWords)
-                                qui contiennent des Noms, Marques ou Œuvres ALKEBULAN-ECA ; ou (h) demander à enregistrer,
+                                qui contiennent des Noms, Marques ou Œuvres Elycha ; ou (h) demander à enregistrer,
                                 référencer, utiliser, copier et/ou revendiquer la propriété des Noms, Marques ou Œuvres
-                                ALKEBULAN-ECA ou de tout autre nom, marque, titre ou œuvre similaire ou de nature à prêter à
+                                Elycha ou de tout autre nom, marque, titre ou œuvre similaire ou de nature à prêter à
                                 confusion, de quelque manière que ce soit et à quelque fin que ce soit, seuls ou en
                                 combinaison avec d’autres lettres, ponctuations, mots, symboles, dessins et/ou autres
                                 œuvres créatives, sauf dans les cas autorisés par la licence limitée accordée ci-dessus.
@@ -511,14 +511,14 @@
                             <p>
                                 14.5. Pour les utilisateurs des Services App(s)/Site(s) Web n’agissant pas en qualité de
                                 consommateur, notre responsabilité totale envers vous pour l’utilisation des
-                                applications mobiles et/ou des sites internet ALKEBULAN-ECA (et ce, nonobstant tout autre
+                                applications mobiles et/ou des sites internet Elycha (et ce, nonobstant tout autre
                                 accord entre nous dans lequel les dispositions en matière de responsabilité sont régies
                                 par un accord séparé) ne sera être engagée. Nous excluons en outre toute garantie et
                                 déclinons toute responsabilité pour tout acte ou omission de votre part ou de celle d’un
                                 tiers.
                             </p>
                             <p>
-                                14.6. ALKEBULAN-ECA s’engage à l'égard du consommateur de la bonne exécution des Services
+                                14.6. Elycha s’engage à l'égard du consommateur de la bonne exécution des Services
                                 App(s)/Site(s) Web. Le Prestataire Tiers est tenu de respecter les obligations qui
                                 découlent de la fourniture des Services de Tiers et notamment la qualité des services
                                 (qualité, adéquation). Il est rappelé au consommateur utilisateur que s’agissant des
@@ -527,15 +527,15 @@
                             <p>
                                 14.7. S’agissant des Services de transports fournis par les Prestataires Tiers exerçant
                                 dans le secteur du transport public particulier de personnes et utilisant les
-                                applications mobiles et/ou les sites internet ALKEBULAN-ECA, ALKEBULAN-ECA s’engage solidairement avec
+                                applications mobiles et/ou les sites internet Elycha, Elycha s’engage solidairement avec
                                 le Prestataire Tiers à la bonne exécution des obligations résultant du service de
                                 transport réalisé au TOGO à la suite d'une réservation effectuée par le biais des
-                                Services App(s)/ Site Web. Il est par ailleurs rappelé à ce titre que ALKEBULAN-ECA ne fournit
+                                Services App(s)/ Site Web. Il est par ailleurs rappelé à ce titre que Elycha ne fournit
                                 pas de services de transport mais bien des services dits de "centrale de réservation" au
                                 sens du droit applicable.
                             </p>
                             <p>
-                                14.8. La responsabilité de ALKEBULAN-ECA ne saurait être engagée en tout ou partie en cas
+                                14.8. La responsabilité de Elycha ne saurait être engagée en tout ou partie en cas
                                 d'inexécution ou de mauvaise exécution des services lorsque cette inexécution ou
                                 mauvaise exécution vous est imputable, ou lorsque cette inexécution ou mauvaise
                                 exécution résulte d'un fait imprévisible et insurmontable d'un tiers étranger à la
@@ -559,13 +559,13 @@
                             </p>
                             <p>
                                 15.3. Vous pouvez, en cas de fermeture de votre compte, nous contacter afin de formuler
-                                vos observations et réclamations. ALKEBULAN-ECA rétablira, dans l’hypothèse où vous rapportez
+                                vos observations et réclamations. Elycha rétablira, dans l’hypothèse où vous rapportez
                                 la preuve que le manquement à vos obligations résulte du fait d’un tiers présentant les
                                 critères de la force majeure ou d’un cas de force majeure, votre accès aux Services
                                 App(s)/Site(s) Web.
                             </p>
                             <p>
-                                15.4. ALKEBULAN-ECA peut résilier les présentes Conditions ou interrompre les Services
+                                15.4. Elycha peut résilier les présentes Conditions ou interrompre les Services
                                 App(s)/Site(s) Web pendant une durée qui n'excédera pas la durée nécessaire à la
                                 vérification des informations relatives aux manquements, en cas de violation de la loi,
                                 des présentes Conditions Générales ou de la Charte de la Communauté, en vous en
@@ -585,13 +585,13 @@
                             </p>
                             <p>
                                 15.6. Vous devez payer sans délai tous les frais impayés restants dus aux Prestataires
-                                Tiers ou à ALKEBULAN-ECA dès la résiliation. Ces frais seront dus nonobstant la résiliation des
+                                Tiers ou à Elycha dès la résiliation. Ces frais seront dus nonobstant la résiliation des
                                 présentes et nous nous réservons le droit d’en poursuivre le paiement après la
                                 résiliation.
                             </p>
                             <h4>16. Général</h4>
                             <p>
-                                16.1. ALKEBULAN-ECA se réserve le droit de modifier les présentes Conditions. Vous êtes tenus
+                                16.1. Elycha se réserve le droit de modifier les présentes Conditions. Vous êtes tenus
                                 de consulter les conditions générales après chaque mise à jour. Si vous n’êtes pas
                                 d’accord avec ces modifications, vous êtes libre de clôturer votre compte conformément à
                                 l’article 15.1.
@@ -612,7 +612,7 @@
                                 dont vous jouissez en vertu des présentes Conditions ou de la loi. Vous ne pouvez pas
                                 céder, sous-traiter ou transférer les présentes Conditions ou l’un de nos droits ou
                                 obligations, en tout ou partie, car votre utilisation des applications mobiles et/ou des
-                                sites internet ALKEBULAN-ECA est personnelle, sauf accord contraire.
+                                sites internet Elycha est personnelle, sauf accord contraire.
                             </p>
                             <p>
                                 16.4. Les présentes Conditions, ainsi que tout accord supplémentaire relatif à la
@@ -632,13 +632,13 @@
                             </p>
                             <h4>17. Procédure de règlement des différends</h4>
                             <p>
-                                ALKEBULAN-ECA peut mettre à la disposition des utilisateurs agissant en tant que consommateurs
+                                Elycha peut mettre à la disposition des utilisateurs agissant en tant que consommateurs
                                 un système de médiation pour les litiges en matière de consommation liés aux Services
                                 App(s)/Site(s) Web ou aux présentes Conditions en vue de leur résolution à l’amiable.
                                 Conformément au code de la consommation, pour tout différend de nature contractuelle
                                 relatif à l’utilisation des Services App(s)/Site(s) Web au TOGO qui n’aurait pas pu être
                                 résolu dans le cadre d’une réclamation préalablement soumise au service clientèle
-                                ALKEBULAN-ECA, le consommateur pourra, sans que cette procédure de médiation ne soit un
+                                Elycha, le consommateur pourra, sans que cette procédure de médiation ne soit un
                                 préalable obligatoire à l’exercice d’une action en justice, recourir gratuitement à un
                                 médiateur notamment une association des consommateurs.
                             </p>
@@ -662,7 +662,7 @@
                 <footer>
                     <div class="contact">
                     </div>
-                    <p>&copy <?= date('Y') ?> ALKEBULAN-ECA</p>
+                    <p>&copy <?= date('Y') ?> Elycha</p>
                 </footer>
 
             </div>

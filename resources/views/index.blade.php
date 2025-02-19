@@ -112,12 +112,12 @@
                             <div class="col-lg-12">
                                 <div class="content po-content-two">
                                     <div class="heading center">
-                                        <h1 class="text-color-1 wow fadeInDown" data-wow-delay="50ms"
-                                            data-wow-duration="1000ms"></h1>
-                                        <p class="fs-16 lh-24 text-color-1 fw-6">Explorez notre vaste sélection
+                                        <h1 class="text-color-1 wow text-custom " data-wow-delay="50ms"
+                                            data-wow-duration="1000ms">Avec Elycha vos désirs trouvent toujours satisfaction</h1>
+                                        {{-- <p class="fs-16 lh-24 text-color-1 fw-6">Explorez notre vaste sélection
                                             d'appartements, maisons, villas, voitures et terrains disponibles à la location,
                                             à la vente ou en bail, le tout soigneusement sélectionné par nos agents de
-                                            confiance.</p>
+                                            confiance.</p> --}}
                                     </div>
 
                                     @include('partials.frontoffice.home_searchbar')

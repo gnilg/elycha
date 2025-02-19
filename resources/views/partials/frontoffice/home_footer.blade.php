@@ -194,7 +194,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="title-bottom center"> Copyright © 2023. Designed & Developed by <a
-                        href="https://kofcorporation.com" class="text-color-2 fw-bold">KOFCORPORATION</a> </div>
+                        href="https://kofcorporation.com" class="text-color-2 fw-bold">ELYCHA</a> </div>
             </div>
         </div>
     </div>

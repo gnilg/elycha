@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Alkebulan-Eca | Tableau de bord</title>
+    <title>Elycha | Tableau de bord</title>
 
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
