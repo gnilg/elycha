@@ -122,7 +122,7 @@
                             <script>
                                 document.write(new Date().getFullYear())
                             </script> &copy; Elycha powered by <a
-                                href="https://kofcorporation.com">KOFCORPORATION</a>
+                                href="https://kofcorporation.com">ELYCHA</a>
                         </div>
                     </div>
                 </div>

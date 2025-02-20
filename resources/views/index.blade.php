@@ -899,7 +899,7 @@
                     </div>
                 </div>
     </section>
-
+{{-- 
     <section class="flat-agents" style="margin-bottom: 30px;">
         <div class="container-fluid">
             <div class="row">
@@ -941,7 +941,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Footer -->
     @include('partials.frontoffice.home_footer')

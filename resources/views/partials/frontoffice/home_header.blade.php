@@ -17,8 +17,7 @@
                                         <li><a href="#">Architecture</a></li>
                                         <li><a href="#">Billeterie</a></li>
                                         <li><a href="#">Hôtelerie</a></li>
-                                        <li><a href="#">Tourisme</a></li>
-                                        <li><a href="#">Service</a></li>
+                                        <li><a href="#">Hebdo</a></li>
                                         <li><a href="/about">A propos</a></li>
                                     </ul>
                                 </div>
