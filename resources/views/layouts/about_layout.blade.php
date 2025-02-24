@@ -229,7 +229,7 @@
                                         </svg>
                                     </div>
                                     <div class="content fs-13">
-                                        Call us: <h5>(201) 555-0124</h5>
+                                        Contact : <h5>228 90 06 53 35</h5>
                                     </div>
                                 </div>
                                 <div class="box flex">
@@ -271,7 +271,7 @@
                         </div>
                     </nav>
                 </div>
-                
+
 
 
 

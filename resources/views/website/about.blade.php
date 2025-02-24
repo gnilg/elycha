@@ -74,11 +74,11 @@
                             <div class="content">
                                 <h5 class="text-color-4">Téléphone 1</h5>
                                 <a href="tel:22896159499">
-                                    <h4 class="fw-8 font-2 fs-30 text-color-3 lh-37">22896159499</h4>
+                                    <h4 class="fw-8 font-2 fs-30 text-color-3 lh-37">228 90 03 00 02</h4>
                                 </a>
                             </div>
                         </div>
-                        <div class="box-info flex align-center">
+                        {{-- <div class="box-info flex align-center">
                             <div class="icon-info">
                                 <svg width="50" height="51" viewBox="0 0 50 51" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -101,14 +101,14 @@
                                         stroke-linejoin="round" />
                                 </svg>
                             </div>
-                            <div class="content">
+                            {{-- <div class="content">
                                 <h5 class="text-color-4">Téléphone 2</h5>
                                 <a href="tel:22898827167">
                                     <h4 class="fw-8 font-2 fs-30 text-color-3 lh-37">22898827167</h4>
                                 </a>
                             </div>
-                        </div>
-                        <div class="box-info flex align-center">
+                        </div> --}}
+                        {{-- <div class="box-info flex align-center">
                             <div class="icon-info">
                                 <svg width="50" height="51" viewBox="0 0 50 51" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -131,14 +131,14 @@
                                         stroke-linejoin="round" />
                                 </svg>
                             </div>
-                            <div class="content">
+                            {{-- <div class="content">
                                 <h5 class="text-color-4">Téléphone 3</h5>
                                 <a href="tel:22899619060">
                                     <h4 class="fw-8 font-2 fs-30 text-color-3 lh-37">22899619060</h4>
                                 </a>
                             </div>
-                        </div>
-                        <div class="box-info flex align-center">
+                        </div> --}}
+                        {{-- <div class="box-info flex align-center">
                             <div class="icon-info">
                                 <svg width="50" height="51" viewBox="0 0 50 51" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -161,14 +161,14 @@
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </div>
-                            <div class="content">
+                            {{-- <div class="content">
                                 <h5 class="text-color-4">Téléphone 4</h5>
                                 <a href="tel:22899481224">
                                     <h4 class="fw-8 font-2 fs-30 text-color-3 lh-37">22899481224</h4>
                                 </a>
                             </div>
-                        </div>
-                        <div class="box-info flex align-center">
+                        </div> --}}
+                        {{-- <div class="box-info flex align-center">
                             <div class="icon-info">
                                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -212,7 +212,7 @@
                                     </h4>
                                 </a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
