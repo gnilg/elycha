@@ -95,7 +95,24 @@
                                                 style="margin-left:5px;margin-right:5px;margin-bottom:5px">Immobilier</button>
                                             <button type="button" class="btn btn-black col-lg-5"
                                                 onclick="chooseCategory(2)" id="autoBtn"
-                                                style="margin-left:5px;margin-right:5px;margin-bottom:5px">Automobile</button>
+                                                style="margin-left:5px;margin-right:5px;margin-bottom:5px">Automobile
+                                            </button>
+                                            <button type="button" class="btn btn-black col-lg-5"
+                                                onclick="chooseCategory(3)" id="autoBtn"
+                                                style="margin-left:5px;margin-right:5px;margin-bottom:5px">Architecture
+                                            </button>
+                                            <button type="button" class="btn btn-black col-lg-5"
+                                                onclick="chooseCategory(4)" id="autoBtn"
+                                                style="margin-left:5px;margin-right:5px;margin-bottom:5px">Hôtelerie
+                                            </button>
+                                            <button type="button" class="btn btn-black col-lg-5"
+                                                onclick="chooseCategory(5)" id="autoBtn"
+                                                style="margin-left:5px;margin-right:5px;margin-bottom:5px">Hebdo
+                                            </button>
+                                            <button type="button" class="btn btn-black col-lg-5"
+                                                onclick="chooseCategory(6)" id="autoBtn"
+                                                style="margin-left:5px;margin-right:5px;margin-bottom:5px">Service
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -145,7 +162,8 @@
                 document.getElementById('immoBtn').classList.add("bg-primary");
                 document.getElementById('autoBtn').classList.remove("bg-primary");
                 document.getElementById('otherType').innerHTML = "Bail";
-            } else {
+            }   
+             else {
                 document.getElementById('immoBtn').classList.remove("bg-primary");
                 document.getElementById('autoBtn').classList.add("bg-primary");
                 document.getElementById('otherType').innerHTML = "Vente de pièces";

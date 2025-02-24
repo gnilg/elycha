@@ -65,7 +65,7 @@
                                     @if (isUserLogged())
                                         <div class="flat-bt-top sc-btn-top">
                                             <a class="sc-button btn-icon "
-                                                href="@if (getUserLogged()->type_user) /client/dashboard @else /agent/dashboard @endif">
+                                                href="@if (getUserLogged()->type_user == 1) /client/dashboard @else /agent/dashboard @endif">
                                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -143,7 +143,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="heading-section center">
-                                <h2>Découvrez les dernières publications en matière d'immobilier</h2>
+                                <h2>Découvrez les dernières publications </h2>
                                 <p class="text-color-4">Retrouvez les dernières publications en matière d'immobilier.</p>
                             </div>
                         </div>
@@ -899,7 +899,7 @@
                     </div>
                 </div>
     </section>
-{{-- 
+{{--
     <section class="flat-agents" style="margin-bottom: 30px;">
         <div class="container-fluid">
             <div class="row">
