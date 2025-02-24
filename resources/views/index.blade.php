@@ -415,7 +415,7 @@
         </div>
     </section>
 
-    <section class="flat-sale wg-dream tf-section">
+    {{-- <section class="flat-sale wg-dream tf-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -882,7 +882,7 @@
                                         </div>
                                     </div>
                                 @endif
-                            @endforeach --}}
+                            @endforeach
                             </div>
 
                             {{-- <div class="swiper-container">
@@ -959,10 +959,10 @@
 
                         </div>
                     </div> --}}
-                        </div>
+                        {{-- </div>
                     </div>
                 </div>
-    </section>
+    </section> --}} --}}
 {{--
     <section class="flat-agents" style="margin-bottom: 30px;">
         <div class="container-fluid">

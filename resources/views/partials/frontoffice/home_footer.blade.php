@@ -1,4 +1,4 @@
-<footer id="footer" class="clearfix home2">
+{{-- <footer id="footer" class="clearfix home2">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-12 col-12">
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="col-lg-3 col-md-6 col-12">
+            <div class="col-lg-3 col-md-6 col-12">
                 <div class="widget widget-info">
                     <h3>Office Address</h3>
                     <p class="sub-title">Head office:</p>
@@ -182,12 +182,12 @@
                         </label>
                     </form>
                 </div>
-            </div> --}}
+            </div>
 
 
         </div>
     </div>
-</footer>
+</footer> --}}
 
 <div class="widget-bottom-footer home2">
     <div class="container">

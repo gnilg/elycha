@@ -1,4 +1,4 @@
-@extends('layouts.website_layout')
+@extends('layouts.about_layout')
 @section('title')
     A propos
 @endsection
