@@ -962,7 +962,7 @@
                         {{-- </div>
                     </div>
                 </div>
-    </section> --}} --}}
+    </section>  --}}
 {{--
     <section class="flat-agents" style="margin-bottom: 30px;">
         <div class="container-fluid">

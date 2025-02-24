@@ -3,6 +3,29 @@
     Toutes les publications
 @endsection
 @section('content')
+    <div class="container6 pt-4">
+        <div class="col-lg-12">
+            <div class="row py-3 pr-4 filter-bar">
+                <!-- Quartier -->
+                <div class="col-md-3">
+                    <input type="text" id="search-quartier" class="form-control" placeholder="Nom du quartier">
+                </div>
+                <!-- Somme min -->
+                <div class="col-md-3">
+                    <input type="number" id="search-somme-min" class="form-control" placeholder="Somme Min">
+                </div>
+                <!-- Somme max -->
+                <div class="col-md-3">
+                    <input type="number" id="search-somme-max" class="form-control" placeholder="Somme Max">
+                </div>
+                <!-- Bouton filtrer -->
+                <div class="col-md-3">
+                    <button class="btn btn-warning w-100" onclick="filterResults()">Filtrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
     <div class="top-filters">
         <div class="container6">
             <div class="row">
@@ -283,9 +306,22 @@
 
     <section class="flat-featured flat-property-grid flat-property tf-section2 wg-dream home2">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
+            <div class="col d-flex pb-2 gap-3 justify-content-center mb-4">
+                <div class="col-md-4">
+                    <button class="btn button btn-warning w-100" onclick="filterResults()">Location</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn button btn-warning w-100" onclick="filterResults()">Achat</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn button btn-warning w-100" onclick="filterResults()">Bail</button>
+                </div>
+            </div>
+            <div class="row d-flex">
+
+
                     <div class="category-filter flex justify-space align-center">
+
                         <div class="box-1 flex align-center">
                             <div class="heading-listing fs-30 lh-45 fw-7">Publications</div>
                             <div class="">Affichage de {{ $posts->count() }} resultats.</div>

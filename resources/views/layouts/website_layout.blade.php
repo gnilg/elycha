@@ -273,24 +273,7 @@
                 </div>
                 <!-- End Mobile Menu -->
 
-                <div class="row py-3 pr-4 filter-bar">
-                    <!-- Quartier -->
-                    <div class="col-md-3 d-flex">
-                        <input type="text" id="search-quartier" class="form-control" placeholder="Nom du quartier">
-                    </div>
-                    <!-- Somme min -->
-                    <div class="col-md-3 d-flex">
-                        <input type="number" id="search-somme-min" class="form-control" placeholder="Somme Min">
-                    </div>
-                    <!-- Somme max -->
-                    <div class="col-md-3 d-flex">
-                        <input type="number" id="search-somme-max" class="form-control" placeholder="Somme Max">
-                    </div>
-                    <!-- Bouton filtrer -->
-                    <div class="col-md-3 d-flex">
-                        <button class="btn btn-warning w-100" onclick="filterResults()">Filtrer</button>
-                    </div>
-                </div>
+              
 
 
 
