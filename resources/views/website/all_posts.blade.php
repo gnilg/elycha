@@ -306,17 +306,27 @@
 
     <section class="flat-featured flat-property-grid flat-property tf-section2 wg-dream home2">
         <div class="container">
-
             <div class="row d-flex">
 
+                <div class="col d-flex pb-2 gap-3 justify-content-center mb-4">
+                    <div class="col-md-4">
+                        <button class="btn button btn-warning w-100" onclick="filterResults()">Location</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn button btn-warning w-100" onclick="filterResults()">Vente</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn button btn-warning w-100" onclick="filterResults()">Bail</button>
+                    </div>
+                </div>
 
-                    <div class="category-filter flex justify-space align-center">
+
+                    {{-- <div class="category-filter flex justify-space align-center">
 
                         <div class="box-1 flex align-center">
                             <div class="heading-listing fs-30 lh-45 fw-7">Publications</div>
                             <div class="">Affichage de {{ $posts->count() }} resultats.</div>
                         </div>
-
                         {{-- <div class="box-2 flex">
                             <a href="#" class="btn-view grid active">
                                 <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
@@ -395,21 +405,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> --}}
-                        <div class="col d-flex pb-2 gap-3 justify-content-center mb-4">
-                            <div class="col-md-4">
-                                <button class="btn button btn-warning w-100" onclick="filterResults()">Location</button>
-                            </div>
-                            <div class="col-md-4">
-                                <button class="btn button btn-warning w-100" onclick="filterResults()">Vente</button>
-                            </div>
-                            <div class="col-md-4">
-                                <button class="btn button btn-warning w-100" onclick="filterResults()">Bail</button>
-                            </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
-
                 @foreach ($posts as $post)
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="box box-dream hv-one style-dream">
