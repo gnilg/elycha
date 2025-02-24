@@ -396,19 +396,20 @@
                                 </div>
                             </div>
                         </div> --}}
+                        <div class="col d-flex pb-2 gap-3 justify-content-center mb-4">
+                            <div class="col-md-4">
+                                <button class="btn button btn-warning w-100" onclick="filterResults()">Location</button>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn button btn-warning w-100" onclick="filterResults()">Vente</button>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn button btn-warning w-100" onclick="filterResults()">Bail</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col d-flex pb-2 gap-3 justify-content-center mb-4">
-                    <div class="col-md-4">
-                        <button class="btn button btn-warning w-100" onclick="filterResults()">Location</button>
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn button btn-warning w-100" onclick="filterResults()">Vente</button>
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn button btn-warning w-100" onclick="filterResults()">Bail</button>
-                    </div>
-                </div>
+
                 @foreach ($posts as $post)
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="box box-dream hv-one style-dream">
