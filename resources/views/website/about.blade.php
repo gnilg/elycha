@@ -21,26 +21,65 @@
             <div class="row">
                 <div class="col-lg-6 col-md-7">
                     <div class="heading-section">
-                        <h2 class="font-2 fw-8 ">Elycha, l'application mobile qui révolutionne les domaines suivants:
+                        <h2 class="font-2 fw-8 ">Elycha – L’innovation au service de votre avenir
                         </h2>
                         <p class="text-color-">
                         <ul>
-                            <li><b>✅ ACHAT</b></li>
-                            <li><b>✅ VENTE</b></li>
-                            <li><b>✅ LOCATION</b></li>
-                            <li><b>✅ GESTION IMMOBILIÈRE</b></li>
-                            <li><b>✅ FORAGE</b></li>
-                            <li><b>✅ PISCINE</b></li>
-                            <li><b>✅ BTP</b></li>
-                            <li><b>✅ TOPOGRAPHIE</b></li>
-                            <li><b>✅ GÉNIE CIVIL</b></li>
-                            <li><b>✅ CLIMATISATION</b></li>
-                            <li><b>✅ ÉNERGIE SOLAIRE</b></li>
-                            <li><b>✅ GÉNIE ÉLECTRIQUE</b></li>
-                            <li><b>✅ SYSTÈME INFORMATIQUE</b></li>
-                            <li><b>✅ TÉLÉCOMMUNICATIONS</b></li>
-                            <li><b>✅ CONTRÔLE D'ACCÈS</b></li>
-                            <li><b>✅ AMÉNAGEMENT AGROPOLE</b></li>
+                            <li><b><h4>IMMOBILIER & GESTION FONCIÈRE</h4>
+                                <br>
+
+                                ✔ Achat, Vente & Location : Accompagnement des clients dans l’acquisition, la cession ou la location de biens immobiliers.
+                                <br>
+                                ✔ Gestion immobilière : l'assurance et la rentabilité de vos investissements fait notre priorité même avec des retard de paiement chez le locataire la société ELYCHA vous verse votre loyer
+                                <br>
+                                ✔ Topographie : Études et levés topographiques pour la délimitation des terrains et la planification des projets immobiliers.
+                                <br>
+                                 </b>
+                            </li>
+                            <br>
+                            <li><b><h4> BTP & INFRASTRUCTURES</h4>
+                                <br>
+
+                                ✔ Bâtiment et Travaux Publics (BTP) : Conception, construction et rénovation de bâtiments résidentiels, commerciaux et industriels.
+                                <br>
+                                ✔ Génie civil : Études et réalisations d’infrastructures comme les routes, ponts, barrages et bâtiments publics.
+                                <br>
+                                ✔ Forage : Installation de puits et systèmes d’approvisionnement en eau potable ou industrielle.
+                                <br>
+                                ✔ Piscine : Conception, construction et entretien de piscines privées et publiques pour le bien-être et le loisir.
+                                <br>
+                                 </b>
+                            </li>
+                            <br>
+                            <li><b><h4> ÉNERGIE & CLIMATISATION</h4>
+                                <br>
+
+                                ✔ Énergie solaire : Installation et maintenance de solutions solaires (panneaux photovoltaïques, systèmes d’éclairage autonome, etc.).
+                                <br>
+                                ✔ Génie électrique : Études et mise en œuvre de réseaux électriques pour les bâtiments et infrastructures.
+                                <br>
+                                ✔ Climatisation : Installation et entretien de systèmes de climatisation et de ventilation pour le confort thermique.
+                                <br>
+                                 </b>
+                            </li>
+                            <br>
+                            <li><b><h4> TECHNOLOGIES & SÉCURITÉ</h4>
+                                <br>
+
+                                ✔ Systèmes informatiques : Développement, maintenance et intégration de solutions informatiques adaptées aux besoins des entreprises et particuliers.
+                                <br>
+                                ✔ Télécommunications : Mise en place de réseaux télécoms et solutions de connectivité avancées.
+                                <br>
+                                ✔ Contrôle d’accès : Sécurisation des bâtiments et sites sensibles via des systèmes de surveillance et d’accès intelligents.
+                                <br>
+                                <br>
+                                Avec cette expertise variée, Elycha se positionne comme un acteur clé pour accompagner ses clients dans leurs projets, en garantissant qualité, innovation et satisfaction.
+                                <br>
+                                <br>
+                                Contacter-nous des aujourd'hui pour concrétiser vos projets avec succès !
+                                 </b>
+                            </li>
+                            
                         </ul>
                         </p>
                     </div>
