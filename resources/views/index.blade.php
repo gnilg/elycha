@@ -142,8 +142,91 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="heading-section center">
-                                <h2>Publications mises en avant</h2>
-                                <p class="text-color-4">Les publications les plus intéressantes.</p>
+                                <h2>Découvrez les dernières publications.</h2>
+                                <p class="text-color-4">Les publications les plus recentes.</p>
+                            </div>
+                            <div class="swiper-container2">
+                                <div class="one-carousel owl-carousel owl-theme">
+                                    @foreach ($featuredPosts as $post)
+                                        <div class="slide-item">
+                                            <div class="box box-dream hv-one">
+                                                <div class="image-group relative ">
+                                                    <span class="featured fs-12 fw-6">
+                                                        @if ($post->category->type == 1)
+                                                            Vente
+                                                        @elseif ($post->category->type == 2)
+                                                            Location
+                                                        @else
+                                                        @endif
+                                                    </span>
+                                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
+                                                    <div class="swiper-container noo carousel-2 img-style">
+                                                        <a href="/posts/details/{{ $post->id }}"
+                                                            class="icon-plus"><img
+                                                                src="/front/assets/images/icon/plus.svg"
+                                                                alt="images"></a>
+                                                        <div class="swiper-wrapper ">
+                                                            <div class="swiper-slide"><img src="{{ $post->photo }}"
+                                                                    alt="images" style="height: 300px"></div>
+                                                            @foreach ($post->photos as $image)
+                                                                <div class="swiper-slide"><img src="{{ $image->photo }}"
+                                                                        alt="images" style="height: 300px"></div>
+                                                            @endforeach
+                                                        </div>
+                                                        <div class="pagi2">
+                                                            <div class="swiper-pagination2"> </div>
+                                                        </div>
+                                                        <div class="swiper-button-next2 "><i
+                                                                class="fal fa-arrow-right"></i>
+                                                        </div>
+                                                        <div class="swiper-button-prev2 "><i
+                                                                class="fal fa-arrow-left"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <h3 class="link-style-1"><a
+                                                            href="/posts/details/{{ $post->id }}">{{ $post->label }}</a>
+                                                    </h3>
+                                                    <div class="text-address">
+                                                        <p class="p-12">{{ $post->place }}</p>
+                                                    </div>
+                                                    <div class="money fs-18 fw-6 text-color-3"><a
+                                                            href="/posts/details/{{ $post->id }}">{{ $post->price }}
+                                                            Fcfa</a>
+                                                    </div>
+                                                    <div class="days-box flex justify-space align-center">
+                                                        <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img
+                                                                src="{{ $post->user->avatar }}" class="rounded-circle"
+                                                                style="width: 35px" alt="images">
+                                                        </div>
+                                                        <div class="days">
+                                                            {{ formatDate($post->created_at) }}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="flat-sale wg-dream tf-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="heading-section center">
+                                <h2>Elycha – L’innovation au service de votre avenir</h2>
+                                <p class="text-color-4">Elycha est une entreprise dynamique et multidisciplinaire qui révolutionne plusieurs secteurs clés grâce à son expertise et son engagement envers l'excellence. Nous offrons des solutions sur mesure dans :
+
+                                    Grâce à une équipe de professionnels qualifiés et des technologies de pointe, Elycha transforme vos projets en succès. Faires confiance à notre expertise pour des solutions innovantes, fiables et adaptées à vos besoins.
+                                    <br>
+
+                                    🔹 Elycha, non pas seulement l’excellence à votre service mais là où vos besoins trouvent toujours satisfaction </p>
                             </div>
                             <div class="swiper-container2">
                                 <div class="one-carousel owl-carousel owl-theme">
