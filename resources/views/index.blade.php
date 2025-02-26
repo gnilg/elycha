@@ -240,7 +240,7 @@
 
 
                                                         <div class="swiper-wrapper ">
-                                                            <div class="swiper-slide"><img src="{{ asset('../../assets/images/entreprise.jpg') }}"
+                                                            <div class="swiper-slide"><img src="{{ asset('assets/images/entreprise.jpg') }}"
                                                                     alt="images" style="height: 300px"></div>
 
                                                                 <div class="swiper-slide">  </div>
