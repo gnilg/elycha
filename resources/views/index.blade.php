@@ -148,70 +148,7 @@
                             </div>
 
                         </div>
-                        <div class="swiper-container2">
-                            <div class="one-carousel owl-carousel owl-theme">
-                                @foreach ($featuredPosts as $post)
-                                    <div class="slide-item">
-                                        <div class="box box-dream hv-one">
-                                            <div class="image-group relative ">
-                                                <span class="featured fs-12 fw-6">
-                                                    @if ($post->category->type == 1)
-                                                        Vente
-                                                    @elseif ($post->category->type == 2)
-                                                        Location
-                                                    @else
-                                                    @endif
-                                                </span>
-                                                <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
-                                                <div class="swiper-container noo carousel-2 img-style">
-                                                    <a href="/posts/details/{{ $post->id }}"
-                                                        class="icon-plus"><img
-                                                            src="/front/assets/images/icon/plus.svg"
-                                                            alt="images"></a>
-                                                    <div class="swiper-wrapper ">
-                                                        <div class="swiper-slide"><img src="{{ $post->photo }}"
-                                                                alt="images" style="height: 300px"></div>
-                                                        @foreach ($post->photos as $image)
-                                                            <div class="swiper-slide"><img src="{{ $image->photo }}"
-                                                                    alt="images" style="height: 300px"></div>
-                                                        @endforeach
-                                                    </div>
-                                                    <div class="pagi2">
-                                                        <div class="swiper-pagination2"> </div>
-                                                    </div>
-                                                    <div class="swiper-button-next2 "><i
-                                                            class="fal fa-arrow-right"></i>
-                                                    </div>
-                                                    <div class="swiper-button-prev2 "><i
-                                                            class="fal fa-arrow-left"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="content">
-                                                <h3 class="link-style-1"><a
-                                                        href="/posts/details/{{ $post->id }}">{{ $post->label }}</a>
-                                                </h3>
-                                                <div class="text-address">
-                                                    <p class="p-12">{{ $post->place }}</p>
-                                                </div>
-                                                <div class="money fs-18 fw-6 text-color-3"><a
-                                                        href="/posts/details/{{ $post->id }}">{{ $post->price }}
-                                                        Fcfa</a>
-                                                </div>
-                                                <div class="days-box flex justify-space align-center">
-                                                    <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img
-                                                            src="{{ $post->user->avatar }}" class="rounded-circle"
-                                                            style="width: 35px" alt="images">
-                                                    </div>
-                                                    <div class="days">
-                                                        {{ formatDate($post->created_at) }}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
+                        
                         <div class="col-lg-12 wrap-tabs">
                             <div class="flat-tabs themesflat-tabs">
                                 <div class="box-tab center">
