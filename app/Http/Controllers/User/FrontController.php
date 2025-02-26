@@ -16,7 +16,13 @@ class FrontController extends Controller
         $categories = []; //Category::where(["is_immo" => 1, "status" => 1])->orderBy('label', 'ASC')->get();
         $categories2 = []; //Category::where(["is_immo" => 2, "status" => 1])->orderBy('label', 'ASC')->get();
 
-        return view('index', compact('lastPostsImmo', 'categories', 'featuredPosts', 'categories2'));
+        $images = [
+            asset('assets/images/entreprise.jpg'),
+            asset('assets/images/entreprise2.jpg'),
+            asset('assets/images/entreprise3.jpg')
+        ];
+
+        return view('index', compact('lastPostsImmo', 'categories', 'featuredPosts', 'categories2', 'images'));
     }
     public function policy(Request $request)
     {

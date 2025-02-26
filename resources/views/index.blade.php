@@ -230,49 +230,34 @@
                             </div>
                             <div class="swiper-container2">
                                 <div class="one-carousel owl-carousel owl-theme">
-                                    @foreach ($featuredPosts as $post)
-                                        <div class="slide-item">
-                                            <div class="box box-dream hv-one">
-                                                <div class="image-group relative ">
-
-                                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
-                                                    <div class="swiper-container noo carousel-2 img-style">
-
-
-                                                        <div class="swiper-wrapper ">
-                                                            <div class="swiper-slide"><img src="{{asset('assets/images/entreprise.jpg')}}"
-                                                                    alt="images" style="height: 300px"></div>
-
-                                                                <div class="swiper-slide"><img src="{{asset('assets/images/entreprise.jpg')}}"
-                                                                        alt="images" style="height: 300px"></div>
-
-                                                        </div>
-                                                        <div class="pagi2">
-                                                            <div class="swiper-pagination2"> </div>
-                                                        </div>
-                                                        <div class="swiper-button-next2 "><i
-                                                                class="fal fa-arrow-right"></i>
-                                                        </div>
-                                                        <div class="swiper-button-prev2 "><i
-                                                                class="fal fa-arrow-left"></i>
-                                                        </div>
+                                    <div class="slide-item">
+                                        <div class="box box-dream hv-one">
+                                            <div class="image-group relative">
+                                                <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
+                                                <div class="swiper-container noo carousel-2 img-style">
+                                                    <div class="swiper-wrapper">
+                                                        @foreach($images as $image)
+                                                            <div class="swiper-slide">
+                                                                <img src="{{ $image }}" alt="images" style="height: 300px">
+                                                            </div>
+                                                        @endforeach
                                                     </div>
-                                                </div>
-                                                <div class="content">
-
-
-                                                    <div class="money fs-18 fw-6 text-color-3">
+                                                    <div class="pagi2">
+                                                        <div class="swiper-pagination2"></div>
                                                     </div>
-                                                    <div class="days-box flex justify-space align-center">
-
-
-                                                    </div>
+                                                    <div class="swiper-button-next2"><i class="fal fa-arrow-right"></i></div>
+                                                    <div class="swiper-button-prev2"><i class="fal fa-arrow-left"></i></div>
                                                 </div>
                                             </div>
+                                            <div class="content">
+                                                <div class="money fs-18 fw-6 text-color-3"></div>
+                                                <div class="days-box flex justify-space align-center"></div>
+                                            </div>
                                         </div>
-                                    @endforeach
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
