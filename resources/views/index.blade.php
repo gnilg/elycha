@@ -78,7 +78,7 @@
                                                 <span>Tableau de bord</span>
                                             </a>
                                         </div>
-                                    @else
+                                    {{-- @else
                                         <div class="flat-bt-top sc-btn-top">
                                             <a class="sc-button btn-icon " href="/posts/all">
                                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
@@ -92,7 +92,7 @@
                                                 </svg>
                                                 <span>Acheter/Vendre</span>
                                             </a>
-                                        </div>
+                                        </div> --}}
                                     @endif
                                 </div>
                             </div>
@@ -240,7 +240,7 @@
 
 
                                                         <div class="swiper-wrapper ">
-                                                            <div class="swiper-slide"><img src="{{ asset('assets/images/entreprise.jpg') }}"
+                                                            <div class="swiper-slide"><img src="{{ $image }}"
                                                                     alt="images" style="height: 300px"></div>
 
                                                                 <div class="swiper-slide">  </div>

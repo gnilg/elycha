@@ -117,7 +117,7 @@
                                                         data-target="#popup_bid"> Connexion</a></li>
                                             </ul>
                                         </div>
-                                        <div class="flat-bt-top sc-btn-top">
+                                        {{-- <div class="flat-bt-top sc-btn-top">
                                             <a class="sc-button btn-icon " href="/posts/all">
                                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -130,7 +130,7 @@
                                                 </svg>
                                                 <span>Acheter/Vendre</span>
                                             </a>
-                                        </div>
+                                        </div> --}}
                                     </div>
 
                                     <div class="mobile-nav-toggler mobile-button"><span></span></div>
@@ -273,7 +273,7 @@
                 </div>
                 <!-- End Mobile Menu -->
 
-              
+
 
 
 
