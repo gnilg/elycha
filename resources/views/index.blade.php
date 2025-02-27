@@ -238,6 +238,64 @@
                                                     <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
                                                     <div class="swiper-container noo carousel-2 img-style">
 
+                                                        <div class="swiper-wrapper ">
+                                                            <div class="swiper-slide"><img src="{{ $image }}"
+                                                                    alt="images" style="height: 300px"></div>
+
+                                                                <div class="swiper-slide">  </div>
+
+                                                        </div>
+                                                        <div class="pagi2">
+                                                            <div class="swiper-pagination2"> </div>
+                                                        </div>
+                                                        <div class="swiper-button-next2 "><i
+                                                                class="fal fa-arrow-right"></i>
+                                                        </div>
+                                                        <div class="swiper-button-prev2 "><i
+                                                                class="fal fa-arrow-left"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+
+
+                                                    <div class="money fs-18 fw-6 text-color-3">
+                                                    </div>
+                                                    <div class="days-box flex justify-space align-center">
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="flat-sale wg-dream tf-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="heading-section center">
+                                <h2>IMMOBILIER & GESTION FONCIÈRE</h2>
+                                <p class="text-color-4"> ✔ Achat, Vente & Location : Accompagnement des clients dans l’acquisition, la cession ou la location de biens immobiliers.
+                                    <br>
+                                    ✔ Gestion immobilière : l'assurance et la rentabilité de vos investissements fait notre priorité même avec des retard de paiement chez le locataire la société ELYCHA vous verse votre loyer.<br>
+                                    ✔ Topographie : Études et levés topographiques pour la délimitation des terrains et la planification des projets immobiliers. </p>
+                            </div>
+                            <div class="swiper-container2">
+                                <div class="one-carousel owl-carousel owl-theme">
+                                    @foreach ($images2 as $image)
+                                        <div class="slide-item">
+                                            <div class="box box-dream hv-one">
+                                                <div class="image-group relative ">
+
+                                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
+                                                    <div class="swiper-container noo carousel-2 img-style">
 
                                                         <div class="swiper-wrapper ">
                                                             <div class="swiper-slide"><img src="{{ $image }}"
@@ -276,6 +334,7 @@
                     </div>
                 </div>
             </section>
+
 
     {{-- <section class="flat-sale wg-dream tf-section">
         <div class="container">

@@ -5,30 +5,21 @@
 <head>
     <meta charset="utf-8">
     <title>Elycha | @yield('title')</title>
-
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <link rel="stylesheet" href={{asset('/front/app/dist/font-awesome.css')}}>
-
     <link rel="stylesheet" href={{asset('/front/app/dist/app.css')}}>
     <link rel="stylesheet" href={{asset('/front/app/dist/responsive.css')}}>
     <link rel="stylesheet" href={{asset('/front/app/dist/owl.css')}}>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-
-
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href={{asset('/front/assets/images/logo/Favicon.png')}}>
     <link rel="apple-touch-icon-precomposed" href={{asset('/front/assets/images/logo/Favicon.png')}}>
-
-
-
     @yield('config')
 
 </head>
 
 <body class="body ">
-
 
     <!--<div class="preload preload-container">
         <div class="boxes ">
@@ -87,6 +78,10 @@
                                                     <li><a href="/posts/all?is_immo=1">Immobilier</a></li>
                                                     <li><a href="/posts/all?is_immo=2">Automobile</a></li>
                                                     <li><a href="#">Architecture</a></li>
+                                                    <li><a href="#">Hôtelerie</a></li>
+                                                    <li><a href="#">Billeterie</a></li>
+                                                    <li><a href="#">Hebdo</a></li>
+                                                    <li><a href="#">Service</a></li>
                                                     <li><a href="/about">A propos</a></li>
                                                 </ul>
                                             </div>
@@ -117,7 +112,7 @@
                                                         data-target="#popup_bid"> Connexion</a></li>
                                             </ul>
                                         </div>
-                                        <div class="flat-bt-top sc-btn-top">
+                                        {{-- <div class="flat-bt-top sc-btn-top">
                                             <a class="sc-button btn-icon " href="/posts/all">
                                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -130,7 +125,7 @@
                                                 </svg>
                                                 <span>Acheter/Vendre</span>
                                             </a>
-                                        </div>
+                                        </div> --}}
                                     </div>
 
                                     <div class="mobile-nav-toggler mobile-button"><span></span></div>

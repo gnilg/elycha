@@ -22,7 +22,13 @@ class FrontController extends Controller
             asset('assets/images/entreprise3.jpg')
         ];
 
-        return view('index', compact('lastPostsImmo', 'categories', 'featuredPosts', 'categories2', 'images'));
+        $images2 = [
+            asset('assets/images/immo-foncier1.jpg'),
+            asset('assets/images/immo-foncier2.jpg'),
+            asset('assets/images/immo-foncier3.jpg')
+        ];
+
+        return view('index', compact('lastPostsImmo', 'categories', 'featuredPosts', 'categories2', 'images','images2'));
     }
     public function policy(Request $request)
     {

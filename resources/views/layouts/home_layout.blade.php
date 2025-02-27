@@ -5,16 +5,12 @@
 <head>
     <meta charset="utf-8">
     <title>Elycha | Accueil</title>
-
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <link rel="stylesheet" href={{asset('/front/app/dist/font-awesome.css')}}>
-
     <link rel="stylesheet" href={{asset('/front/app/dist/app.css')}}>
     <link rel="stylesheet" href={{asset('/front/app/dist/responsive.css')}}>
     <link rel="stylesheet" href={{asset('/front/app/dist/owl.css')}}>
-
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href={{asset('/front/assets/images/logo/Favicon.png')}}>
     <link rel="apple-touch-icon-precomposed" href={{asset('/front/assets/images/logo/Favicon.png')}}>
@@ -82,6 +78,8 @@
 
 
     -->
+
+    <!-- inscription et connexion section -->
 
     <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -222,6 +220,8 @@
             </div>
         </div>
     </div>
+
+    <!-- End  inscription et connexion section -->
 
     <a id="scroll-top" class="button-go"></a>
 

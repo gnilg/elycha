@@ -5,18 +5,13 @@
 <head>
     <meta charset="utf-8">
     <title>Elycha | @yield('title')</title>
-
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <link rel="stylesheet" href={{asset('/front/app/dist/font-awesome.css')}}>
-
     <link rel="stylesheet" href={{asset('/front/app/dist/app.css')}}>
     <link rel="stylesheet" href={{asset('/front/app/dist/responsive.css')}}>
     <link rel="stylesheet" href={{asset('/front/app/dist/owl.css')}}>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-
-
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href={{asset('/front/assets/images/logo/Favicon.png')}}>
     <link rel="apple-touch-icon-precomposed" href={{asset('/front/assets/images/logo/Favicon.png')}}>
@@ -87,6 +82,10 @@
                                                     <li><a href="/posts/all?is_immo=1">Immobilier</a></li>
                                                     <li><a href="/posts/all?is_immo=2">Automobile</a></li>
                                                     <li><a href="#">Architecture</a></li>
+                                                    <li><a href="#">Hôtelerie</a></li>
+                                                    <li><a href="#">Billeterie</a></li>
+                                                    <li><a href="#">Hebdo</a></li>
+                                                    <li><a href="#">Service</a></li>
                                                     <li><a href="/about">A propos</a></li>
                                                 </ul>
                                             </div>
@@ -165,6 +164,7 @@
 
 
                 <!-- Mobile Menu  -->
+
                 <div class="close-btn"><span class="icon flaticon-cancel-1"></span></div>
                 <div class="mobile-menu">
                     <div class="menu-backdrop"></div>
@@ -271,6 +271,7 @@
                         </div>
                     </nav>
                 </div>
+                
                 <!-- End Mobile Menu -->
 
 

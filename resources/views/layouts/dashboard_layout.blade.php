@@ -4,16 +4,12 @@
 <head>
     <meta charset="utf-8">
     <title>Elycha | Tableau de bord</title>
-
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <link rel="stylesheet" href={{asset('/front/app/dist/font-awesome.css')}}>
-
     <link rel="stylesheet" href={{asset('/front/app/dist/app.css')}}>
     <link rel="stylesheet" href={{asset('/front/app/dist/responsive.css')}}>
     <link rel="stylesheet" href={{asset('/front/app/dist/owl.css')}}>
-
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href={{asset('/front/assets/images/logo/Favicon.png')}}>
     <link rel="apple-touch-icon-precomposed" href={{asset('/front/assets/images/logo/Favicon.png')}}>
