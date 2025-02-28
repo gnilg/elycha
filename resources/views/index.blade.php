@@ -219,7 +219,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="heading-section center">
+                            <div class="heading-section ">
                                 <h2>Elycha – L’innovation au service de votre avenir</h2>
                                 <p class="text-color-4">Elycha est une entreprise dynamique et multidisciplinaire qui révolutionne plusieurs secteurs clés grâce à son expertise et son engagement envers l'excellence. Nous offrons des solutions sur mesure.
 
@@ -280,12 +280,208 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="heading-section center">
+                            <div class="heading-section ">
                                 <h2>IMMOBILIER & GESTION FONCIÈRE</h2>
                                 <p class="text-color-4"> ✔ Achat, Vente & Location : Accompagnement des clients dans l’acquisition, la cession ou la location de biens immobiliers.
                                     <br>
                                     ✔ Gestion immobilière : l'assurance et la rentabilité de vos investissements fait notre priorité même avec des retard de paiement chez le locataire la société ELYCHA vous verse votre loyer.<br>
                                     ✔ Topographie : Études et levés topographiques pour la délimitation des terrains et la planification des projets immobiliers. </p>
+                            </div>
+                            <div class="swiper-container2">
+                                <div class="one-carousel owl-carousel owl-theme">
+                                    @foreach ($images2 as $image)
+                                        <div class="slide-item">
+                                            <div class="box box-dream hv-one">
+                                                <div class="image-group relative ">
+
+                                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
+                                                    <div class="swiper-container noo carousel-2 img-style">
+
+                                                        <div class="swiper-wrapper ">
+                                                            <div class="swiper-slide"><img src="{{ $image }}"
+                                                                    alt="images" style="height: 300px"></div>
+
+                                                                <div class="swiper-slide">  </div>
+
+                                                        </div>
+                                                        <div class="pagi2">
+                                                            <div class="swiper-pagination2"> </div>
+                                                        </div>
+                                                        <div class="swiper-button-next2 "><i
+                                                                class="fal fa-arrow-right"></i>
+                                                        </div>
+                                                        <div class="swiper-button-prev2 "><i
+                                                                class="fal fa-arrow-left"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+
+
+                                                    <div class="money fs-18 fw-6 text-color-3">
+                                                    </div>
+                                                    <div class="days-box flex justify-space align-center">
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="flat-sale wg-dream tf-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="heading-section ">
+                                <h2>BTP & INFRASTRUCTURES</h2>
+                                <p class="text-color-4">
+                                    ✔ Bâtiment et Travaux Publics (BTP) : Conception, construction et rénovation de bâtiments résidentiels, commerciaux et industriels.
+                                    <br>
+                                    ✔ Génie civil : Études et réalisations d’infrastructures comme les routes, ponts, barrages et bâtiments publics.
+                                    <br>
+                                    ✔ Forage : Installation de puits et systèmes d’approvisionnement en eau potable ou industrielle.
+                                    <br>
+                                    ✔ Piscine : Conception, construction et entretien de piscines privées et publiques pour le bien-être et le loisir.
+                                 </p>
+                            </div>
+                            <div class="swiper-container2">
+                                <div class="one-carousel owl-carousel owl-theme">
+                                    @foreach ($images2 as $image)
+                                        <div class="slide-item">
+                                            <div class="box box-dream hv-one">
+                                                <div class="image-group relative ">
+
+                                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
+                                                    <div class="swiper-container noo carousel-2 img-style">
+
+                                                        <div class="swiper-wrapper ">
+                                                            <div class="swiper-slide"><img src="{{ $image }}"
+                                                                    alt="images" style="height: 300px"></div>
+
+                                                                <div class="swiper-slide">  </div>
+
+                                                        </div>
+                                                        <div class="pagi2">
+                                                            <div class="swiper-pagination2"> </div>
+                                                        </div>
+                                                        <div class="swiper-button-next2 "><i
+                                                                class="fal fa-arrow-right"></i>
+                                                        </div>
+                                                        <div class="swiper-button-prev2 "><i
+                                                                class="fal fa-arrow-left"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+
+
+                                                    <div class="money fs-18 fw-6 text-color-3">
+                                                    </div>
+                                                    <div class="days-box flex justify-space align-center">
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="flat-sale wg-dream tf-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="heading-section ">
+                                <h2>ÉNERGIE & CLIMATISATION</h2>
+                                <p class="text-color-4">
+                                    ✔ Énergie solaire : Installation et maintenance de solutions solaires (panneaux photovoltaïques, systèmes d’éclairage autonome, etc.).
+                                    <br>
+                                    ✔ Génie électrique : Études et mise en œuvre de réseaux électriques pour les bâtiments et infrastructures.
+                                    <br>
+                                    ✔ Climatisation : Installation et entretien de systèmes de climatisation et de ventilation pour le confort thermique.
+                                    <br>
+                                 </p>
+                            </div>
+                            <div class="swiper-container2">
+                                <div class="one-carousel owl-carousel owl-theme">
+                                    @foreach ($images2 as $image)
+                                        <div class="slide-item">
+                                            <div class="box box-dream hv-one">
+                                                <div class="image-group relative ">
+
+                                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
+                                                    <div class="swiper-container noo carousel-2 img-style">
+
+                                                        <div class="swiper-wrapper ">
+                                                            <div class="swiper-slide"><img src="{{ $image }}"
+                                                                    alt="images" style="height: 300px"></div>
+
+                                                                <div class="swiper-slide">  </div>
+
+                                                        </div>
+                                                        <div class="pagi2">
+                                                            <div class="swiper-pagination2"> </div>
+                                                        </div>
+                                                        <div class="swiper-button-next2 "><i
+                                                                class="fal fa-arrow-right"></i>
+                                                        </div>
+                                                        <div class="swiper-button-prev2 "><i
+                                                                class="fal fa-arrow-left"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+
+
+                                                    <div class="money fs-18 fw-6 text-color-3">
+                                                    </div>
+                                                    <div class="days-box flex justify-space align-center">
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="flat-sale wg-dream tf-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="heading-section ">
+                                <h2>TECHNOLOGIES & SÉCURITÉ</h2>
+                                <p class="text-color-4">
+                                    ✔ Systèmes informatiques : Développement, maintenance et intégration de solutions informatiques adaptées aux besoins des entreprises et particuliers.
+                                    <br>
+                                    ✔ Télécommunications : Mise en place de réseaux télécoms et solutions de connectivité avancées.
+                                    <br>
+                                    ✔ Contrôle d’accès : Sécurisation des bâtiments et sites sensibles via des systèmes de surveillance et d’accès intelligents.
+                                    <br>
+                                    <br>
+                                    Avec cette expertise variée, Elycha se positionne comme un acteur clé pour accompagner ses clients dans leurs projets, en garantissant qualité, innovation et satisfaction.
+                                    <br>
+                                    <br>
+                                    Contacter-nous des aujourd'hui pour concrétiser vos projets avec succès !
+                                     </b>
+                                 </p>
                             </div>
                             <div class="swiper-container2">
                                 <div class="one-carousel owl-carousel owl-theme">
