@@ -6,9 +6,15 @@
                 <div class="container2">
                     <div class="row">
                         <div class="col-lg-12">
+
                             <div class="inner-container d-flex justify-content-between align-items-center">
+                                <div class="register">
+                                    <div class="logo"><a href="/"><img src="/front/assets/images/logo/logo2-1.png"
+                                                alt="" style="width:80px"></a></div>
+                                </div>
                                 <div class="icon-tell-box flex align-center">
-                                    <div class="icon flex-none">
+                                     <div class="icon flex-none">
+
                                         <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <g opacity="0.9">
@@ -29,12 +35,10 @@
                                             <h5 class="fw-6 text-color-3">(228) 90030002</h5>
                                         </a>
                                     </div>
+
                                 </div>
                                 <!-- Logo Box -->
-                                <div class="logo-box d-flex">
-                                    <div class="logo"><a href="/"><img src="/front/assets/images/logo/logo.png"
-                                                alt="" style="width:100px"></a></div>
-                                </div>
+
 
                                 <div class="header-account flex align-center">
                                     @if (!isUserLogged())
@@ -353,7 +357,7 @@
                             </div>
                             <div class="swiper-container2">
                                 <div class="one-carousel owl-carousel owl-theme">
-                                    @foreach ($images2 as $image)
+                                    @foreach ($images3 as $image)
                                         <div class="slide-item">
                                             <div class="box box-dream hv-one">
                                                 <div class="image-group relative ">
@@ -416,7 +420,7 @@
                             </div>
                             <div class="swiper-container2">
                                 <div class="one-carousel owl-carousel owl-theme">
-                                    @foreach ($images2 as $image)
+                                    @foreach ($images4 as $image)
                                         <div class="slide-item">
                                             <div class="box box-dream hv-one">
                                                 <div class="image-group relative ">
@@ -485,7 +489,7 @@
                             </div>
                             <div class="swiper-container2">
                                 <div class="one-carousel owl-carousel owl-theme">
-                                    @foreach ($images2 as $image)
+                                    @foreach ($images5 as $image)
                                         <div class="slide-item">
                                             <div class="box box-dream hv-one">
                                                 <div class="image-group relative ">
@@ -530,6 +534,36 @@
                     </div>
                 </div>
             </section>
+
+            <section class="flat-sale wg-dream tf-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="heading-section">
+                                <h2>Elycha App</h2>
+                                <p class="text-color-4">Téléchargez l'application maintenant</p>
+                            </div>
+
+                            <div class="app-buttons">
+                                <a href="https://play.google.com/store/apps" target="_blank">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                         alt="Google Play" class="store-badge">
+                                </a>
+
+                                <a href="https://www.apple.com/app-store/" target="_blank">
+                                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                         alt="App Store" class="store-badge">
+                                </a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
 
 
     {{-- <section class="flat-sale wg-dream tf-section">

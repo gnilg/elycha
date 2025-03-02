@@ -24,7 +24,22 @@
     <style>
         .text-custom {
     font-family: 'Poppins', sans-serif;
-}
+    }
+    .app-buttons {
+                    display: flex;
+                    justify-content: center;
+                    gap: 15px;
+                    margin-top: 20px;
+                }
+
+                .store-badge {
+                    height: 50px;
+                    transition: transform 0.2s ease-in-out;
+                }
+
+                .store-badge:hover {
+                    transform: scale(1.1);
+                }
 
     </style>
     @if (Session::has('flash_message_error'))

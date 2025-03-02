@@ -51,7 +51,7 @@
 
 
         <nav class="menu-box">
-            <div class="nav-logo"><a href="/"><img src="/front/assets/images/logo/logo%402x.png" alt=""
+            <div class="nav-logo"><a href="/"><img src="/front/assets/images/logo/logo2-1.png" alt=""
                         width="197" height="48"></a></div>
 
             <div class="bottom-canvas">

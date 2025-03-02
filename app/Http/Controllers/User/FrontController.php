@@ -28,7 +28,26 @@ class FrontController extends Controller
             asset('assets/images/immo-foncier3.jpg')
         ];
 
-        return view('index', compact('lastPostsImmo', 'categories', 'featuredPosts', 'categories2', 'images','images2'));
+        $images3 = [
+            asset('assets/images/infra-1.jpg'),
+            asset('assets/images/infra-2.jpg'),
+            asset('assets/images/infra-3.jpg')
+        ];
+
+        $images4 = [
+            asset('assets/images/energie1.jpg'),
+            asset('assets/images/energie2.jpg'),
+            asset('assets/images/energie3.jpg')
+        ];
+
+        $images5 = [
+            asset('assets/images/securite1.jpg'),
+            asset('assets/images/securite2.jpg'),
+            asset('assets/images/securite3.jpg')
+        ];
+
+
+        return view('index', compact('lastPostsImmo', 'categories', 'featuredPosts','images4', 'images5', 'categories2', 'images','images2','images3'));
     }
     public function policy(Request $request)
     {
