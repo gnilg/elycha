@@ -17,15 +17,15 @@ class FrontController extends Controller
         $categories2 = []; //Category::where(["is_immo" => 2, "status" => 1])->orderBy('label', 'ASC')->get();
 
         $images = [
-            asset('assets/images/entreprise.jpg'),
-            asset('assets/images/entreprise2.jpg'),
-            asset('assets/images/entreprise3.jpg')
+            asset('assets/images/Entreprise.jpg'),
+            asset('assets/images/Entreprise2.jpg'),
+            asset('assets/images/Entreprise3.jpg')
         ];
 
         $images2 = [
-            asset('assets/images/immo-foncier1.jpg'),
-            asset('assets/images/immo-foncier2.jpg'),
-            asset('assets/images/immo-foncier3.jpg')
+            asset('assets/images/Immo-foncier1.jpg'),
+            asset('assets/images/Immo-foncier2.jpg'),
+            asset('assets/images/Immo-foncier3.jpg')
         ];
 
         $images3 = [
