@@ -489,7 +489,7 @@
                             </div>
                             <div class="swiper-container2">
                                 <div class="one-carousel owl-carousel owl-theme">
-                                    @foreach ($images5 as $image)
+                                    @foreach ($images5   as $image)
                                         <div class="slide-item">
                                             <div class="box box-dream hv-one">
                                                 <div class="image-group relative ">

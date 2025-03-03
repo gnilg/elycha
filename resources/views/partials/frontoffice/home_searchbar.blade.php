@@ -1,4 +1,4 @@
-<div class="flat-tabs themesflat-tabs">
+{{-- <div class="flat-tabs themesflat-tabs">
     <div class="content-tab">
         <div class="content-inner tab-content">
             <center>
@@ -23,4 +23,4 @@
             </center>
         </div>
     </div>
-</div>
+</div> --}}

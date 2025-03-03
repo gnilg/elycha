@@ -51,7 +51,7 @@
 
 
         <nav class="menu-box">
-            <div class="nav-logo"><a href="/"><img src="/front/assets/images/logo/logo2-1.png" alt=""
+            <div class="nav-logo"><a href="/"><img src="/front/assets/images/logo/logo1-N.png" alt=""
                         width="197" height="48"></a></div>
 
             <div class="bottom-canvas">
@@ -71,7 +71,7 @@
                     <a href="#" data-toggle="modal" data-target="#popup_bid" class="fw-7 font-2">Connexion</a>
                 </div>
                 <div class="menu-outer"></div>
-                <div class="button-mobi-sell">
+                {{-- <div class="button-mobi-sell">
                     <a class="sc-button btn-icon center" href="/posts/all">
                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -84,7 +84,7 @@
                         </svg>
                         <span>Acheter/Louer</span>
                     </a>
-                </div>
+                </div> --}}
                 <div class="mobi-icon-box">
                     <h3>Contact</h3>
                     <div class="box flex">
