@@ -32,7 +32,7 @@
 .main-header {
   z-index: 99;
   width: 100%;
-  height: 78px;
+  height: 60px;
   position: relative;
   box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.0784313725);
   background-color: #fff;
@@ -6325,9 +6325,11 @@
   margin-right: 6px;
 }
 .slider.home2 {
-  background-image: url(../../assets/images/slider/bg-slider-5.jpg);
-  background-attachment: fixed;
-}
+    background-image: url(../../../front/assets/images/logo/logo1-2-N.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 .slider.home2 .slider-item {
   position: relative;
 }

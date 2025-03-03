@@ -555,12 +555,27 @@
                                          alt="App Store" class="store-badge">
                                 </a>
 
-
                             </div>
+
                         </div>
                     </div>
                 </div>
             </section>
+
+
+
+            <div class="icon-socials box-3 text-color-1 flex align-center">
+                <a target="_blank" href="https://www.facebook.com/profile.php?id=61554554742886">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a target="_blank" href="https://www.linkedin.com/in/alkebulan-eca-9a644b2a6/">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a target="_blank" href="https://www.instagram.com/alkebulan.eca/">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+
 
 
 

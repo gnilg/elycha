@@ -34,13 +34,17 @@
                             </div>
                         </div>
 
-                        <div class="mobile-nav-toggler mobile-button"><span></span></div>
+
 
                     </div>
+
                 </div>
+
             </div>
         </div>
     </div>
+    <div class="mobile-nav-toggler mobile-button pt-4"><span></span></div>
+
     <!-- End Header Lower -->
 
     <!-- Mobile Menu  -->
@@ -51,7 +55,7 @@
 
 
         <nav class="menu-box">
-            <div class="nav-logo"><a href="/"><img src="/front/assets/images/logo/logo1-N.png" alt=""
+            <div class="nav-logo"><a href="/"><img src="/front/assets/images/logo/logo2-1.png" alt=""
                         width="197" height="48"></a></div>
 
             <div class="bottom-canvas">
