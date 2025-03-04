@@ -43,6 +43,31 @@
                     transform: scale(1.1);
                 }
 
+                .icon-socials {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f1f1f1;
+    color: #333;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-link:hover {
+    background: #007bff; /* Bleu pour un effet cool */
+    color: rgb(70, 48, 48);
+}
+
+
     </style>
     @if (Session::has('flash_message_error'))
         <script type="text/javascript" src="{{ asset('sweetalert.min.js') }}"></script>
