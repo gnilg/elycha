@@ -70,7 +70,7 @@
                                     <!-- Logo Box -->
                                     <div class="logo-box flex">
                                         <div class="logo"><a href="/"><img
-                                                    src="/front/assets/images/logo/logo.png" alt=""
+                                                    src="/front/assets/images/logo/logo2-1.png" alt=""
                                                     width="100" height="48"></a></div>
                                     </div>
                                     <div class="nav-outer flex align-center">
@@ -142,34 +142,13 @@
                 <!-- End Header Lower -->
 
 
-
-                {{-- <div class="container mt-4">
-                    <h2 class="fw-bold">Publications</h2>
-                    <p class="text-muted">Affichage des résultats</p>
-
-                    <ul id="result-list" class="list-group mt-3">
-                        <li class="list-group-item" data-quartier="Quartier 1" data-somme="50000">
-                            🏡 Maison à Quartier 1 - 50 000 FCFA
-                        </li>
-                        <li class="list-group-item" data-quartier="Quartier 2" data-somme="75000">
-                            🏢 Appartement à Quartier 2 - 75 000 FCFA
-                        </li>
-                        <li class="list-group-item" data-quartier="Quartier 1" data-somme="30000">
-                            🏠 Studio à Quartier 1 - 30 000 FCFA
-                        </li>
-                    </ul>
-                </div> --}}
-
-
-
-
                 <!-- Mobile Menu  -->
 
                 <div class="close-btn"><span class="icon flaticon-cancel-1"></span></div>
                 <div class="mobile-menu">
                     <div class="menu-backdrop"></div>
                     <nav class="menu-box">
-                        <div class="nav-logo"><a href="/"><img src="/front/assets/images/logo/logo%402x.png"
+                        <div class="nav-logo"><a href="/"><img src="/front/assets/images/logo/logo2-1.png"
                                     alt="" width="197" height="48"></a></div>
                         <div class="bottom-canvas">
                             <div class="login-box flex align-center">
@@ -189,7 +168,7 @@
                                     class="fw-7 font-2">Login</a>
                             </div>
                             <div class="menu-outer"></div>
-                            <div class="button-mobi-sell">
+                            {{-- <div class="button-mobi-sell">
                                 <a class="sc-button btn-icon center" href="/posts/all">
                                     <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -202,7 +181,7 @@
                                     </svg>
                                     <span>Sell Property</span>
                                 </a>
-                            </div>
+                            </div> --}}
                             <div class="mobi-icon-box">
                                 <h3>Contact</h3>
                                 <div class="box flex">
@@ -229,7 +208,7 @@
                                         </svg>
                                     </div>
                                     <div class="content fs-13">
-                                        Call us: <h5>(201) 555-0124</h5>
+                                        Contact: <h5>(228) 90030002</h5>
                                     </div>
                                 </div>
                                 <div class="box flex">

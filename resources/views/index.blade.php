@@ -566,7 +566,7 @@
                     <div class="row">
                         <div class="col-lg-12 text-center">
                             <div class="heading-section">
-                                
+
                                 <p class="text-color-4">Découvrez nous sur nos réseaux sociaux</p>
                             </div>
 
@@ -581,9 +581,13 @@
                                     <a target="_blank" href="https://www.instagram.com/alkebulan.eca/" class="social-link">
                                         <i class="fab fa-instagram"></i>
                                     </a>
+                                    <a target="_blank" href="https://www.tiktok.com/@elychasarl?_t=ZM-8uOrB6vlZGp&_r=1" class="social-link">
+                                        <i class="fab fa-tiktok"></i>
+                                    </a>
+                                    <a target="_blank" href="#" class="social-link">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
                                 </div>
-
-
 
                             </div>
 

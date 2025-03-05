@@ -3,7 +3,7 @@
     Toutes les publications
 @endsection
 @section('content')
-    <div class="container6 pt-4">
+    {{-- <div class="container6 pt-4">
         <div class="col-lg-12">
             <div class="row py-3 pr-4 filter-bar">
                 <!-- Quartier -->
@@ -25,7 +25,7 @@
             </div>
         </div>
     </div>
-    </div>
+    </div> --}}
     <div class="top-filters">
         <div class="container6">
             <div class="row">
@@ -298,16 +298,8 @@
                         <div class="title-group fs-12"><a class="home fw-6 text-color-3"
                                 href="/">Accueil</a><span>Toutes les publications</span></div>
                     </div>
+
                 </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="flat-featured flat-property-grid flat-property tf-section2 wg-dream home2">
-        <div class="container">
-            <div class="row d-flex">
-
                 <div class="col d-flex pb-2 gap-3 justify-content-center mb-4">
                     <div class="col-md-4">
                         <button class="btn button btn-warning w-100" onclick="filterResults()">Location</button>
@@ -319,6 +311,33 @@
                         <button class="btn button btn-warning w-100" onclick="filterResults()">Bail</button>
                     </div>
                 </div>
+
+
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="flat-featured flat-property-grid flat-property tf-section2 wg-dream home2">
+        <div class="container">
+            <div class="row d-flex">
+
+                <div class="col d-flex py-6 gap-3 justify-content-center mb-4">
+                    <div class="col-md-4">
+                        <input class="form-control mb-3 " placeholder="montant min:" type="text">
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control mb-3 " placeholder="montant max:" type="text">
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn button btn-warning w-100" onclick="filterResults()">Rechercher</button>
+                    </div>
+                </div>
+
 
 
                     {{-- <div class="category-filter flex justify-space align-center">

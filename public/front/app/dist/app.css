@@ -2141,7 +2141,8 @@
   margin-left: 22px;
 }
 .comments .comment-form .input-item input {
-  border: 1px solid #E5E5EA;
+  border: 1
+  px solid #E5E5EA;
   padding: 11px 14px 13px 17px;
   color: #120A21;
   font-weight: 500;
@@ -8605,7 +8606,9 @@ img {
 .row {
   margin-right: -15px;
   margin-left: -15px;
+  margin-bottom: 10px;
 }
+
 
 ul, li {
   list-style-type: none;
