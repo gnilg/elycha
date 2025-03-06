@@ -31,28 +31,39 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="flat-tabs style2 flex">
-                        {{-- <div class="box-tab center">
+                        <div class="box-tab center">
                             <ul class="menu-tab tab-title flex">
                                 <li class="item-title active flex align-center">
                                     <i class="far fa-check-circle"></i>
-                                    <h4 class="inner">Rent</h4>
+                                    <h4 class="inner">Location</h4>
                                 </li>
-                                <li class="item-title style">
-                                    <h4 class="inner"> Buy </h4>
+                                <li class="item-title active flex align-center pl-4">
+                                    <i class="far fa-check-circle"></i>
+                                    <h4 class="inner">Achat</h4>
                                 </li>
+                                <li class="item-title active flex align-center">
+                                    <i class="far fa-check-circle"></i>
+                                    <h4 class="inner">Bail</h4>
+                                </li>
+
                             </ul>
-                        </div> --}}
-                        {{-- <div class="content-tab">
+                        </div>
+                         <div class="content-tab">
                             <div class="content-inner tab-content">
                                 <div class="form-sl">
                                     <form method="post">
                                         <div class="wd-find-select flex">
                                             <div class="form-group-1 search-form form-style relative">
-                                                <i class="far fa-search"></i>
-                                                <input type="search" class="search-field" placeholder="Type keyword..."
+                                                <i class="far fa-money"></i>
+                                                <input type="search" class="search-field" placeholder="montant min:"
                                                     value="" name="s" title="Search for" required="">
                                             </div>
-                                            <div class="form-group-2 form-style">
+                                            <div class="form-group-1 search-form form-style relative">
+                                                <i class="far fa-money"></i>
+                                                <input type="search" class="search-field" placeholder="montant max:"
+                                                    value="" name="s" title="Search for" required="">
+                                            </div>
+                                            {{-- <div class="form-group-2 form-style">
                                                 <div class="group-select">
                                                     <div class="nice-select" tabindex="0"><span class="current">Property
                                                             type</span>
@@ -67,11 +78,11 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <div class="form-group-3 form-style">
                                                 <div class="group-select">
                                                     <div class="nice-select" tabindex="0"><span
-                                                            class="current">Location</span>
+                                                            class="current">Model</span>
                                                         <ul class="list">
                                                             <li data-value class="option selected">Location</li>
                                                             <li data-value="Japan" class="option">Japan</li>
@@ -84,7 +95,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group-2 form-style">
+                                            {{-- <div class="form-group-2 form-style">
                                                 <div class="group-select">
                                                     <div class="nice-select" tabindex="0"><span
                                                             class="current">Baths</span>
@@ -98,8 +109,8 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group-3 form-style">
+                                            </div> --}}
+                                            {{-- <div class="form-group-3 form-style">
                                                 <div class="group-select">
                                                     <div class="nice-select" tabindex="0"><span
                                                             class="current">Beds</span>
@@ -112,7 +123,7 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <div class="form-group-4 form-style">
                                                 <a class="icon-filter button-top pull-right" href="#">
                                                     <span>Filters</span>
@@ -125,14 +136,14 @@
                                                     </svg>
                                                 </a>
                                             </div>
-                                            <div class="button-search sc-btn-top">
+                                            {{-- <div class="button-search sc-btn-top">
                                                 <a class="sc-button button-top" href="#">
                                                     <span>Search Now</span>
                                                     <i class="far fa-search"></i>
                                                 </a>
-                                            </div>
+                                            </div> --}}
                                         </div>
-                                        <div class="wd-find-select wd-search-form ">
+                                        {{-- <div class="wd-find-select wd-search-form ">
                                             <div class="box1 flex flex-wrap form-wg">
                                                 <div class="form-group wg-box3">
                                                     <div class="group-select">
@@ -278,13 +289,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </form>
                                     <!-- End Job  Search Form-->
                                 </div>
                             </div>
 
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -296,11 +307,11 @@
                 <div class="col-lg-12">
                     <div class="title-inner">
                         <div class="title-group fs-12"><a class="home fw-6 text-color-3"
-                                href="/">Accueil</a><span>Toutes les publications</span></div>
+                                href="/">Accueil1</a><span>Toutes les publications</span></div>
                     </div>
 
                 </div>
-                <div class="col d-flex pb-2 gap-3 justify-content-center mb-4">
+                {{-- <div class="col d-flex pb-2 gap-3 justify-content-center mb-4">
                     <div class="col-md-4">
                         <button class="btn button btn-warning w-100" onclick="filterResults()">Location</button>
                     </div>
@@ -310,7 +321,7 @@
                     <div class="col-md-4">
                         <button class="btn button btn-warning w-100" onclick="filterResults()">Bail</button>
                     </div>
-                </div>
+                </div> --}}
 
 
 
@@ -326,7 +337,7 @@
         <div class="container">
             <div class="row d-flex">
 
-                <div class="col d-flex py-6 gap-3 justify-content-center mb-4">
+                {{-- <div class="col d-flex py-6 gap-3 justify-content-center mb-4">
                     <div class="col-md-4">
                         <input class="form-control mb-3 " placeholder="montant min:" type="text">
                     </div>
@@ -336,7 +347,7 @@
                     <div class="col-md-4">
                         <button class="btn button btn-warning w-100" onclick="filterResults()">Rechercher</button>
                     </div>
-                </div>
+                </div> --}}
 
 
 
