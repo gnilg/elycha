@@ -7,10 +7,10 @@
     <title>Elycha | Accueil</title>
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href={{asset('assets/front/app/dist/font-awesome.css')}}>
-    <link rel="stylesheet" href={{asset('assets/front/app/dist/app.css')}}>
-    <link rel="stylesheet" href={{asset('assets/front/app/dist/responsive.css')}}>
-    <link rel="stylesheet" href={{asset('assets/front/app/dist/owl.css')}}>
+    <link rel="stylesheet" href={{asset('/front/app/dist/font-awesome.css')}}>
+    <link rel="stylesheet" href={{asset('/front/app/dist/app.css')}}>
+    <link rel="stylesheet" href={{asset('/front/app/dist/responsive.css')}}>
+    <link rel="stylesheet" href={{asset('/front/app/dist/owl.css')}}>
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href={{asset('assets/front/assets/images/logo/Favicon.png')}}>
     <link rel="apple-touch-icon-precomposed" href={{asset('assets/front/assets/images/logo/Favicon.png')}}>
@@ -271,20 +271,20 @@
 
     <script data-cfasync="false" src="https://themesflat.co/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
     </script>
-    <script src={{asset('assets/front/app/js/jquery.min.js')}}></script>
-    <script src={{asset('assets/front/app/js/jquery.easing.js')}}></script>
-    <script src={{asset('assets/front/app/js/jquery.nice-select.min.js')}}></script>
-    <script src={{asset('assets/front/app/js/bootstrap.min.js')}}></script>
-    <script src={{asset('assets/front/app/js/owl.js')}}></script>
-    <script src={{asset('assets/front/app/js/swiper-bundle.min.js')}}></script>
-    <script src={{asset('assets/front/app/js/swiper.js')}}></script>
+    <script src={{asset('/front/app/js/jquery.min.js')}}></script>
+    <script src={{asset('/front/app/js/jquery.easing.js')}}></script>
+    <script src={{asset('/front/app/js/jquery.nice-select.min.js')}}></script>
+    <script src={{asset('/front/app/js/bootstrap.min.js')}}></script>
+    <script src={{asset('/front/app/js/owl.js')}}></script>
+    <script src={{asset('/front/app/js/swiper-bundle.min.js')}}></script>
+    <script src={{asset('/front/app/js/swiper.js')}}></script>
 
-    <script src={{asset('assets/front/app/js/jquery.fancybox.js')}}></script>
-    <script src={{asset('assets/front/app/js/plugin.js')}}></script>
-    <script src={{asset('assets/front/app/js/shortcodes.js')}}></script>
-    <script src={{asset('assets/front/app/js/main.js')}}></script>
-    <script src={{asset('assets/front/app/js/curved.js')}}></script>
-    <script src={{asset('assets/front/app/js/price-ranger.js')}}></script>
+    <script src={{asset('/front/app/js/jquery.fancybox.js')}}></script>
+    <script src={{asset('/front/app/js/plugin.js')}}></script>
+    <script src={{asset('/front/app/js/shortcodes.js')}}></script>
+    <script src={{asset('/front/app/js/main.js')}}></script>
+    <script src={{asset('/front/app/js/curved.js')}}></script>
+    <script src={{asset('/front/app/js/price-ranger.js')}}></script>
 
 </body>
 
