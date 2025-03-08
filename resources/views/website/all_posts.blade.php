@@ -39,12 +39,12 @@
                                 </li>
                                 <li class="item-title active flex align-center pl-4">
                                     <i class="far fa-check-circle"></i>
-                                    <h4 class="inner">Achat</h4>
+                                    <h4 class="inner">Vente</h4>
                                 </li>
-                                <li class="item-title active flex align-center">
+                                {{-- <li class="item-title active flex align-center">
                                     <i class="far fa-check-circle"></i>
                                     <h4 class="inner">Bail</h4>
-                                </li>
+                                </li> --}}
 
                             </ul>
                         </div>
@@ -82,7 +82,7 @@
                                             <div class="form-group-3 form-style">
                                                 <div class="group-select">
                                                     <div class="nice-select" tabindex="0"><span
-                                                            class="current">Model</span>
+                                                            class="current">Marque</span>
                                                         <ul class="list">
                                                             <li data-value class="option selected">Location</li>
                                                             <li data-value="Japan" class="option">Japan</li>

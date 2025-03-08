@@ -117,7 +117,7 @@
                                 <div class="content po-content-two">
                                     <div class="heading center">
                                         <h1 class="text-color-1 wow text-custom " data-wow-delay="50ms"
-                                            data-wow-duration="1000ms">Avec Elycha vos désirs trouvent toujours satisfaction</h1>
+                                            data-wow-duration="1000ms">{{--Avec elycha vos desirs trouve toujours satifaction --}}</h1>
                                         {{-- <p class="fs-16 lh-24 text-color-1 fw-6">Explorez notre vaste sélection
                                             d'appartements, maisons, villas, voitures et terrains disponibles à la location,
                                             à la vente ou en bail, le tout soigneusement sélectionné par nos agents de

@@ -6326,7 +6326,7 @@
   margin-right: 6px;
 }
 .slider.home2 {
-    background-image: url(../../../front/assets/images/logo/logo1-2-N.jpeg);
+    background-image: url(../../../front/assets/images/logo/font_entre4.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -8643,7 +8643,12 @@ ul, li {
 
 .container2 {
   max-width: 1750px;
+
 }
+.container2N {
+    max-width: 1750px;
+    background-color: #000000;
+  }
 
 .container {
   max-width: 1140px;
@@ -8655,6 +8660,7 @@ ul, li {
 .container4,
 .container3,
 .container2,
+.container2N,
 .container {
   width: 100%;
   margin: auto;
@@ -8666,6 +8672,7 @@ ul, li {
 .container4,
 .container3,
 .container2,
+.container2N,
 .container-fluid,
 .container {
   padding-left: 15px;
