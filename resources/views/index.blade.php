@@ -561,7 +561,7 @@
                 </div>
             </section>
 
-            <section class="flat-sale wg-dream tf-section">
+            <section class="flat-sale wg-dream tf-section2">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 text-center">

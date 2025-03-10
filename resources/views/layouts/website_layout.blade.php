@@ -12,6 +12,8 @@
     <link rel="stylesheet" href={{asset('/front/app/dist/responsive.css')}}>
     <link rel="stylesheet" href={{asset('/front/app/dist/owl.css')}}>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> --}}
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href={{asset('/front/assets/images/logo/Favicon.png')}}>
     <link rel="apple-touch-icon-precomposed" href={{asset('/front/assets/images/logo/Favicon.png')}}>
@@ -81,11 +83,11 @@
                                                     <li><a href="/"><h3>Accueil</h3></a></li>
                                                     <li><a href="/posts/all?is_immo=1">Immobilier</a></li>
                                                     <li><a href="/posts/all?is_immo=2">Automobile</a></li>
-                                                    <li><a href="#">Architecture</a></li>
-                                                    <li><a href="#">Hôtelerie</a></li>
-                                                    <li><a href="#">Billeterie</a></li>
-                                                    <li><a href="#">Hebdo</a></li>
-                                                    <li><a href="#">Service</a></li>
+                                                    <li><a href="/posts/all?is_immo=3">Architecture</a></li>
+                                                    <li><a href="/posts/all?is_immo=4">Hôtelerie</a></li>
+                                                    <li><a href="/posts/all?is_immo=5">Billeterie</a></li>
+                                                    <li><a href="/posts/all?is_immo=6">Hebdo</a></li>
+                                                    <li><a href="/posts/all?is_immo=7">Service</a></li>
                                                     {{-- <li><a href="/about">A propos</a></li> --}}
                                                 </ul>
                                             </div>

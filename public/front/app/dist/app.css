@@ -1464,7 +1464,7 @@
 }
 .flat-tabs.style2 .box-tab {
   padding: 0px;
-  margin-right: 13px;
+  margin-right: 8px;
 }
 .flat-tabs.style2 .tab-title li {
   position: relative;
@@ -4661,7 +4661,8 @@
   margin-bottom: 8px;
 }
 .flat-property-detail .wrap-nearby .content .title-box .title-item {
-  margin-right: 10px;
+
+  margin-right: 20px;
 }
 .flat-property-detail .wrap-nearby .content .title-box .star {
   margin-right: 8px;
@@ -8661,6 +8662,7 @@ ul, li {
 .container3,
 .container2,
 .container2N,
+
 .container {
   width: 100%;
   margin: auto;
@@ -8672,7 +8674,7 @@ ul, li {
 .container4,
 .container3,
 .container2,
-.container2N,
+
 .container-fluid,
 .container {
   padding-left: 15px;
@@ -9128,11 +9130,11 @@ button {
 }
 
 .tf-section {
-  padding: 100px 0;
+  padding: 90px 0;
 }
 
 .tf-section2 {
-  padding-bottom: 95px;
+  padding-bottom: 80px;
 }
 
 .bg-1 {
