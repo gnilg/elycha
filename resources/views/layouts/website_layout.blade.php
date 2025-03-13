@@ -25,7 +25,7 @@
 <body class="body ">
 
 
-    <div class="preload preload-container">
+    {{-- <div class="preload preload-container">
         <div class="boxes ">
             <div class="box">
                 <div></div>
@@ -52,7 +52,7 @@
                 <div></div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- /preload -->
 
