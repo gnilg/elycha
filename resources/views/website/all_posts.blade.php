@@ -81,21 +81,9 @@
                                                     </div>
                                                 </div>
                                             </div> --}}
-                                            <div class="form-group-3 form-style">
-                                                <div class="group-select">
-                                                    <div class="nice-select" tabindex="0"><span
-                                                            class="current">Quartier</span>
-                                                        <ul class="list">
-                                                            <li data-value class="option selected">Doumasséssé</li>
-                                                            <li data-value="Japan" class="option">Agoe</li>
-                                                            <li data-value="America" class="option d">Adidogomé</li>
-                                                            <li data-value="England" class="option ">Baguida</li>
-                                                            <li data-value="Japan" class="option">Adakpamé</li>
-                                                            <li data-value="England" class="option ">Bé-kpota</li>
-                                                            <li data-value="VietNam" class="option">Dekon</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                                            <div class="form-group-1 search-form form-style relative">
+                                                <input type="search" class="search-field" placeholder="Quartier"
+                                                    value="" name="s" title="Search for" required="">
                                             </div>
                                             {{-- <div class="form-group-2 form-style">
                                                 <div class="group-select">
@@ -357,21 +345,9 @@
                                                     </div>
                                                 </div>
                                             </div> --}}
-                                            <div class="form-group-3 form-style">
-                                                <div class="group-select">
-                                                    <div class="nice-select" tabindex="0"><span
-                                                            class="current">Marque</span>
-                                                        <ul class="list">
-                                                            <li data-value class="option selected">Location</li>
-                                                            <li data-value="Japan" class="option">Japan</li>
-                                                            <li data-value="America" class="option d">America</li>
-                                                            <li data-value="England" class="option ">England</li>
-                                                            <li data-value="Japan" class="option">Belgium</li>
-                                                            <li data-value="England" class="option ">France</li>
-                                                            <li data-value="VietNam" class="option">VietNam</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                                            <div class="form-group-1 search-form form-style relative">
+                                                <input type="search" class="search-field" placeholder="Marque"
+                                                    value="" name="s" title="Search for" required="">
                                             </div>
                                             {{-- <div class="form-group-2 form-style">
                                                 <div class="group-select">

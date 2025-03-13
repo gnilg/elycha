@@ -278,7 +278,6 @@
     <script src={{asset('/front/app/js/owl.js')}}></script>
     <script src={{asset('/front/app/js/swiper-bundle.min.js')}}></script>
     <script src={{asset('/front/app/js/swiper.js')}}></script>
-
     <script src={{asset('/front/app/js/jquery.fancybox.js')}}></script>
     <script src={{asset('/front/app/js/plugin.js')}}></script>
     <script src={{asset('/front/app/js/shortcodes.js')}}></script>
