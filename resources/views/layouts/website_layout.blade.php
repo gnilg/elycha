@@ -170,7 +170,7 @@
                             {{-- <div class="menu-outer"></div> --}}
 
                             <div class="button-mobi-sell" >
-                                <a href="/"  class="{{ request()->has('/') ? 'sc-button' : '' }}" >
+                                <a href="/" class="{{ request()->is('/') ? 'sc-button' : '' }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
                                     <span>Accueil</span>
                                 </a>
@@ -479,7 +479,7 @@
     <script src={{asset('/front/app/js/main.js')}}></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Script pour le filtrage -->
-   
+
 
 
 </body>
