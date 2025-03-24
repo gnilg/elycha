@@ -1,8 +1,12 @@
 <?php
 
 use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikeController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +23,8 @@ Route::get('/', 'App\Http\Controllers\User\FrontController@index');
 Route::get('/about', 'App\Http\Controllers\User\FrontController@about');
 Route::match(['get', 'post'], '/privacy-policy', 'App\Http\Controllers\User\FrontController@policy');
 Route::match(['get', 'post'], '/cgu', 'App\Http\Controllers\User\FrontController@cgu');
+
+Route::post('/like', [LikeController::class, 'like'])->middleware('auth');
 
 Route::prefix('auth')->group(function () {
     Route::match(['get', 'post'], '/register', 'App\Http\Controllers\User\AuthController@register');
@@ -64,10 +70,10 @@ Route::prefix('user')->group(function () {
 
 Route::prefix('admin')->group(function () {
     Route::match(['get', 'post'], '', 'App\Http\Controllers\Admin\AuthentificationController@login');
-    Route::match(['get', 'post'], 'login', 'App\Http\Controllers\Admin\AuthentificationController@login');
+    Route::match(['get', 'post'], 'login', 'App\Http\Controllers\Admin\AuthentificationController@login')->name('login');
 
 
-    Route::group(['middleware' => ['admin']], function () {
+    Route::group(['middleware' => ['admin','auth:admin']], function () {
         Route::get('/dashboard', 'App\Http\Controllers\Admin\DashboardController@index');
         Route::match(['get', 'post'], '/change-password', 'App\Http\Controllers\Admin\DashboardController@changePassword');
         Route::match(['get', 'post'], '/profile', 'App\Http\Controllers\Admin\DashboardController@profile');
@@ -92,10 +98,8 @@ Route::prefix('admin')->group(function () {
         Route::match(['get', 'post'], '/videos/edit/{id}', 'App\Http\Controllers\Admin\VideoController@edit');
         Route::match(['get', 'post'], '/videos/delete/{id}', 'App\Http\Controllers\Admin\VideoController@delete');
 
-
         Route::match(['get', 'post'], '/inquiries', 'App\Http\Controllers\Admin\InquiryController@show');
         Route::match(['get', 'post'], '/chat', 'App\Http\Controllers\Admin\DashboardController@chat');
-
 
         Route::match(['get', 'post'], '/posts', 'App\Http\Controllers\Admin\PostController@show');
         Route::match(['get', 'post'], '/posts/delete/{id}', 'App\Http\Controllers\Admin\PostController@delete');
@@ -103,13 +107,47 @@ Route::prefix('admin')->group(function () {
         Route::match(['get', 'post'], '/posts/auto', 'App\Http\Controllers\Admin\PostController@auto');
         Route::match(['get', 'post'], '/posts/boost', 'App\Http\Controllers\Admin\PostController@boost');
 
+        Route::resource('/blog', 'App\Http\Controllers\Admin\BlogPostsController');
+        // Route::match(['get', 'post'], '/blog/delete/{id}', 'App\Http\Controllers\Admin\PostController@delete');
+        // Route::match(['get', 'post'], '/blog/immo', 'App\Http\Controllers\Admin\PostController@immo');
+        // Route::match(['get', 'post'], '/blog/auto', 'App\Http\Controllers\Admin\PostController@auto');
+        // Route::match(['get', 'post'], '/blog/boost', 'App\Http\Controllers\Admin\PostController@boost');
+
         Route::match(['get', 'post'], '/users/clients', 'App\Http\Controllers\Admin\UserController@clients');
         Route::match(['get', 'post'], '/users/agents', 'App\Http\Controllers\Admin\UserController@agents');
 
-
         Route::get('/logout', 'App\Http\Controllers\Admin\DashboardController@logout');
+
     });
 });
+
+
+
+
+// Routes des articles
+// Route::get('/blog', [PostController::class, 'index'])->name('posts.index');
+// Route::get('/blog/{post}', [PostController::class, 'show'])->name('posts.show');
+
+
+
+
+
+
+    // Route::resource('/blog', PostController::class);
+
+    // Route::get('/blog', [PostController::class, 'index'])->name('posts.index');
+    Route::get('/blog/{post}', [PostController::class, 'show'])->name('blog.show');
+    // Route::get('admin/blog/create', [PostController::class, 'create'])->name('posts.create');
+    // Route::post('/blog', [PostController::class, 'store'])->name('blog.store');
+    // Route::get('/blog/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+    // Route::put('/blog/{post}', [PostController::class, 'update'])->name('posts.update');
+    // Route::delete('/blog/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+    // Routes des commentaires
+    Route::post('/blog/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+
+    // Routes des "J'aime"
+    Route::post('/blog/{post}/like', [LikeController::class, 'toggle'])->name('likes.toggle');
 
 
 

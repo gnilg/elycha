@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Post;
 use App\Models\Publication;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,7 @@ class FrontController extends Controller
         $featuredPosts = Publication::where(["status" => 1])->orderBy('created_at', 'DESC')->limit(10)->get();
         $categories = []; //Category::where(["is_immo" => 1, "status" => 1])->orderBy('label', 'ASC')->get();
         $categories2 = []; //Category::where(["is_immo" => 2, "status" => 1])->orderBy('label', 'ASC')->get();
+
 
         $images = [
             asset('assets/images/Entreprise.jpg'),
@@ -47,7 +49,7 @@ class FrontController extends Controller
         ];
 
 
-        return view('index', compact('lastPostsImmo', 'categories', 'featuredPosts','images4', 'images5', 'categories2', 'images','images2','images3'));
+        return view('index', compact( 'lastPostsImmo', 'categories', 'featuredPosts','images4', 'images5', 'categories2', 'images','images2','images3'));
     }
     public function policy(Request $request)
     {
@@ -72,10 +74,12 @@ class FrontController extends Controller
     {
         $query = Publication::where(["status" => 1])->orderBy('created_at', 'DESC');
 
+        $blogPosts = Post::all();
+
         if (isset($request->is_immo)) {
             $query = $query->where('is_immo', $request->is_immo);
         }
         $posts = $query->get();
-        return view('website.all_posts', compact("posts"));
+        return view('website.all_posts', compact("posts", "blogPosts"));
     }
 }

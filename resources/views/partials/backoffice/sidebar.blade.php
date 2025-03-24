@@ -114,6 +114,23 @@
                         <span> Demandes clients</span>
                     </a>
                 </li>
+                <li>
+                    <a href="#sidebarBlogs" data-bs-toggle="collapse">
+                        <i data-feather="message-square"></i>
+                        <span> Blog </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarBlogs">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="#">Post</a>
+                            </li>
+                            <li>
+                                <a href="/admin/blog/create">Nouveau</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
                 <li>
                     <a href="/admin/chat">
