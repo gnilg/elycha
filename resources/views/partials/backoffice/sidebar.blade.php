@@ -123,7 +123,7 @@
                     <div class="collapse" id="sidebarBlogs">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="#">Post</a>
+                                <a href="/admin/blog"> liste des Posts</a>
                             </li>
                             <li>
                                 <a href="/admin/blog/create">Nouveau</a>

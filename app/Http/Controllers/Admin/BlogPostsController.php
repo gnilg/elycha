@@ -14,7 +14,7 @@ class BlogPostsController extends Controller
     public function index()
     {
         $posts = Post::latest()->paginate(10);
-        return view('blog.index', compact('posts'));
+        return view('admin.dashboard.blog.index', compact('posts'));
     }
 
     public function show(Post $post)
@@ -51,7 +51,7 @@ class BlogPostsController extends Controller
 
         $post->save();
 
-        return redirect()->route('blog.create')->with('success', 'Article publié avec succès !');
+        return redirect()->route('blog.create')->with('flash_message_success', 'Article publié avec succès !');
     }
 
 
@@ -74,12 +74,14 @@ class BlogPostsController extends Controller
 
         $post->update($request->all());
 
-        return redirect()->route('posts.index')->with('success', 'Article mis à jour avec succès !');
+        return redirect()->route('blog.index')->with('flash_message_success', 'Post mis à jour avec succès !');
     }
 
     public function destroy(Post $post)
+
     {
+        dd($post);
         $post->delete();
-        return redirect()->route('posts.index')->with('success', 'Article supprimé !');
+        return redirect()->route('blog.index')->with('flash_message_success', 'Post supprimé !');
     }
 }
