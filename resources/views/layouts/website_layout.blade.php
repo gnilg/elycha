@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href={{asset('/front/assets/images/logo/Favicon.png')}}>
     <link rel="apple-touch-icon-precomposed" href={{asset('/front/assets/images/logo/Favicon.png')}}>
 
-    @yield('config')
+
 
 </head>
 
