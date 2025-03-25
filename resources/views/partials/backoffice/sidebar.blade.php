@@ -6,7 +6,7 @@
             <img src="{{ asset('avatars/default.png') }}" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
             <div class="dropdown">
                 <a href="javascript: void(0);" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block"
-                    data-bs-toggle="dropdown">{{ getAdminAuth()->email }} </a>
+                    data-bs-toggle="dropdown">{{ auth()?->user()->email  }} </a>
                 <div class="dropdown-menu user-pro-dropdown">
 
                     <!-- item-->
