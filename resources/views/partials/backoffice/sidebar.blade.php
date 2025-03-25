@@ -28,7 +28,7 @@
                 </div>
             </div>
             <p class="text-muted">
-                @if (getAdminAuth()->level == 3)
+                @if (auth()->user()->level == 3)
                     Super Admin
                 @else
                     Administrateur
@@ -48,7 +48,7 @@
                     </a>
                 </li>
 
-                @if (getAdminAuth()->level == 3)
+                @if (auth()->user()->level == 3)
                     <li>
                         <a href="#sidebarAdmin" data-bs-toggle="collapse">
                             <i data-feather="users"></i>
