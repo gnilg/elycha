@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class Admin
@@ -15,8 +16,8 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!$request->session()->get('is_admin')) {
-            return redirect('/admin')->with('flash_message_error', 'Accès intedit! Veuillez vous connecter.');
+        if (!Auth::check() || Auth::user()->level !== 3) {
+            return redirect()->route('admin.login')->with('flash_message_error', 'Accès interdit!');
         }
         return $next($request);
     }

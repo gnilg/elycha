@@ -16,7 +16,7 @@ class AuthentificationController extends Controller
             $credentials = $request->only('email', 'password');
 
             if (Auth::guard('admin')->attempt($credentials)) { // 🔥 Assure-toi d'utiliser 'admin'
-                $request->session()->regenerate(); // ✅ Empêche les boucles de redirection
+                $request->session()->regenerate(); 
                 return redirect('admin/dashboard');
             }
 
