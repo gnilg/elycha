@@ -863,7 +863,7 @@
                                 </div>
                                 <div class="days-box flex justify-space align-center">
                                     <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img
-                                            src="{{ $post->user->avatar }}" class="rounded-circle" style="width: 35px"
+                                            src="{{ $post->user?->avatar }}" class="rounded-circle" style="width: 35px"
                                             alt="images"></div>
                                     <div class="days">{{ formatDate($post->created_at) }}</div>
                                 </div>
