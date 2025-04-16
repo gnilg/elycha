@@ -3,55 +3,54 @@
     Toutes les publications
 @endsection
 @section('content')
-    {{-- <div class="container6 pt-4">
-        <div class="col-lg-12">
-            <div class="row py-3 pr-4 filter-bar">
-                <!-- Quartier -->
-                <div class="col-md-3">
-                    <input type="text" id="search-quartier" class="form-control" placeholder="Nom du quartier">
-                </div>
-                <!-- Somme min -->
-                <div class="col-md-3">
-                    <input type="number" id="search-somme-min" class="form-control" placeholder="Somme Min">
-                </div>
-                <!-- Somme max -->
-                <div class="col-md-3">
-                    <input type="number" id="search-somme-max" class="form-control" placeholder="Somme Max">
-                </div>
-                <!-- Bouton filtrer -->
-                <div class="col-md-3">
-                    <button class="btn btn-warning w-100" onclick="filterResults()">Filtrer</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div> --}}
+@php
+    $activeType = request('type');
+    $activeIsImmo = request('is_immo');
+@endphp
 
 
     @if (request()->query('is_immo') == 1)
         <div class="top-filters">
-            <div class="container6">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="title-inner">
+                            <div class="title-group fs-12"><a class="home fw-6 text-color-3"
+                                    href="/">Immobilier</a><span>Toutes les publications</span></div>
+                        </div>
+
+                </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="flat-tabs style2 flex">
                             <div class="box-tab flex center">
                                 <ul class="menu-tab tab-title flex">
-                                    <li class="title-item active flex align-center box-tab">
-                                        <i class="far fa-check-circle"></i>
-                                        <h4 class="inner">Location</h4>
+                                    <li class="title-item flex align-center box-tab {{ $activeType == 1 ? 'active' : '' }}">
+                                        <a href="{{ route('all.posts', ['is_immo' => 1, 'type' => 1]) }}" class="flex align-center">
+                                            <i class="far fa-check-circle"></i>
+                                            <h4 class="inner">Location</h4>
+                                        </a>
                                     </li>
-                                    <li class="item-title active flex align-center box-tab">
-                                        <i class="far fa-check-circle"></i>
-                                        <h4 class="inner">Vente</h4>
+                                    <li class="item-title flex align-center box-tab {{ $activeType == 2 ? 'active' : '' }}">
+                                        <a href="{{ route('all.posts', ['is_immo' => 1, 'type' => 2]) }}" class="flex align-center">
+                                            <i class="far fa-check-circle"></i>
+                                            <h4 class="inner">Vente</h4>
+                                        </a>
                                     </li>
-
-                                    <li class="item-title active flex align-center">
-                                        <i class="far fa-check-circle"></i>
-                                        <h4 class="inner">Bail</h4>
+                                    <li class="item-title flex align-center box-tab {{ $activeType == 3 ? 'active' : '' }}">
+                                        <a href="{{ route('all.posts', ['is_immo' => 1, 'type' => 3]) }}" class="flex align-center">
+                                            <i class="far fa-check-circle"></i>
+                                            <h4 class="inner">Bail</h4>
+                                        </a>
                                     </li>
-
                                 </ul>
                             </div>
+
+
+
+
+
+
                             <div class="content-tab">
                                 <div class="content-inner tab-content">
                                     <div class="form-sl">
@@ -67,55 +66,12 @@
                                                     <input type="search" class="search-field" placeholder="montant max:"
                                                         value="" name="s" title="Search for" required="">
                                                 </div>
-                                                {{-- <div class="form-group-2 form-style">
-                                                    <div class="group-select">
-                                                        <div class="nice-select" tabindex="0"><span class="current">Property
-                                                                type</span>
-                                                            <ul class="list">
-                                                                <li data-value class="option selected">Property type</li>
-                                                                <li data-value="bungalow" class="option">Bungalow</li>
-                                                                <li data-value="apartment" class="option">Apartment</li>
-                                                                <li data-value="house" class="option">House</li>
-                                                                <li data-value="smart-home" class="option">Smart Home</li>
-                                                                <li data-value="Single family home" class="option">Office</li>
-                                                                <li data-value="Multi family home" class="option">Villa</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
+
                                                 <div class="form-group-1 search-form form-style relative">
                                                     <input type="search" class="search-field" placeholder="Quartier"
                                                         value="" name="s" title="Search for" required="">
                                                 </div>
-                                                {{-- <div class="form-group-2 form-style">
-                                                    <div class="group-select">
-                                                        <div class="nice-select" tabindex="0"><span
-                                                                class="current">Baths</span>
-                                                            <ul class="list">
-                                                                <li data-value class="option selected">Baths</li>
-                                                                <li data-value="floating" class="option">Floating baths</li>
-                                                                <li data-value="massage" class="option">Massage baths</li>
-                                                                <li data-value="floor-standing" class="option">Floor-standing
-                                                                    bath</li>
-                                                                <li data-value="built-in" class="option">Built-in baths</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
-                                                {{-- <div class="form-group-3 form-style">
-                                                    <div class="group-select">
-                                                        <div class="nice-select" tabindex="0"><span
-                                                                class="current">Beds</span>
-                                                            <ul class="list">
-                                                                <li data-value class="option selected">Beds</li>
-                                                                <li data-value="twin" class="option">Twin beds</li>
-                                                                <li data-value="bunk" class="option">Bunk beds</li>
-                                                                <li data-value="kids" class="option">Kids beds</li>
-                                                                <li data-value="single" class="option">Single bed</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
+
                                                 <div class="form-group-4 form-style">
                                                     <a class="icon-filter button-top pull-right" href="#">
                                                         <span>Filters</span>
@@ -135,155 +91,9 @@
                                                     </a>
                                                 </div> --}}
                                             </div>
-                                            {{-- <div class="wd-find-select wd-search-form ">
-                                                <div class="box1 flex flex-wrap form-wg">
-                                                    <div class="form-group wg-box3">
-                                                        <div class="group-select">
-                                                            <div class="nice-select" tabindex="0"><span
-                                                                    class="current">Baths: Any</span>
-                                                                <ul class="list">
-                                                                    <li data-value class="option selected">Baths: Any</li>
-                                                                    <li data-value="1" class="option">1</li>
-                                                                    <li data-value="2" class="option">2</li>
-                                                                    <li data-value="3" class="option">3</li>
-                                                                    <li data-value="4" class="option">4</li>
-                                                                    <li data-value="5" class="option">5</li>
-                                                                    <li data-value="6" class="option">6</li>
-                                                                    <li data-value="7" class="option">7</li>
-                                                                    <li data-value="8" class="option">8</li>
-                                                                    <li data-value="9" class="option">9</li>
-                                                                    <li data-value="9" class="option">10</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group wg-box3">
-                                                        <div class="group-select">
-                                                            <div class="nice-select" tabindex="0"><span
-                                                                    class="current">Beds: Any</span>
-                                                                <ul class="list">
-                                                                    <li data-value class="option selected">Beds: Any</li>
-                                                                    <li data-value="1" class="option">1</li>
-                                                                    <li data-value="2" class="option">2</li>
-                                                                    <li data-value="3" class="option">3</li>
-                                                                    <li data-value="4" class="option">4</li>
-                                                                    <li data-value="5" class="option">5</li>
-                                                                    <li data-value="6" class="option">6</li>
-                                                                    <li data-value="7" class="option">7</li>
-                                                                    <li data-value="8" class="option">8</li>
-                                                                    <li data-value="9" class="option">9</li>
-                                                                    <li data-value="9" class="option">10</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group wg-box3">
-                                                        <div class="widget widget-price ">
-                                                            <div class="caption flex-two">
-                                                                <div>
-                                                                    <span class="fw-6">Form</span>
-                                                                    <span id="slider-range-value1"></span>
-                                                                    <span id="slider-range-value2"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div id="slider-range"></div>
-                                                            <div class=" slider-labels">
-                                                                <div>
-                                                                    <input type="hidden" name="min-value" value="">
-                                                                    <input type="hidden" name="max-value" value="">
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- /.widget_price -->
-                                                    </div>
-                                                    <div class="form-group wg-box3">
-                                                        <div class="widget widget-price ">
-                                                            <div class="caption flex-two">
-                                                                <div>
-                                                                    <span class="fw-6">Size</span>
-                                                                    <span id="slider-range-value01"></span>
-                                                                    <span id="slider-range-value02"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div id="slider-range2"></div>
-                                                            <div class="slider-labels">
-                                                                <div>
-                                                                    <input type="hidden" name="min-value2" value="">
-                                                                    <input type="hidden" name="max-value2" value="">
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- /.widget_price -->
-                                                    </div>
-                                                </div>
-                                                <div class="boder-wg"></div>
-                                                <div class="box2 flex flex-wrap form-wg">
-                                                    <div class="form-group wg-box3">
-                                                        <div class="tf-amenities bg-white">
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span
-                                                                    class="fs-13">Swimming pool</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span
-                                                                    class="fs-13">Garage</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span class="fs-13">Alarm
-                                                                    system</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group wg-box3">
-                                                        <div class="tf-amenities bg-white">
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span
-                                                                    class="fs-13">Balcony</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span class="fs-13">Outdoor
-                                                                    area</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span
-                                                                    class="fs-13">Broadband</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group wg-box3">
-                                                        <div class="tf-amenities bg-white">
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span
-                                                                    class="fs-13">Ensuite</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span class="fs-13">Built
-                                                                    in robes</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span
-                                                                    class="fs-13 ">Gym</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group wg-box3">
-                                                        <div class="tf-amenities bg-white">
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span class="fs-13">Tennis
-                                                                    court</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span
-                                                                    class="fs-13">Study</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span class="fs-13">Outdoor
-                                                                    spa</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> --}}
+
                                         </form>
-                                        <!-- End Job  Search Form-->
+
                                     </div>
                                 </div>
 
@@ -291,33 +101,130 @@
                         </div>
                     </div>
                 </div>
+                <section class="flat-sale wg-dream tf-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                    <div class="swiper-container2">
+                                        <div class="one-carousel owl-carousel owl-theme">
+                                            @foreach ($posts as $post)
+                                                <div class="slide-item">
+                                                    <div class="box box-dream hv-one">
+                                                        <div class="image-group relative ">
+                                                            <span class="featured fs-12 fw-6">
+                                                                @if ($post?->category?->type == 1)
+                                                                    Vente
+                                                                @elseif ($post?->category?->type == 2)
+                                                                    Location
+                                                                @else
+                                                                @endif
+                                                            </span>
+                                                            <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
+                                                            <div class="swiper-container noo carousel-2 img-style">
+                                                                <a href="/posts/details/{{ $post?->id }}"
+                                                                    class="icon-plus"><img
+                                                                        src="/front/assets/images/icon/plus.svg"
+                                                                        alt="images"></a>
+                                                                        <div class="swiper-wrapper">
+                                                                            {{-- Photo principale --}}
+                                                                            @if ($post?->photo)
+                                                                                <div class="swiper-slide">
+                                                                                    <img src="{{ $post->photo }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
+                                                                                </div>
+                                                                            @endif
+
+                                                                            {{-- Autres photos --}}
+                                                                            @foreach($post->photos as $photo)
+                                                                                <div class="swiper-slide">
+                                                                                    <img src="{{ asset('storage/' . $photo->path) }}" alt="image supplémentaire"
+                                                                                        style="height: 300px; width: 100%; object-fit: cover;">
+                                                                                </div>
+                                                                            @endforeach
+                                                                        </div>
+
+                                                                <div class="pagi2">
+                                                                    <div class="swiper-pagination2"> </div>
+                                                                </div>
+                                                                <div class="swiper-button-next2 "><i
+                                                                        class="fal fa-arrow-right"></i>
+                                                                </div>
+                                                                <div class="swiper-button-prev2 "><i
+                                                                        class="fal fa-arrow-left"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="content">
+                                                            <h3 class="link-style-1"><a
+                                                                    href="/posts/details/{{ $post?->id }}">{{ $post?->label }}</a>
+                                                            </h3>
+                                                            <div class="text-address">
+                                                                <p class="p-12">{{ $post?->place }}</p>
+                                                            </div>
+                                                            <div class="money fs-18 fw-6 text-color-3"><a
+                                                                    href="/posts/details/{{ $post?->id }}">{{ $post?->price }}
+                                                                    Fcfa</a>
+                                                            </div>
+                                                            <div class="days-box flex justify-space align-center">
+                                                                <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img
+                                                                        src="{{ $post?->user?->avatar }}" class="rounded-circle"
+                                                                        style="width: 35px" alt="images">
+                                                                </div>
+                                                                <div class="days">
+                                                                    {{ formatDate($post?->created_at) }}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
 
     @elseif(request()->query('is_immo') == 2)
 
         <div class="top-filters">
-            <div class="container6">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="title-inner">
+                            <div class="title-group fs-12"><a class="home fw-6 text-color-3"
+                                    href="/">Automobile</a><span>Toutes les publications</span></div>
+                        </div>
+
+                </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="flat-tabs style2 flex">
-                            <div class="box-tab center">
+                            <div class="box-tab flex center">
                                 <ul class="menu-tab tab-title flex">
-                                    <li class="item-title active flex align-center">
-                                        <i class="far fa-check-circle"></i>
-                                        <h4 class="inner">Location</h4>
+                                    <li class="title-item flex align-center box-tab {{ $activeType == 1 ? 'active' : '' }}">
+                                        <a href="{{ route('all.posts', ['is_immo' => 2, 'type' => 1]) }}" class="flex align-center">
+                                            <i class="far fa-check-circle"></i>
+                                            <h4 class="inner">Location</h4>
+                                        </a>
                                     </li>
-                                    <li class="item-title active flex align-center pl-4">
-                                        <i class="far fa-check-circle"></i>
-                                        <h4 class="inner">Vente</h4>
+                                    <li class="item-title flex align-center box-tab {{ $activeType == 2 ? 'active' : '' }}">
+                                        <a href="{{ route('all.posts', ['is_immo' => 2, 'type' => 2]) }}" class="flex align-center">
+                                            <i class="far fa-check-circle"></i>
+                                            <h4 class="inner">Vente</h4>
+                                        </a>
                                     </li>
-                                    {{-- <li class="item-title active flex align-center">
-                                        <i class="far fa-check-circle"></i>
-                                        <h4 class="inner">Bail</h4>
+                                    {{-- <li class="item-title flex align-center box-tab {{ $activeType == 3 ? 'active' : '' }}">
+                                        <a href="{{ route('all.posts', ['is_immo' => 1, 'type' => 3]) }}" class="flex align-center">
+                                            <i class="far fa-check-circle"></i>
+                                            <h4 class="inner">Bail</h4>
+                                        </a>
                                     </li> --}}
-
                                 </ul>
                             </div>
+
+
                             <div class="content-tab">
                                 <div class="content-inner tab-content">
                                     <div class="form-sl">
@@ -401,153 +308,7 @@
                                                     </a>
                                                 </div> --}}
                                             </div>
-                                            {{-- <div class="wd-find-select wd-search-form ">
-                                                <div class="box1 flex flex-wrap form-wg">
-                                                    <div class="form-group wg-box3">
-                                                        <div class="group-select">
-                                                            <div class="nice-select" tabindex="0"><span
-                                                                    class="current">Baths: Any</span>
-                                                                <ul class="list">
-                                                                    <li data-value class="option selected">Baths: Any</li>
-                                                                    <li data-value="1" class="option">1</li>
-                                                                    <li data-value="2" class="option">2</li>
-                                                                    <li data-value="3" class="option">3</li>
-                                                                    <li data-value="4" class="option">4</li>
-                                                                    <li data-value="5" class="option">5</li>
-                                                                    <li data-value="6" class="option">6</li>
-                                                                    <li data-value="7" class="option">7</li>
-                                                                    <li data-value="8" class="option">8</li>
-                                                                    <li data-value="9" class="option">9</li>
-                                                                    <li data-value="9" class="option">10</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group wg-box3">
-                                                        <div class="group-select">
-                                                            <div class="nice-select" tabindex="0"><span
-                                                                    class="current">Beds: Any</span>
-                                                                <ul class="list">
-                                                                    <li data-value class="option selected">Beds: Any</li>
-                                                                    <li data-value="1" class="option">1</li>
-                                                                    <li data-value="2" class="option">2</li>
-                                                                    <li data-value="3" class="option">3</li>
-                                                                    <li data-value="4" class="option">4</li>
-                                                                    <li data-value="5" class="option">5</li>
-                                                                    <li data-value="6" class="option">6</li>
-                                                                    <li data-value="7" class="option">7</li>
-                                                                    <li data-value="8" class="option">8</li>
-                                                                    <li data-value="9" class="option">9</li>
-                                                                    <li data-value="9" class="option">10</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group wg-box3">
-                                                        <div class="widget widget-price ">
-                                                            <div class="caption flex-two">
-                                                                <div>
-                                                                    <span class="fw-6">Form</span>
-                                                                    <span id="slider-range-value1"></span>
-                                                                    <span id="slider-range-value2"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div id="slider-range"></div>
-                                                            <div class=" slider-labels">
-                                                                <div>
-                                                                    <input type="hidden" name="min-value" value="">
-                                                                    <input type="hidden" name="max-value" value="">
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- /.widget_price -->
-                                                    </div>
-                                                    <div class="form-group wg-box3">
-                                                        <div class="widget widget-price ">
-                                                            <div class="caption flex-two">
-                                                                <div>
-                                                                    <span class="fw-6">Size</span>
-                                                                    <span id="slider-range-value01"></span>
-                                                                    <span id="slider-range-value02"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div id="slider-range2"></div>
-                                                            <div class="slider-labels">
-                                                                <div>
-                                                                    <input type="hidden" name="min-value2" value="">
-                                                                    <input type="hidden" name="max-value2" value="">
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- /.widget_price -->
-                                                    </div>
-                                                </div>
-                                                <div class="boder-wg"></div>
-                                                <div class="box2 flex flex-wrap form-wg">
-                                                    <div class="form-group wg-box3">
-                                                        <div class="tf-amenities bg-white">
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span
-                                                                    class="fs-13">Swimming pool</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span
-                                                                    class="fs-13">Garage</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span class="fs-13">Alarm
-                                                                    system</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group wg-box3">
-                                                        <div class="tf-amenities bg-white">
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span
-                                                                    class="fs-13">Balcony</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span class="fs-13">Outdoor
-                                                                    area</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span
-                                                                    class="fs-13">Broadband</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group wg-box3">
-                                                        <div class="tf-amenities bg-white">
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span
-                                                                    class="fs-13">Ensuite</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span class="fs-13">Built
-                                                                    in robes</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span
-                                                                    class="fs-13 ">Gym</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group wg-box3">
-                                                        <div class="tf-amenities bg-white">
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span class="fs-13">Tennis
-                                                                    court</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span
-                                                                    class="fs-13">Study</span>
-                                                            </label>
-                                                            <label class="flex"><input name="newsletter" type="checkbox" />
-                                                                <span class="btn-checkbox"></span><span class="fs-13">Outdoor
-                                                                    spa</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> --}}
+
                                         </form>
                                         <!-- End Job  Search Form-->
                                     </div>
@@ -557,410 +318,114 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-
-    @elseif(request()->query('is_immo') == 7)
-    <section class="flat-title">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title-inner">
-                        <div class="title-group fs-12"><a class="home fw-6 text-color-3"
-                                href="/">Blog</a><span>Toutes les publications</span></div>
-                    </div>
-                </div>
-
-
-                <div>
-                    <!-- Page header with logo and tagline-->
-
-                    <!-- Page content-->
+                <section class="flat-sale wg-dream tf-section">
                     <div class="container">
                         <div class="row">
-                            <!-- Blog entries-->
-                            @foreach ($blogPosts as $post)
-                            <div class="col-lg-8" style="padding-bottom: 30px;">
-                                <!-- Featured blog post-->
+                            <div class="col-lg-12">
 
-                                <div class="card mb-4">
-                                    <a href="{{ route('blog.show', $post->id) }}"><img class="card-img-top" src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" />
-                                    </a>
-                                    <div class="card-body" style="padding: 4px">
-                                        <div class="small text-muted">{{ $post->created_at->format('F d, Y') }}</div>
-                                        <h2 class="card-title h4">{{ $post->title }}</h2>
-                                        <p class="card-text">{{ Str::limit($post->content, 150) }}</p>
-                                        <div style="padding-left: 4px; padding-right: 30px">
-                                            <a class="btn btn-warning" href="{{ route('blog.show', $post->id) }}">Lire plus →</a>
+                                    <div class="swiper-container2">
+                                        <div class="one-carousel owl-carousel owl-theme">
+                                            @foreach ($posts as $post)
+                                                <div class="slide-item">
+                                                    <div class="box box-dream hv-one">
+                                                        <div class="image-group relative ">
+                                                            <span class="featured fs-12 fw-6">
+                                                                @if ($post?->category?->type == 1)
+                                                                    Vente
+                                                                @elseif ($post?->category?->type == 2)
+                                                                    Location
+                                                                @else
+                                                                @endif
+                                                            </span>
+                                                            <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
+                                                            <div class="swiper-container noo carousel-2 img-style">
+                                                                <a href="/posts/details/{{ $post?->id }}"
+                                                                    class="icon-plus"><img
+                                                                        src="/front/assets/images/icon/plus.svg"
+                                                                        alt="images"></a>
+                                                                        <div class="swiper-wrapper">
+                                                                            {{-- Photo principale --}}
+                                                                            @if ($post?->photo)
+                                                                                <div class="swiper-slide">
+                                                                                    <img src="{{ $post->photo }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
+                                                                                </div>
+                                                                            @endif
 
-                                            <!-- Bouton J'aime -->
-                                            <button class="btn btn-outline-primary" onclick="likePost({{ $post->id }})">
-                                                ❤️  (<span id="like-count-{{ $post->id }}">{{ $post->likes_count ?? 0 }}</span>)
-                                            </button>
+                                                                            {{-- Autres photos --}}
+                                                                            @foreach($post->photos as $photo)
+                                                                                <div class="swiper-slide">
+                                                                                    <img src="{{ asset('storage/' . $photo->path) }}" alt="image supplémentaire"
+                                                                                        style="height: 300px; width: 100%; object-fit: cover;">
+                                                                                </div>
+                                                                            @endforeach
+                                                                        </div>
 
-                                            <!-- Bouton Commentaire -->
-                                            <a class="btn btn-outline-secondary" href="{{ route('blog.show', $post->id) }}#comments">
-                                                💬
-                                            </a>
-
-                                            <!-- Bouton Partage -->
-                                            <button class="btn btn-outline-success" onclick="sharePost({{ $post->id }})">
-                                                🔗
-                                            </button>
+                                                                <div class="pagi2">
+                                                                    <div class="swiper-pagination2"> </div>
+                                                                </div>
+                                                                <div class="swiper-button-next2 "><i
+                                                                        class="fal fa-arrow-right"></i>
+                                                                </div>
+                                                                <div class="swiper-button-prev2 "><i
+                                                                        class="fal fa-arrow-left"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="content">
+                                                            <h3 class="link-style-1"><a
+                                                                    href="/posts/details/{{ $post?->id }}">{{ $post?->label }}</a>
+                                                            </h3>
+                                                            <div class="text-address">
+                                                                <p class="p-12">{{ $post?->place }}</p>
+                                                            </div>
+                                                            <div class="money fs-18 fw-6 text-color-3"><a
+                                                                    href="/posts/details/{{ $post?->id }}">{{ $post?->price }}
+                                                                    Fcfa</a>
+                                                            </div>
+                                                            <div class="days-box flex justify-space align-center">
+                                                                <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img
+                                                                        src="{{ $post?->user?->avatar }}" class="rounded-circle"
+                                                                        style="width: 35px" alt="images">
+                                                                </div>
+                                                                <div class="days">
+                                                                    {{ formatDate($post?->created_at) }}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                         </div>
-
-
                                     </div>
-                                </div>
-
-                            </div>
-                            @endforeach
-                            <!-- Side widgets-->
-
-                                <!-- Categories widget-->
-
-                                <!-- Side widget-->
-
                             </div>
                         </div>
                     </div>
-                </div>
-
-
-                {{-- <div class="col d-flex pb-2 gap-3 justify-content-center mb-4">
-                    <div class="col-md-4">
-                        <button class="btn button btn-warning w-100" onclick="filterResults()">Location</button>
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn button btn-warning w-100" onclick="filterResults()">Vente</button>
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn button btn-warning w-100" onclick="filterResults()">Bail</button>
-                    </div>
-                </div> --}}
-
-                {{-- <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="true">Home</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">Profile</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">Contact</button>
-                    </li>
-                  </ul> --}}
-
-
-
-
+                </section>
             </div>
-
         </div>
 
-    </section>
 
-
-
-    @elseif(request()->query('is_immo') == 8)
-
-    <section class="flat-title">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title-inner">
-                        <div class="title-group fs-12"><a class="home fw-6 text-color-3"
-                                href="/">Hebdomadaires</a><span>Toutes les publications</span></div>
-                    </div>
-
-                </div>
-
-                <div>
-                    <!-- Page header with logo and tagline-->
-
-                    <!-- Page content-->
-                    <div class="container">
-                        <div class="row">
-                            <!-- Blog entries-->
-                            @foreach ($blogPosts as $post)
-                            <div class="col-lg-8" style="padding-bottom: 30px;">
-                                <!-- Featured blog post-->
-
-                                <div class="card mb-4">
-                                    <a href="{{ route('blog.show', $post->id) }}"><img class="card-img-top" src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" />
-                                    </a>
-                                    <div class="card-body" style="padding: 4px">
-                                        <div class="small text-muted">{{ $post->created_at->format('F d, Y') }}</div>
-                                        <h2 class="card-title h4">{{ $post->title }}</h2>
-                                        <p class="card-text">{{ Str::limit($post->content, 150) }}</p>
-                                        <div style="padding-left: 4px; padding-right: 30px">
-                                            <a class="btn btn-warning" href="{{ route('blog.show', $post->id) }}">Lire plus →</a>
-
-                                            <!-- Bouton J'aime -->
-                                            <button class="btn btn-outline-primary" onclick="likePost({{ $post->id }})">
-                                                ❤️  (<span id="like-count-{{ $post->id }}">{{ $post->likes_count ?? 0 }}</span>)
-                                            </button>
-
-                                            <!-- Bouton Commentaire -->
-                                            <a class="btn btn-outline-secondary" href="{{ route('blog.show', $post->id) }}#comments">
-                                                💬
-                                            </a>
-
-                                            <!-- Bouton Partage -->
-                                            <button class="btn btn-outline-success" onclick="sharePost({{ $post->id }})">
-                                                🔗
-                                            </button>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            @endforeach
-                            <!-- Side widgets-->
-
-                                <!-- Categories widget-->
-
-                                <!-- Side widget-->
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-    @elseif(request()->query('is_immo') == 10)
-    <section class="flat-title">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title-inner">
-                        <div class="title-group fs-12"><a class="home fw-6 text-color-3"
-                                href="/">Accueil1</a><span>Toutes les publications</span></div>
-                    </div>
-
-                </div>
-
-                {{-- <div class="col d-flex pb-2 gap-3 justify-content-center mb-4">
-                    <div class="col-md-4">
-                        <button class="btn button btn-warning w-100" onclick="filterResults()">Location</button>
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn button btn-warning w-100" onclick="filterResults()">Vente</button>
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn button btn-warning w-100" onclick="filterResults()">Bail</button>
-                    </div>
-                </div> --}}
-
-                {{-- <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="true">Home</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">Profile</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">Contact</button>
-                    </li>
-                  </ul> --}}
-
-
-
-
-            </div>
-
-        </div>
-
-    </section>
 
     @endif
+    <script>
+        function setActive(element) {
+                // Retirer la classe active de tous les éléments
+                const items = document.querySelectorAll('.menu-tab .box-tab');
+                items.forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Ajouter la classe active à l'élément cliqué
+                element.classList.add('active');
+        }
+
+    </script>
+
+<script>
+    function filterByType(type) {
+        window.location.href = `is_immo=1?type=${type}`;
+    }
+</script>
 
 
 
-
-    <section class="flat-featured flat-property-grid flat-property tf-section2 wg-dream home2">
-        <div class="container">
-            <div class="row d-flex">
-
-                {{-- <div class="col d-flex py-6 gap-3 justify-content-center mb-4">
-                    <div class="col-md-4">
-                        <input class="form-control mb-3 " placeholder="montant min:" type="text">
-                    </div>
-                    <div class="col-md-4">
-                        <input class="form-control mb-3 " placeholder="montant max:" type="text">
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn button btn-warning w-100" onclick="filterResults()">Rechercher</button>
-                    </div>
-                </div> --}}
-
-
-
-                    {{-- <div class="category-filter flex justify-space align-center">
-
-                        <div class="box-1 flex align-center">
-                            <div class="heading-listing fs-30 lh-45 fw-7">Publications</div>
-                            <div class="">Affichage de {{ $posts->count() }} resultats.</div>
-                        </div>
-                        {{-- <div class="box-2 flex">
-                            <a href="#" class="btn-view grid active">
-                                <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M5.04883 6.40508C5.04883 5.6222 5.67272 5 6.41981 5C7.16686 5 7.7908 5.62221 7.7908 6.40508C7.7908 7.18801 7.16722 7.8101 6.41981 7.8101C5.67241 7.8101 5.04883 7.18801 5.04883 6.40508Z"
-                                        stroke="#8E8E93" />
-                                    <path
-                                        d="M11.1045 6.40508C11.1045 5.62221 11.7284 5 12.4755 5C13.2229 5 13.8466 5.6222 13.8466 6.40508C13.8466 7.18789 13.2227 7.8101 12.4755 7.8101C11.7284 7.8101 11.1045 7.18794 11.1045 6.40508Z"
-                                        stroke="#8E8E93" />
-                                    <path
-                                        d="M19.9998 6.40514C19.9998 7.18797 19.3757 7.81016 18.6288 7.81016C17.8818 7.81016 17.2578 7.18794 17.2578 6.40508C17.2578 5.62211 17.8813 5 18.6288 5C19.3763 5 19.9998 5.62215 19.9998 6.40514Z"
-                                        stroke="#8E8E93" />
-                                    <path
-                                        d="M7.74249 12.5097C7.74249 13.2926 7.11849 13.9147 6.37133 13.9147C5.62411 13.9147 5 13.2926 5 12.5097C5 11.7267 5.62419 11.1044 6.37133 11.1044C7.11842 11.1044 7.74249 11.7266 7.74249 12.5097Z"
-                                        stroke="#8E8E93" />
-                                    <path
-                                        d="M13.7976 12.5097C13.7976 13.2927 13.1736 13.9147 12.4266 13.9147C11.6795 13.9147 11.0557 13.2927 11.0557 12.5097C11.0557 11.7265 11.6793 11.1044 12.4266 11.1044C13.1741 11.1044 13.7976 11.7265 13.7976 12.5097Z"
-                                        stroke="#8E8E93" />
-                                    <path
-                                        d="M19.9516 12.5097C19.9516 13.2927 19.328 13.9147 18.5807 13.9147C17.8329 13.9147 17.209 13.2925 17.209 12.5097C17.209 11.7268 17.8332 11.1044 18.5807 11.1044C19.3279 11.1044 19.9516 11.7265 19.9516 12.5097Z"
-                                        stroke="#8E8E93" />
-                                    <path
-                                        d="M5.04297 18.5947C5.04297 17.8118 5.66709 17.1896 6.4143 17.1896C7.16137 17.1896 7.78523 17.8116 7.78523 18.5947C7.78523 19.3778 7.16139 19.9997 6.4143 19.9997C5.66714 19.9997 5.04297 19.3773 5.04297 18.5947Z"
-                                        stroke="#8E8E93" />
-                                    <path
-                                        d="M11.0986 18.5947C11.0986 17.8118 11.7227 17.1896 12.47 17.1896C13.2169 17.1896 13.8409 17.8117 13.8409 18.5947C13.8409 19.3778 13.2169 19.9997 12.47 19.9997C11.7225 19.9997 11.0986 19.3774 11.0986 18.5947Z"
-                                        stroke="#8E8E93" />
-                                    <path
-                                        d="M17.252 18.5947C17.252 17.8117 17.876 17.1896 18.6229 17.1896C19.3699 17.1896 19.9939 17.8117 19.9939 18.5947C19.9939 19.3778 19.3702 19.9997 18.6229 19.9997C17.876 19.9997 17.252 19.3774 17.252 18.5947Z"
-                                        stroke="#8E8E93" />
-                                </svg>
-                            </a>
-                            <a href="#" class="btn-view list">
-                                <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19.7016 18.3317H9.00246C8.5615 18.3317 8.2041 17.9743 8.2041 17.5333C8.2041 17.0923 8.5615 16.7349 9.00246 16.7349H19.7013C20.1423 16.7349 20.4997 17.0923 20.4997 17.5333C20.4997 17.9743 20.1426 18.3317 19.7016 18.3317Z"
-                                        fill="#8E8E93" />
-                                    <path
-                                        d="M19.7016 13.3203H9.00246C8.5615 13.3203 8.2041 12.9629 8.2041 12.5219C8.2041 12.081 8.5615 11.7236 9.00246 11.7236H19.7013C20.1423 11.7236 20.4997 12.081 20.4997 12.5219C20.5 12.9629 20.1426 13.3203 19.7016 13.3203Z"
-                                        fill="#8E8E93" />
-                                    <path
-                                        d="M19.7016 8.30919H9.00246C8.5615 8.30919 8.2041 7.95179 8.2041 7.51083C8.2041 7.06986 8.5615 6.71246 9.00246 6.71246H19.7013C20.1423 6.71246 20.4997 7.06986 20.4997 7.51083C20.4997 7.95179 20.1426 8.30919 19.7016 8.30919Z"
-                                        fill="#8E8E93" />
-                                    <path
-                                        d="M5.5722 8.64465C6.16436 8.64465 6.6444 8.16461 6.6444 7.57245C6.6444 6.98029 6.16436 6.50024 5.5722 6.50024C4.98004 6.50024 4.5 6.98029 4.5 7.57245C4.5 8.16461 4.98004 8.64465 5.5722 8.64465Z"
-                                        fill="#8E8E93" />
-                                    <path
-                                        d="M5.5722 13.5942C6.16436 13.5942 6.6444 13.1141 6.6444 12.522C6.6444 11.9298 6.16436 11.4498 5.5722 11.4498C4.98004 11.4498 4.5 11.9298 4.5 12.522C4.5 13.1141 4.98004 13.5942 5.5722 13.5942Z"
-                                        fill="#8E8E93" />
-                                    <path
-                                        d="M5.5722 18.5438C6.16436 18.5438 6.6444 18.0637 6.6444 17.4716C6.6444 16.8794 6.16436 16.3994 5.5722 16.3994C4.98004 16.3994 4.5 16.8794 4.5 17.4716C4.5 18.0637 4.98004 18.5438 5.5722 18.5438Z"
-                                        fill="#8E8E93" />
-                                </svg>
-                            </a>
-                            <div class="wd-find-select flex">
-                                <div class="group-select">
-                                    <div class="nice-select" tabindex="0"><span class="current">Show: 50</span>
-                                        <ul class="list style">
-                                            <li data-value="10" class="option">Show: 10</li>
-                                            <li data-value="30" class="option">Show: 30</li>
-                                            <li data-value="50" class="option selected">Show: 50</li>
-                                            <li data-value="100" class="option">Show: 100</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="group-select">
-                                    <div class="nice-select" tabindex="0"><span class="current">Default order</span>
-                                        <ul class="list style">
-                                            <li data-value class="option selected">Default order</li>
-                                            <li data-value="by-latest" class="option">All </li>
-                                            <li data-value="low-to-high" class="option">Low to high</li>
-                                            <li data-value="high-to-low" class="option">High to low</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-                </div>
-                @foreach ($posts as $post)
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="box box-dream hv-one style-dream">
-                            <div class="image-group relative ">
-                                <span class="featured fs-12 fw-6">
-                                    @if ($post->category->type == 1)
-                                        Vente
-                                    @elseif ($post->category->type == 2)
-                                        Location
-                                    @else
-                                    @endif
-                                </span>
-                                <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
-                                <div class="swiper-container noo carousel-2 img-style">
-                                    <a href="/posts/details/{{ $post->id }}" class="icon-plus"><img
-                                            src="/front/assets/images/icon/plus.svg" alt="images"></a>
-                                    <div class="swiper-wrapper ">
-                                        <div class="swiper-slide"><img src="{{ $post->photo }}" alt="images"
-                                                style="height: 250px"></div>
-                                        @foreach ($post->photos as $image)
-                                            <div class="swiper-slide"><img src="{{ $image->photo }}" alt="images"
-                                                    style="height: 250px"></div>
-                                        @endforeach
-                                    </div>
-                                    <div class="pagi2">
-                                        <div class="swiper-pagination2"> </div>
-                                    </div>
-                                    <div class="swiper-button-next2 "><i class="fal fa-arrow-right"></i></div>
-                                    <div class="swiper-button-prev2 "><i class="fal fa-arrow-left"></i> </div>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <h3 class="link-style-1"><a
-                                        href="/posts/details/{{ $post->id }}">{{ $post->label }}</a>
-                                </h3>
-                                <div class="text-address">
-                                    <p class="p-12">{{ $post->place }}</p>
-                                </div>
-                                <div class="money fs-18 fw-6 text-color-3"><a
-                                        href="/posts/details/{{ $post->id }}">{{ $post->price }}
-                                        Fcfa</a>
-                                </div>
-                                <div class="days-box flex justify-space align-center">
-                                    <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img
-                                            src="{{ $post->user?->avatar }}" class="rounded-circle" style="width: 35px"
-                                            alt="images"></div>
-                                    <div class="days">{{ formatDate($post->created_at) }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                <div class="col-lg-12">
-                    <div class="themesflat-pagination clearfix center style">
-                        <ul>
-                            <li><a href="#" class="page-numbers style"><i class="far fa-angle-left"></i></a>
-                            </li>
-                            <li><a href="#" class="page-numbers current">1</a></li>
-                            <li><a href="#" class="page-numbers style"><i class="far fa-angle-right"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
 @endsection

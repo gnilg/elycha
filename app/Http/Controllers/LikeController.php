@@ -8,33 +8,36 @@ use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
 {
-    //
-    public function like(Request $request)
+
+    public function toggle(Request $request)
+
     {
+
+
         $request->validate([
-            'likeable_id' => 'required|integer',
-            'likeable_type' => 'required|string',
+            'post_id' => 'required|integer',
         ]);
 
-        $user = Auth::user();
+        $user = auth()->user();
+        $post = \App\Models\Post::findOrFail($request->post_id);
 
-        $like = Like::where('user_id', $user->id)
-            ->where('likeable_id', $request->likeable_id)
-            ->where('likeable_type', $request->likeable_type)
-            ->first();
+        $like = $post->likes()->where('user_id', $user->id)->first();
 
         if ($like) {
-            // Si déjà liké, on supprime
             $like->delete();
-            return response()->json(['message' => 'Like retiré']);
+            $liked = false;
         } else {
-            // Sinon, on ajoute un like
-            Like::create([
-                'user_id' => $user->id,
-                'likeable_id' => $request->likeable_id,
-                'likeable_type' => $request->likeable_type,
-            ]);
-            return response()->json(['message' => 'Like ajouté']);
+            $post->likes()->create(['user_id' => $user->id]);
+            $liked = true;
         }
+
+        return response()->json([
+            'liked' => $liked,
+            'count' => $post->likes()->count(),
+        ]);
     }
+
+    //
+
+    
 }

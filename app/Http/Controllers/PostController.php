@@ -17,6 +17,7 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
+        $post->increment('views');
         return view('admin.dashboard.blog.show', compact('post'));
     }
 

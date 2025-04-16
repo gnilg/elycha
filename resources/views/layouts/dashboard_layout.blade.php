@@ -97,10 +97,10 @@
                                     <div class="header-account flex align-center">
                                         <div class="avatars-box flex align-center">
                                             <div class="images flex-none">
-                                                <img src="{{ getUserLogged()->avatar }}" alt="">
+                                                <img src="{{ auth()->user()?->avatar }}" alt="">
                                             </div>
                                             <div class="title-avatar fw-6"><a
-                                                    href="#">{{ getUserLogged()->first_name . ' ' . getUserLogged()->last_name }}</a>
+                                                    href="#">{{ auth()->user()?->first_name . ' ' . auth()->user()->last_name }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -127,7 +127,11 @@
                     <!-- Logo Box -->
                     <div class="logo-box d-flex">
                         <div class="logo text-center">
-                            <a href="@if (getUserLogged()->type_user == 1) /client/dashboard @else /agent/dashboard @endif">
+                            <a href="@if (auth()->user()->type_user == 1) /client/dashboard
+                                @elseif( auth()->user()->type_user == 2 ) /agent/dashboard
+                                @elseif( auth()->user()->type_user == 3 ) /architecte/dashboard
+                                @elseif( auth()->user()->type_user == 4 ) /societe/dashboard
+                                 @endif">
                                 <img src="/front/assets/images/logo/logo.png" alt="" style="width:60%"
                                     class="img-logo">
                                 <img src="/front/assets/images/logo/toggle-logo%402x.png" alt="" width="46"
@@ -137,28 +141,49 @@
                     </div>
                     <div class="profile-box">
                         <div class="title-1 fw-6">
-                            @if (getUserLogged()->type_user == 1)
+                            @if (auth()->user()->type_user == 1)
                                 Client
-                            @else
+                            @elseif (auth()->user()->type_user == 2)
                                 Agent
+                            @elseif (auth()->user()->type_user == 3)
+                                Architecte
+                            @elseif (auth()->user()->type_user == 4)
+                                Societe
+                            @elseif (auth()->user()->type_user == 5)
+                                Organe
                             @endif
+
                         </div>
                         <div class="avatar-box flex align-center">
                             <div class="avatar flex-none">
-                                <img src="{{ getUserLogged()->avatar }}" class="rounded-circle" alt=""
+                                <img src="{{ auth()->user()->avatar }}" class="rounded-circle" alt=""
                                     title="">
                             </div>
                             <div class="content">
                                 <div class="sub-title fs-12 lh-18">
-                                    {{ getUserLogged()->first_name . ' ' . getUserLogged()->last_name }}</div>
-                                <div class="titles fw-6"><a href="#">{{ getUserLogged()->telephone }}</a> </div>
+                                    {{ auth()->user()->first_name . ' ' . auth()->user()->last_name }}</div>
+                                <div class="titles fw-6"><a href="#">{{ auth()->user()->telephone }}</a> </div>
                             </div>
                         </div>
                     </div>
                     <div class="title-2 fw-6">Menu</div>
                     <ul class="downmenu list-unstyled" id="side-menu">
                         <li>
-                            <a href="@if (getUserLogged()->type_user == 1) /client/dashboard @else /agent/dashboard @endif"
+                            @php
+                                    $dashboardRoutes = [
+                                        1 => '/client/dashboard',
+                                        2 => '/agent/dashboard',
+                                        3 => '/architecte/dashboard',
+                                        4 => '/societe/dashboard',
+                                    ];
+
+                                    // Récupération du type d'utilisateur
+                                    $userType = optional(auth()->user())->type_user;
+
+                                    // Définition du lien du tableau de bord avec une valeur par défaut
+                                    $dashboardLink = $dashboardRoutes[$userType] ?? '/dashboard';
+                                @endphp
+                            <a href="{{$dashboardLink}}"
                                 class="tf-effect">
                                 <span class="icon-dash dash-icon">
                                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
@@ -198,7 +223,7 @@
                                 <span class="dash-titles">Mon compte</span>
                             </a>
                         </li>
-                        @if (getUserLogged()->type_user == 1)
+                        @if (auth()->user()->type_user == 1)
                             <li>
                                 <a href="#" class="tf-effect">
                                     <span class="icon-save-candidate dash-icon">
@@ -216,28 +241,58 @@
                                     <span class="dash-titles">Mes favoris</span>
                                 </a>
                             </li>
-                        @else
+                            @else
+                            @if (auth()->user()->type_user == 5)
                             <li>
-                                <a href="/agent/posts" class="tf-effect">
-                                    <span class="icon-applicant dash-icon">
+                                <a href="/organe/posts/blog" class="tf-effect">
+                                    <span class="icon-save-candidate dash-icon">
                                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M10.533 2.55658H7.10561C4.28686 2.55658 2.51953 4.55216 2.51953 7.37733V14.9985C2.51953 17.8237 4.27861 19.8192 7.10561 19.8192H15.1943C18.0222 19.8192 19.7813 17.8237 19.7813 14.9985V11.3062"
-                                                stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M8.09012 10.0108L14.9404 3.16055C15.7938 2.30805 17.177 2.30805 18.0305 3.16055L19.146 4.27614C19.9995 5.12955 19.9995 6.51372 19.146 7.36622L12.2628 14.2495C11.8897 14.6226 11.3837 14.8325 10.8557 14.8325H7.42188L7.50804 11.3675C7.52087 10.8578 7.72896 10.372 8.09012 10.0108Z"
+                                                d="M2.63385 10.6318C1.65026 7.56096 2.79976 4.05104 6.02368 3.01246C7.71951 2.46521 9.59135 2.78788 11.0012 3.84846C12.3349 2.81721 14.2755 2.46888 15.9695 3.01246C19.1934 4.05104 20.3503 7.56096 19.3676 10.6318C17.8368 15.4993 11.0012 19.2485 11.0012 19.2485C11.0012 19.2485 4.21601 15.5561 2.63385 10.6318Z"
                                                 stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round"
                                                 stroke-linejoin="round" />
-                                            <path d="M13.8984 4.21893L18.0839 8.40443" stroke="#F1FAEE"
-                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M14.668 6.14166C15.6488 6.45883 16.3418 7.33425 16.4252 8.36183"
+                                                stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <span class="dash-titles">Blog</span>
+                                </a>
+                            </li>
+                            @endif
+                            <li>
+                                @php
+                                    $dashboardRoutes = [
+                                        1 => '/client/posts',
+                                        2 => '/agent/posts',
+                                        3 => '/architecte/posts',
+                                        4 => '/societe/posts',
+                                        5 => '/organe/posts'
+                                    ];
+
+                                    // Récupération du type d'utilisateur
+                                    $userType = optional(auth()->user())->type_user;
+
+                                    // Définition du lien du tableau de bord avec une valeur par défaut
+                                    $dashboardLink = $dashboardRoutes[$userType] ?? '/dashboard';
+                                @endphp
+
+                                <a href="{{ $dashboardLink }}" class="tf-effect">
+                                    <span class="icon-applicant dash-icon">
+                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10.533 2.55658H7.10561C4.28686 2.55658 2.51953 4.55216 2.51953 7.37733V14.9985C2.51953 17.8237 4.27861 19.8192 7.10561 19.8192H15.1943C18.0222 19.8192 19.7813 17.8237 19.7813 14.9985V11.3062"
+                                                stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.09012 10.0108L14.9404 3.16055C15.7938 2.30805 17.177 2.30805 18.0305 3.16055L19.146 4.27614C19.9995 5.12955 19.9995 6.51372 19.146 7.36622L12.2628 14.2495C11.8897 14.6226 11.3837 14.8325 10.8557 14.8325H7.42188L7.50804 11.3675C7.52087 10.8578 7.72896 10.372 8.09012 10.0108Z"
+                                                stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.8984 4.21893L18.0839 8.40443" stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
                                     </span>
                                     <span class="dash-titles">Mes publications</span>
                                 </a>
                             </li>
                         @endif
+
                         <li>
                             <a href="/user/update-password" class="tf-effect">
                                 <span class="icon-change-passwords dash-icon">
@@ -253,6 +308,24 @@
                                     </svg>
                                 </span>
                                 <span class="dash-titles">Changer de mot de passe</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="tf-effect">
+                                <span class="icon-log-out dash-icon">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M13.7627 6.77369V5.91844C13.7627 4.05303 12.2502 2.54053 10.3848 2.54053H5.91606C4.05156 2.54053 2.53906 4.05303 2.53906 5.91844V16.1209C2.53906 17.9864 4.05156 19.4989 5.91606 19.4989H10.394C12.2539 19.4989 13.7627 17.9909 13.7627 16.131V15.2666"
+                                            stroke="#F1FAEE" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M19.9907 11.0196H8.95312" stroke="#F1FAEE" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M17.3047 8.34741L19.9887 11.0195L17.3047 13.6925" stroke="#F1FAEE"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                                <span class="dash-titles">Accueil</span>
                             </a>
                         </li>
                         <li>

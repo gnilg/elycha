@@ -11,11 +11,21 @@ class Post extends Model
     use HasFactory;
 
 
-    protected $fillable = ['title', 'slug', 'content', 'image', 'admin_id'];
+    protected $fillable = ['title', 'slug', 'content', 'image', 'admin_id','type'];
 
     public function admin()
     {
         return $this->belongsTo(Admin::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
     public function likes(): MorphMany

@@ -33,10 +33,10 @@
                                     {{-- <img src="{{ $post->photo }}" style="width: 100%;" alt="images"> --}}
                                 </div>
                             </div>
-                            @foreach ($post->photos as $image)
+                            @foreach ($post->images as $image)
                                 <div class="swiper-slide">
                                     <div class="image-detail"
-                                        style="height: 500px;background-color:black;background-image:url({{ $image->photo }});background-size:cover;background-position:center">
+                                        style="height: 500px;background-color:black;background-image:url({{ asset('storage/'.$image) }});background-size:cover;background-position:center">
                                     </div>
                                 </div>
                                 {{-- <div class="swiper-slide">
@@ -66,9 +66,9 @@
                             <div class="title-heading fs-30 fw-7 lh-45">{{ $post->label }}</div>
                             <div class="inner flex">
                                 <div class="sales fs-12 fw-7 font-2 text-color-1">
-                                    @if ($post->category->type == 1)
+                                    @if ($post->category?->type == 1)
                                         Vente
-                                    @elseif ($post->category->type == 2)
+                                    @elseif ($post->category?->type == 2)
                                         Location
                                     @else
                                     @endif
@@ -158,7 +158,7 @@
                                 @foreach ($posts as $post)
                                     <div class="box-listings flex hover-img3">
                                         <div class="img-listings img-style3">
-                                            <img src="{{ $post->photo }}" style="width:80px;" alt="images">
+                                            <img src="{{ asset('storage/' . $post->image) }}" style="width:80px;" alt="images">
                                         </div>
                                         <div class="content link-style-1">
                                             <a class="fs-16 lh-24" href="/posts/details/{{ $post->id }}">

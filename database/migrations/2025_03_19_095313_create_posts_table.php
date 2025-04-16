@@ -16,8 +16,12 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('content');
+            $table->integer('type');
+            $table->integer('views')->default(0);
             $table->string('image')->nullable();
-            $table->foreignId('admin_id')->constrained()->onDelete('cascade');
+            $table->foreignId('comment_id')->nullable()->constrained('users')->onDelete('cascade');
+            $table->foreignId('admin_id')->nullable()->constrained('admins')->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

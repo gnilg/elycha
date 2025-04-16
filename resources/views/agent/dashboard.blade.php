@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="box tf-counter flex  bg-white">
+                        {{-- <div class="box tf-counter flex  bg-white">
                             <div class="icons">
                                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +128,7 @@
                                         data-inviewport="yes"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
 
                 </div>

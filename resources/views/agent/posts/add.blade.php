@@ -21,18 +21,18 @@
                             <h3 class="titles">Photo principale</h3>
                             <div class="wrap-upload center">
                                 <div class="box-upload">
-                                    <div class="img-up relative">
-                                        <img class="avatar rounded" style="width: 100px" id="profileimg"
-                                            src="/front/assets/images/icon/icon-upload.png" alt="">
-                                    </div>
                                     <div class="button-box relative" id="upload-profile">
                                         <a href="#" class="btn-upload sc-button">
-                                            <span>Choisir une photo</span> </a>
-                                        <input id="tf-upload-img" type="file" name="photo" required>
+                                            <span>Choisir des photos</span>
+                                        </a>
+                                        <input id="tf-upload-img" type="file" name="photos[]" multiple required accept="image/*" style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer;">
                                     </div>
                                 </div>
                             </div>
+                            <!-- Prévisualisation -->
+                            <div id="preview-container" style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;"></div>
                         </div>
+
                         <div class="tf-infomation bg-white">
                             <h3 class="titles">Informations</h3>
                             <div class="info-box info-wg">
@@ -97,36 +97,24 @@
                                                 onclick="chooseCategory(2)" id="autoBtn"
                                                 style="margin-left:5px;margin-right:5px;margin-bottom:5px">Automobile
                                             </button>
-                                            <button type="button" class="btn btn-black col-lg-5"
-                                                onclick="chooseCategory(3)" id="autoBtn"
-                                                style="margin-left:5px;margin-right:5px;margin-bottom:5px">Architecture
-                                            </button>
-                                            <button type="button" class="btn btn-black col-lg-5"
-                                                onclick="chooseCategory(4)" id="autoBtn"
-                                                style="margin-left:5px;margin-right:5px;margin-bottom:5px">Hôtelerie
-                                            </button>
-                                            <button type="button" class="btn btn-black col-lg-5"
-                                                onclick="chooseCategory(5)" id="autoBtn"
-                                                style="margin-left:5px;margin-right:5px;margin-bottom:5px">Hebdo
-                                            </button>
-                                            <button type="button" class="btn btn-black col-lg-5"
-                                                onclick="chooseCategory(6)" id="autoBtn"
-                                                style="margin-left:5px;margin-right:5px;margin-bottom:5px">Service
-                                            </button>
+
+
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
-                                    <button type="button" class="btn btn-black col-lg-3" onclick="chooseType(2,this)"
-                                        style="margin-left:5px;margin-right:5px;margin-bottom:5px">Location</button>
+                                    <input type="hidden" name="type" id="type" value="">
+
                                     <button type="button" class="btn btn-black col-lg-3" onclick="chooseType(1,this)"
+                                        style="margin-left:5px;margin-right:5px;margin-bottom:5px">Location</button>
+                                    <button type="button" class="btn btn-black col-lg-3" onclick="chooseType(2,this)"
                                         style="margin-left:5px;margin-right:5px;margin-bottom:5px">Vente</button>
                                     <button type="button" class="btn btn-black col-lg-3" id="otherType"
                                         onclick="chooseType(3,this)"
                                         style="margin-left:5px;margin-right:5px;margin-bottom:5px">Bail</button>
                                 </div>
                                 <br>
-                                <div class="inner-1">
+                                {{-- <div class="inner-1">
                                     <div class="wg-box2 select-group">
                                         <label class="title-user fw-6">Sous-catégorie</label>
                                         <div class="nice-select" tabindex="0">
@@ -136,7 +124,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="tf-save">
@@ -153,51 +141,61 @@
     </section>
 @endsection
 @section('scripts')
-    <script>
-        category = 1;
+<script>
+    // Choix de catégorie (immobilier ou automobile)
+    let category = 1;
 
-        function chooseCategory(type) {
-            category = type;
-            if (type == 1) {
-                document.getElementById('immoBtn').classList.add("bg-primary");
-                document.getElementById('autoBtn').classList.remove("bg-primary");
-                document.getElementById('otherType').innerHTML = "Bail";
-            }   
-             else {
-                document.getElementById('immoBtn').classList.remove("bg-primary");
-                document.getElementById('autoBtn').classList.add("bg-primary");
-                document.getElementById('otherType').innerHTML = "Vente de pièces";
+    function chooseCategory(type) {
+        category = type;
+        document.getElementById('category').value = type; // ← ici on met à jour le champ caché
+
+        if (type == 1) {
+            document.getElementById('immoBtn').classList.add("bg-primary");
+            document.getElementById('autoBtn').classList.remove("bg-primary");
+            document.getElementById('otherType').innerHTML = "Bail";
+        } else {
+            document.getElementById('immoBtn').classList.remove("bg-primary");
+            document.getElementById('autoBtn').classList.add("bg-primary");
+            document.getElementById('otherType').innerHTML = ""; // ou cache le bouton bail si tu veux
+        }
+    }
+
+
+    function chooseType(type, self) {
+    try {
+        const items = document.getElementsByClassName('primary-background');
+        items[0].classList.remove("primary-background");
+    } catch (error) {}
+    self.classList.add("primary-background");
+
+    document.getElementById('type').value = type; // ← important
+}
+
+
+    // Preview des images sélectionnées
+    document.getElementById('tf-upload-img').addEventListener('change', function(event) {
+        const files = event.target.files;
+        const previewContainer = document.getElementById('preview-container');
+        previewContainer.innerHTML = ''; // reset avant de prévisualiser
+
+        Array.from(files).forEach(file => {
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.style.width = '100px';
+                    img.style.height = '100px';
+                    img.style.objectFit = 'cover';
+                    img.classList.add('rounded');
+                    previewContainer.appendChild(img);
+                };
+                reader.readAsDataURL(file);
             }
-        }
+        });
+    });
 
-        function chooseType(type, self) {
-
-            try {
-                var items = document.getElementsByClassName('primary-background');
-                items[0].classList.remove("primary-background")
-            } catch (error) {}
-            self.classList.add("primary-background");
-            getSubCategories(type);
-
-
-        }
-
-        function getSubCategories(id) {
-            document.getElementById("items-list").innerHTML = '<li data-value class="option selected">Choisir</li>';
-
-            $.get("/api/categories/" + id + "/" + category, function(data, status) {
-                data.forEach(element => {
-                    document.getElementById("items-list").innerHTML +=
-                        "<li class='option' onclick='setData(" + element.id + ")' data-value='" + element
-                        .id + "'>" + element.label +
-                        "</li>";
-                });
-            });
-        }
-
-        function setData(id) {
-            document.getElementById('category').value = id;
-        }
-        chooseCategory(1);
-    </script>
+    // Sélection par défaut
+    chooseCategory(1);
+</script>
 @endsection

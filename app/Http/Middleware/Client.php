@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class Client
@@ -15,8 +16,8 @@ class Client
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!$request->session()->get('is_client')) {
-            return redirect('/')->with('flash_message_error', 'Accès intedit! Veuillez vous connecter.');
+        if (!Auth::check() || Auth::user()->type_user !== 1) {
+            return redirect('/')->with('flash_message_error', 'Accès interdit!');
         }
         return $next($request);
     }

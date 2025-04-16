@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\User\FrontController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -19,12 +20,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/posts', [FrontController::class, 'allPosts'])->name('all.posts');
+
+
 Route::get('/', 'App\Http\Controllers\User\FrontController@index');
 Route::get('/about', 'App\Http\Controllers\User\FrontController@about');
 Route::match(['get', 'post'], '/privacy-policy', 'App\Http\Controllers\User\FrontController@policy');
 Route::match(['get', 'post'], '/cgu', 'App\Http\Controllers\User\FrontController@cgu');
 
-Route::post('/like', [LikeController::class, 'like'])->middleware('auth');
+
+Route::middleware('auth')->post('/like-toggle', [LikeController::class, 'toggle'])->name('like.toggle');
+
 
 Route::prefix('auth')->group(function () {
     Route::match(['get', 'post'], '/register', 'App\Http\Controllers\User\AuthController@register');
@@ -35,8 +41,12 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::prefix('posts')->group(function () {
-    Route::match(['get', 'post'], '/details/{id}', 'App\Http\Controllers\User\FrontController@detailsPost');
+    Route::match(['get', 'post'], '/details/{id}', 'App\Http\Controllers\User\FrontController@detailsPost')->name('details.post');
     Route::match(['get', 'post'], '/all', 'App\Http\Controllers\User\FrontController@allPosts');
+    Route::match(['get', 'post'], '/blog', 'App\Http\Controllers\User\FrontController@allBlogs');
+    Route::match(['get', 'post'], '/architecte', 'App\Http\Controllers\User\FrontController@allArchitectes');
+    Route::match(['get', 'post'], '/societe', 'App\Http\Controllers\User\FrontController@allSocietes');
+    Route::match(['get', 'post'], '/hebdo', 'App\Http\Controllers\User\FrontController@allHebdos');
 });
 
 Route::group(['middleware' => ['agent']], function () {
@@ -47,6 +57,46 @@ Route::group(['middleware' => ['agent']], function () {
         Route::prefix('posts')->group(function () {
             Route::match(['get', 'post'], '', 'App\Http\Controllers\User\Agent\PostController@index');
             Route::match(['get', 'post'], '/add', 'App\Http\Controllers\User\Agent\PostController@add');
+        });
+    });
+});
+
+Route::group(['middleware' => ['architecte']], function () {
+    Route::prefix('architecte')->group(function () {
+        Route::match(['get', 'post'], '', 'App\Http\Controllers\User\Architecte\DashboardController@index');
+        Route::match(['get', 'post'], '/dashboard', 'App\Http\Controllers\User\Architecte\DashboardController@index');
+
+        Route::prefix('posts')->group(function () {
+            Route::match(['get', 'post'], '', 'App\Http\Controllers\User\Architecte\PostController@index');
+            Route::match(['get', 'post'], '/add', 'App\Http\Controllers\User\Architecte\PostController@add');
+        });
+    });
+});
+
+Route::group(['middleware' => ['societe']], function () {
+    Route::prefix('societe')->group(function () {
+        Route::match(['get', 'post'], '', 'App\Http\Controllers\User\Societe\DashboardController@index');
+        Route::match(['get', 'post'], '/dashboard', 'App\Http\Controllers\User\Societe\DashboardController@index');
+
+        Route::prefix('posts')->group(function () {
+            Route::match(['get', 'post'], '', 'App\Http\Controllers\User\Societe\PostController@index');
+            Route::match(['get', 'post'], '/add', 'App\Http\Controllers\User\Societe\PostController@add');
+        });
+    });
+});
+
+Route::group(['middleware' => ['organe']], function () {
+    Route::prefix('organe')->group(function () {
+        Route::match(['get', 'post'], '', 'App\Http\Controllers\User\Organe\DashboardController@index');
+        Route::match(['get', 'post'], '/dashboard', 'App\Http\Controllers\User\Organe\DashboardController@index');
+
+        Route::prefix('posts')->group(function () {
+            Route::match(['get', 'post'], '', 'App\Http\Controllers\User\Organe\PostController@index');
+            Route::match(['get', 'post'], '/add', 'App\Http\Controllers\User\Organe\PostController@add');
+            Route::match(['get', 'post'], '/blog', 'App\Http\Controllers\User\Organe\PostController@indexBlog');
+            Route::match(['get', 'post'], '/blog/add', 'App\Http\Controllers\User\Organe\PostController@addBlog');
+
+
         });
     });
 });
@@ -143,7 +193,7 @@ Route::prefix('admin')->group(function () {
     // Route::put('/blog/{post}', [PostController::class, 'update'])->name('posts.update');
     // Route::delete('/blog/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
     // Routes des commentaires
-    Route::post('/blog/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::middleware('auth')->post('/blog/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 
     // Routes des "J'aime"

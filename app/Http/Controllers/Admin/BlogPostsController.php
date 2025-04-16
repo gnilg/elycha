@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 
 class BlogPostsController extends Controller
 {
@@ -19,8 +20,10 @@ class BlogPostsController extends Controller
 
     public function show(Post $post)
     {
+        $post->load('comments');
         return view('blog.show', compact('post'));
     }
+
 
     public function create()
     {
@@ -32,7 +35,8 @@ class BlogPostsController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'image' => 'nullable|image|max:2048',
+            'image' => 'nullable|image|max:10240',
+            'type' => 'required|integer',
         ]);
 
 
@@ -41,7 +45,8 @@ class BlogPostsController extends Controller
             'title' => $request->title,
             'slug' => Str::slug($request->title),
             'content' => $request->content,
-            'admin_id' => auth()->id(), // Ajout de l'utilisateur connecté
+            'type' => $request->type,
+
         ]);
 
         // Vérifie et stocke l'image si elle est présente
@@ -49,9 +54,15 @@ class BlogPostsController extends Controller
             $post->image = $request->file('image')->store('posts', 'public');
         }
 
+        if (auth()->guard('admin')->check()) {
+            $post->admin_id = auth()->id();
+        } elseif (auth()->guard('web')->check()) {
+            $post->user_id = auth()->id();
+        }
+
         $post->save();
 
-        return redirect()->route('blog.create')->with('flash_message_success', 'Article publié avec succès !');
+        return redirect()->route('blog.index')->with('flash_message_success', 'Article publié avec succès !');
     }
 
 
@@ -80,7 +91,7 @@ class BlogPostsController extends Controller
     public function destroy(Post $post)
 
     {
-        dd($post);
+
         $post->delete();
         return redirect()->route('blog.index')->with('flash_message_success', 'Post supprimé !');
     }

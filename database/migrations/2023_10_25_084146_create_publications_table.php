@@ -19,14 +19,13 @@ return new class extends Migration
             $table->double('place_long')->nullable();
             $table->text('description')->nullable();
             $table->double('price')->nullable();
-            $table->string('photo')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('photo')->nullable(); // Stocke le chemin de la photo
+            $table->string('video')->nullable(); // Stocke le chemin de la vidéo
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->unsignedBigInteger('is_immo')->default(1);
             $table->unsignedBigInteger('views')->default(0);
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories');
             $table->unsignedBigInteger('status')->default(1);
+            $table->unsignedBigInteger('type')->default(1);
             $table->timestamps();
         });
     }

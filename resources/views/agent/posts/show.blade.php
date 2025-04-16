@@ -139,62 +139,81 @@
                                             <tr>
                                                 <th class="fw-6">Publication</th>
                                                 <th class="fw-6">Status</th>
+                                                <th class="fw-6" >vue</th>
                                                 <th class="fw-6">Actions</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($posts as $post)
-                                                <tr class="file-delete">
-                                                    <td>
-                                                        <div class="candidates-wrap flex">
-                                                            <div class="images">
-                                                                <img src="{{ $post->photo }}" class="rounded"
-                                                                    style="width: 100px" alt="images">
-                                                            </div>
-                                                            <div class="content">
-                                                                <h4 class="link-style-1"><a
-                                                                        href="property-detail-v1.html">{{ $post->label }}</a>
-                                                                </h4>
-                                                                <div class="text-date">
-                                                                    <p class="p-12 text-color-2 lh-18">Publié le:
-                                                                        {{ formatDate($post->created_at) }}</p>
-                                                                </div>
-                                                                <div class="money fs-16 fw-6 text-color-3">
-                                                                    {{ $post->price }} Fcfa</div>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="status-wrap">
-                                                            @if ($post->status == 0)
-                                                                <div class="button-status fs-12 fw-6 lh-18 style-1">Supprimé
-                                                                </div>
-                                                            @elseif ($post->status == 1)
-                                                                <div class="button-status fs-12 fw-6 lh-18">Actif</div>
+                                            <tr class="file-delete">
+                                                <td>
+                                                    <div class="candidates-wrap flex">
+                                                        <div class="images">
+                                                            @if ($post->photos->isNotEmpty())
+                                                                <img src="{{ asset('storage/' . $post->photos->first()->path) }}" class="rounded"
+                                                                     style="width: 100px" alt="images">
                                                             @else
-                                                                <div class="button-status fs-12 fw-6 lh-18 style-2">Classé
-                                                                </div>
+                                                                <img src="/images/default.jpg" class="rounded"
+                                                                     style="width: 100px" alt="Image par défaut">
                                                             @endif
-
                                                         </div>
-                                                    </td>
-                                                    <td>
-                                                        {{-- <div class="icon-wrap">
-                                                            <ul class="">
-                                                                <li class=""><a class="fw-6"><i
-                                                                            class="far fa-pen"></i>Modifier</a>
-                                                                </li>
-                                                                <li class=""><a class="fw-6"><i
-                                                                            class="fal fa-ban"></i>Classer</a>
-                                                                </li>
-                                                                <li class=""><a class="remove-file fw-6"><i
-                                                                            class="fal fa-trash-alt"></i>Supprimer</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div> --}}
-                                                    </td>
-                                                </tr>
-                                            @endforeach
+                                                        <div class="content">
+                                                            <h4 class="link-style-1">
+                                                                <a href="property-detail-v1.html">{{ $post->label }}</a>
+                                                            </h4>
+                                                            <div class="text-date">
+                                                                <p class="p-12 text-color-2 lh-18">Publié le: {{ formatDate($post->created_at) }}</p>
+                                                            </div>
+                                                            <div class="money fs-16 fw-6 text-color-3">
+                                                                {{ $post->price }} Fcfa
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="status-wrap">
+                                                        @if ($post->status == 0)
+                                                            <div class="button-status fs-12 fw-6 lh-18 style-1">Supprimé</div>
+                                                        @elseif ($post->status == 1)
+                                                            <div class="button-status fs-12 fw-6 lh-18">Actif</div>
+                                                        @else
+                                                            <div class="button-status fs-12 fw-6 lh-18 style-2">Classé</div>
+                                                        @endif
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    {{ $post->views }}
+                                                </td>
+                                                <td>
+                                                    <div class="actions d-flex gap-5">
+                                                        {{-- Voir --}}
+                                                        <a href="{{ route('details.post', $post->id) }}" class="btn btn-sm btn-primary me-3" style="margin: 8px" title="Voir">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+
+                                                        {{-- Éditer --}}
+                                                        <a href="{{ route('blog.edit', $post->id) }}" class="btn btn-sm btn-warning" style="margin: 8px" title="Éditer">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+
+                                                        {{-- Supprimer --}}
+                                                        <form action="{{ route('blog.destroy', $post->id) }}" method="POST" onsubmit="return confirm('Supprimer ce post ?')">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-sm btn-danger" style="margin: 8px" title="Supprimer">
+                                                                <i class="fa fa-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+
+
+
+
+                                            </tr>
+                                        @endforeach
+
 
                                         </tbody>
                                     </table>

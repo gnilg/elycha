@@ -21,7 +21,7 @@
                             <div class="wrap-upload ">
                                 <div class="box-upload flex">
                                     <div class="img-up relative">
-                                        <img class="avatar" id="profileimg" src="{{ getUserLogged()->avatar }}"
+                                        <img class="avatar" id="profileimg" src="{{ auth()->user()->avatar }}"
                                             alt="">
                                     </div>
                                     <div class="content">
@@ -44,7 +44,7 @@
                                 <div class="inner-1">
                                     <fieldset>
                                         <label class="title-user fw-6">Nom</label>
-                                        <input type="text" placeholder="Ex: DOE" value="{{ getUserLogged()->last_name }}"
+                                        <input type="text" placeholder="Ex: DOE" value="{{ auth()->user()->last_name }}"
                                             class="input-form" name="last_name" required>
                                     </fieldset>
                                 </div>
@@ -52,7 +52,7 @@
                                     <fieldset>
                                         <label class="title-user fw-6">Prénoms</label>
                                         <input type="text" placeholder="Ex: John"
-                                            value="{{ getUserLogged()->first_name }}" name="first_name" class="input-form" required>
+                                            value="{{ auth()->user()->first_name }}" name="first_name" class="input-form" required>
                                     </fieldset>
                                 </div>
                                 <div class="inner-3 inner form-wg flex ">
@@ -60,14 +60,14 @@
                                         <fieldset>
                                             <label class="title-user fw-6">Adresse mail</label>
                                             <input type="email" placeholder="Ex: test@gmail.com"
-                                                value="{{ getUserLogged()->email }}" name="email" class="input-form">
+                                                value="{{ auth()->user()->email }}" name="email" class="input-form">
                                         </fieldset>
                                     </div>
                                     <div class="wg-box select-group">
                                         <fieldset>
                                             <label class="title-user fw-6">Téléphone</label>
                                             <input type="tel" placeholder="Ex: +22893554740"
-                                                value="{{ getUserLogged()->telephone }}" name="telephone" class="input-form" required>
+                                                value="{{ auth()->user()->telephone }}" name="telephone" class="input-form" required>
                                         </fieldset>
                                     </div>
                                 </div>

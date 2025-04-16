@@ -13,7 +13,7 @@ class Publication extends Model
     protected $fillable = [
         'label', 'place', 'description', 'price',
         'place_lat', 'place_long', 'photo',
-        'user_id', 'category_id', 'status', 'is_immo'
+        'user_id', 'category_id', 'status', 'is_immo','video','type'
     ];
 
     public function user()
@@ -30,6 +30,12 @@ class Publication extends Model
     {
         return $this->hasMany(Image::class, 'publication_id', 'id');
     }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
 
 
 

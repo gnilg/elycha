@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <title>Elycha | Accueil</title>
     <meta name="author" content="themesflat.com">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href={{asset('/front/app/dist/font-awesome.css')}}>
     <link rel="stylesheet" href={{asset('/front/app/dist/app.css')}}>
@@ -67,63 +68,32 @@
     color: rgb(70, 48, 48);
 }
 
+.liked {
+    color: red; /* ou n'importe quel style de like actif */
+}
+
+
 
     </style>
     @if (Session::has('flash_message_error'))
-        <script type="text/javascript" src="{{ asset('sweetalert.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/js/sweetalert.min.js') }}"></script>
         <script type="text/javascript">
             swal("{{ session('flash_message_error') }}", "Merci", "error");
         </script>
     @endif
     @if (Session::has('flash_message_success'))
-        <script type="text/javascript" src="{{ asset('sweetalert.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/js/sweetalert.min.js') }}"></script>
         <script type="text/javascript">
             swal("{{ session('flash_message_success') }}", "Merci", "success");
         </script>
     @endif
 
-    <!--<div class="preload preload-container">
-        <div class="boxes ">
-            <div class="box">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="box">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="box">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="box">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-    </div>-->
-
-    <!-- /preload -->
-
     @yield('content')
     <!-- /#wrapper -->
 
-    <!-- Modal Popup Bid pour Inscription et connexion
-
-
-    -->
-
     <!-- inscription et connexion section -->
 
-    <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade popup"  style="display: none;" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -238,6 +208,19 @@
                                                             <li data-value="bungalow" class="option"
                                                                 onclick="document.getElementById('type_user').value = 2">
                                                                 Agent</li>
+                                                            <li data-value="bungalow" class="option"
+                                                                onclick="document.getElementById('type_user').value = 3">
+                                                                Architecte
+                                                            </li>
+                                                            <li data-value="bungalow" class="option"
+                                                                onclick="document.getElementById('type_user').value = 4">
+                                                                Société
+                                                            </li>
+                                                            <li data-value="bungalow" class="option"
+                                                                onclick="document.getElementById('type_user').value = 5">
+                                                                Organe
+                                                            </li>
+
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -284,6 +267,59 @@
     <script src={{asset('/front/app/js/main.js')}}></script>
     <script src={{asset('/front/app/js/curved.js')}}></script>
     <script src={{asset('/front/app/js/price-ranger.js')}}></script>
+
+    <script>
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        function likePost(postId) {
+            fetch('/like-toggle', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": csrfToken
+                },
+                credentials: "same-origin", // ← ajoute ça pour garder la session
+                body: JSON.stringify({ post_id: postId })
+            })
+            .then(async response => {
+                if (!response.ok) {
+                    const error = await response.text();
+                    throw new Error(error);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const countElement = document.getElementById(`like-count-${postId}`);
+                countElement.textContent = data.count;
+
+            })
+            .catch(error => {
+                console.error("Erreur AJAX :", error.message);
+                alert("Erreur : Vous devez être connecté pour liker.");
+            });
+        }
+
+        const likeBtn = document.getElementById(`like-btn-${postId}`);
+            if (data.liked) {
+                likeBtn.classList.add("liked");
+            } else {
+                likeBtn.classList.remove("liked");
+            }
+
+    </script>
+
+@if(session('login_required'))
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        $('#popup_bid').modal('show');
+    });
+</script>
+<script>
+    function showLoginModal() {
+        document.getElementById('popup_bid').style.display = 'block';
+    }
+</script>
+@endif
 
 </body>
 

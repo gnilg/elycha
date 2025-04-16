@@ -6,12 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Publication;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
+
 
 class PostController extends Controller
 {
     function index(Request $request)
     {
-        $userId = session('id');
+        $userId = auth()->user()->id;
         $posts = Publication::where("status", ">=", 1)->where(["user_id" => $userId])->get();
 
         $countImmo = Publication::where("status", ">=", 1)->where(["user_id" => $userId])->where(["is_immo" => 1])->get()->count();
@@ -20,34 +23,95 @@ class PostController extends Controller
         return view("agent.posts.show", compact("posts", "countImmo", "countCar"));
     }
 
-    function add(Request $request)
+    public function adds(Request $request)
     {
-        $userId = session('id');
-        $categories = Category::where(["status" => 1])->get();
+        $userId = auth()->id(); // Simplification de l'authentification
+        $categories = Category::where("status", 1)->get();
+
         if ($request->isMethod('post')) {
+            $request->validate([
+                'label' => 'required|string|max:255',
+                'description' => 'nullable|string',
+                'price' => 'required|numeric|min:0',
+                'photos.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            ]);
+
             $data = $request->all();
-            if ($request->hasfile('photo')) {
-                $imageIcon = $request->file('photo');
-                $exten = $imageIcon->getClientOriginalExtension();
-                $imageIconName = $request->nom . uniqid() . '.' . $exten;
-                $destinationPath = myPublicPath('/photos');
-                $ulpoadImageSuccess = $imageIcon->move($destinationPath, $imageIconName);
-                $avatar = "/photos/" . $imageIconName;
-            }
-            Publication::create([
+            $avatar = null;
+
+            $publication = Publication::create([
                 'label' => $data['label'],
                 'place' => $data['place'],
-                'description' => $data['description'],
+                'description' => $data['description'] ?? '',
                 'price' => $data['price'],
-                'category_id' => $data['category'],
                 'user_id' => $userId,
-                'photo' => $avatar,
                 'status' => 1,
-                'is_immo' => Category::where(["id" => $data['category']])->first()->is_immo,
+                'is_immo' => 1,
             ]);
+
+
+            if ($request->hasFile('photos')) {
+                foreach ($request->file('photos') as $photo) {
+                    $extension = $photo->getClientOriginalExtension();
+                    $imageName = Str::slug($data['label']) . '-' . uniqid() . '.' . $extension;
+                    $photo->move(public_path('photos'), $imageName);
+                    $path = "/photos/" . $imageName;
+
+                    // Associer l'image à la publication
+                    $publication->images()->create([
+                        'path' => $path
+                    ]);
+                }
+            }
+
             return redirect("/agent/posts")->with('flash_message_success', 'Publication ajoutée avec succès!');
         }
 
         return view("agent.posts.add", compact("categories"));
     }
+
+    public function add(Request $request)
+    {
+
+
+
+
+        if ($request->isMethod('post')) {
+
+           
+
+            $request->validate([
+                'label' => 'required|string|max:255',
+                'place' => 'required|string|max:255',
+                'description' => 'required|string',
+                'price' => 'required|numeric',
+                'photos.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
+                'type' => 'required|numeric',
+            ]);
+
+            $publication = Publication::create([
+                'label' => $request->label,
+                'place' => $request->place,
+                'description' => $request->description,
+                'price' => $request->price,
+                'user_id' => auth()->id(),
+                'is_immo' => $request->category,
+                'type' => $request->type
+            ]);
+
+            if ($request->hasFile('photos')) {
+                foreach ($request->file('photos') as $photo) {
+                    $filename = $photo->store('publications', 'public');
+                    $publication->photos()->create([
+                        'path' => $filename,
+                    ]);
+                }
+            }
+
+            return redirect("/agent/posts")->with('flash_message_success', 'Publication ajoutée avec succès!');
+        }
+        return view("agent.posts.add");
+    }
+
+
 }

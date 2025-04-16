@@ -41,7 +41,7 @@
 
 
                                 <div class="header-account flex align-center">
-                                    @if (!isUserLogged())
+                                    @if (!auth()->check())
                                         <div class="register">
                                             <ul class="flex align-center">
                                                 <li>
@@ -66,10 +66,15 @@
                                             </ul>
                                         </div>
                                     @endif
-                                    @if (isUserLogged())
+                                    @if (auth()->check())
                                         <div class="flat-bt-top sc-btn-top">
                                             <a class="sc-button btn-icon "
-                                                href="@if (getUserLogged()->type_user == 1) /client/dashboard @else /agent/dashboard @endif">
+                                                href="@if (auth()->user()->type_user == 1) /client/dashboard
+                                                @elseif (auth()->user()->type_user == 2) /agent/dashboard
+                                                @elseif (auth()->user()->type_user == 3) /architecte/dashboard
+                                                @elseif (auth()->user()->type_user == 4) /societe/dashboard
+                                                @elseif (auth()->user()->type_user == 5) /organe/dashboard
+                                                @else # @endif">
                                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -149,70 +154,79 @@
                                 <h2>Découvrez les dernières publications.</h2>
                                 <p class="text-color-4">Les publications les plus recentes.</p>
                             </div>
-                            <div class="swiper-container2">
-                                <div class="one-carousel owl-carousel owl-theme">
-                                    @foreach ($featuredPosts as $post)
-                                        <div class="slide-item">
-                                            <div class="box box-dream hv-one">
-                                                <div class="image-group relative ">
-                                                    <span class="featured fs-12 fw-6">
-                                                        @if ($post->category->type == 1)
-                                                            Vente
-                                                        @elseif ($post->category->type == 2)
-                                                            Location
-                                                        @else
-                                                        @endif
-                                                    </span>
-                                                    <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
-                                                    <div class="swiper-container noo carousel-2 img-style">
-                                                        <a href="/posts/details/{{ $post->id }}"
-                                                            class="icon-plus"><img
-                                                                src="/front/assets/images/icon/plus.svg"
-                                                                alt="images"></a>
-                                                        <div class="swiper-wrapper ">
-                                                            <div class="swiper-slide"><img src="{{ $post->photo }}"
-                                                                    alt="images" style="height: 300px"></div>
-                                                            @foreach ($post->photos as $image)
-                                                                <div class="swiper-slide"><img src="{{ $image->photo }}"
-                                                                        alt="images" style="height: 300px"></div>
-                                                            @endforeach
-                                                        </div>
-                                                        <div class="pagi2">
-                                                            <div class="swiper-pagination2"> </div>
-                                                        </div>
-                                                        <div class="swiper-button-next2 "><i
-                                                                class="fal fa-arrow-right"></i>
-                                                        </div>
-                                                        <div class="swiper-button-prev2 "><i
-                                                                class="fal fa-arrow-left"></i>
+                                <div class="swiper-container2">
+                                    <div class="one-carousel owl-carousel owl-theme">
+                                        @foreach ($lastPostsImmo as $post)
+                                            <div class="slide-item">
+                                                <div class="box box-dream hv-one">
+                                                    <div class="image-group relative ">
+                                                        <span class="featured fs-12 fw-6">
+                                                            @if ($post?->category?->type == 1)
+                                                                Vente
+                                                            @elseif ($post?->category?->type == 2)
+                                                                Location
+                                                            @else
+                                                            @endif
+                                                        </span>
+                                                        <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
+                                                        <div class="swiper-container noo carousel-2 img-style">
+                                                            <a href="/posts/details/{{ $post?->id }}"
+                                                                class="icon-plus"><img
+                                                                    src="/front/assets/images/icon/plus.svg"
+                                                                    alt="images"></a>
+                                                                    <div class="swiper-wrapper">
+                                                                        {{-- Photo principale --}}
+                                                                        @if ($post?->photo)
+                                                                            <div class="swiper-slide">
+                                                                                <img src="{{ $post->photo }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
+                                                                            </div>
+                                                                        @endif
+
+                                                                        {{-- Autres photos --}}
+                                                                        @foreach($post->photos as $photo)
+                                                                            <div class="swiper-slide">
+                                                                                <img src="{{ asset('storage/' . $photo->path) }}" alt="image supplémentaire"
+                                                                                    style="height: 300px; width: 100%; object-fit: cover;">
+                                                                            </div>
+                                                                        @endforeach
+                                                                    </div>
+
+                                                            <div class="pagi2">
+                                                                <div class="swiper-pagination2"> </div>
+                                                            </div>
+                                                            <div class="swiper-button-next2 "><i
+                                                                    class="fal fa-arrow-right"></i>
+                                                            </div>
+                                                            <div class="swiper-button-prev2 "><i
+                                                                    class="fal fa-arrow-left"></i>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="content">
-                                                    <h3 class="link-style-1"><a
-                                                            href="/posts/details/{{ $post->id }}">{{ $post->label }}</a>
-                                                    </h3>
-                                                    <div class="text-address">
-                                                        <p class="p-12">{{ $post->place }}</p>
-                                                    </div>
-                                                    <div class="money fs-18 fw-6 text-color-3"><a
-                                                            href="/posts/details/{{ $post->id }}">{{ $post->price }}
-                                                            Fcfa</a>
-                                                    </div>
-                                                    <div class="days-box flex justify-space align-center">
-                                                        <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img
-                                                                src="{{ $post->user?->avatar }}" class="rounded-circle"
-                                                                style="width: 35px" alt="images">
+                                                    <div class="content">
+                                                        <h3 class="link-style-1"><a
+                                                                href="/posts/details/{{ $post?->id }}">{{ $post?->label }}</a>
+                                                        </h3>
+                                                        <div class="text-address">
+                                                            <p class="p-12">{{ $post?->place }}</p>
                                                         </div>
-                                                        <div class="days">
-                                                            {{ formatDate($post->created_at) }}</div>
+                                                        <div class="money fs-18 fw-6 text-color-3"><a
+                                                                href="/posts/details/{{ $post?->id }}">{{ $post?->price }}
+                                                                Fcfa</a>
+                                                        </div>
+                                                        <div class="days-box flex justify-space align-center">
+                                                            <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img
+                                                                    src="{{ $post?->user?->avatar }}" class="rounded-circle"
+                                                                    style="width: 35px" alt="images">
+                                                            </div>
+                                                            <div class="days">
+                                                                {{ formatDate($post?->created_at) }}</div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    @endforeach
+                                        @endforeach
+                                    </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -600,15 +614,6 @@
             </section>
 
 
-
-
-
-
-
-
-
-
-
     {{-- <section class="flat-sale wg-dream tf-section">
         <div class="container">
             <div class="row">
@@ -619,28 +624,28 @@
                     </div>
                     <div class="swiper-container2">
                         <div class="one-carousel owl-carousel owl-theme">
-                            @foreach ($featuredPosts as $post)
+                            @foreach ($featuredPosts as $post?)
                                 <div class="slide-item">
                                     <div class="box box-dream hv-one">
                                         <div class="image-group relative ">
                                             <span class="featured fs-12 fw-6">
-                                                @if ($post->category->type == 1)
+                                                @if ($post?->category->type == 1)
                                                     Vente
-                                                @elseif ($post->category->type == 2)
+                                                @elseif ($post?->category->type == 2)
                                                     Location
                                                 @else
                                                 @endif
                                             </span>
                                             <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
                                             <div class="swiper-container noo carousel-2 img-style">
-                                                <a href="/posts/details/{{ $post->id }}"
+                                                <a href="/posts/details/{{ $post?->id }}"
                                                     class="icon-plus"><img
                                                         src="/front/assets/images/icon/plus.svg"
                                                         alt="images"></a>
                                                 <div class="swiper-wrapper ">
-                                                    <div class="swiper-slide"><img src="{{ $post->photo }}"
+                                                    <div class="swiper-slide"><img src="{{ $post?->photo }}"
                                                             alt="images" style="height: 300px"></div>
-                                                    @foreach ($post->photos as $image)
+                                                    @foreach ($post?->photos as $image)
                                                         <div class="swiper-slide"><img src="{{ $image->photo }}"
                                                                 alt="images" style="height: 300px"></div>
                                                     @endforeach
@@ -658,22 +663,22 @@
                                         </div>
                                         <div class="content">
                                             <h3 class="link-style-1"><a
-                                                    href="/posts/details/{{ $post->id }}">{{ $post->label }}</a>
+                                                    href="/posts/details/{{ $post?->id }}">{{ $post?->label }}</a>
                                             </h3>
                                             <div class="text-address">
-                                                <p class="p-12">{{ $post->place }}</p>
+                                                <p class="p-12">{{ $post?->place }}</p>
                                             </div>
                                             <div class="money fs-18 fw-6 text-color-3"><a
-                                                    href="/posts/details/{{ $post->id }}">{{ $post->price }}
+                                                    href="/posts/details/{{ $post?->id }}">{{ $post?->price }}
                                                     Fcfa</a>
                                             </div>
                                             <div class="days-box flex justify-space align-center">
                                                 <div class="img-author hv-tool" data-tooltip="Kathryn Murphy"><img
-                                                        src="{{ $post->user->avatar }}" class="rounded-circle"
+                                                        src="{{ $post?->user->avatar }}" class="rounded-circle"
                                                         style="width: 35px" alt="images">
                                                 </div>
                                                 <div class="days">
-                                                    {{ formatDate($post->created_at) }}</div>
+                                                    {{ formatDate($post?->created_at) }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -723,15 +728,15 @@
                                         <div class="three-carousel owl-carousel owl-theme ">
                                             @foreach ($categories2 as $item)
                                                 @if ($item->type == 2)
-                                                    @foreach ($item->posts as $post)
-                                                        @if ($post->status == 1)
+                                                    @foreach ($item->posts as $post?)
+                                                        @if ($post?->status == 1)
                                                             <div class="slide-item">
                                                                 <div class="box box-dream hv-one">
                                                                     <div class="image-group relative ">
                                                                         <span class="featured fs-12 fw-6">
-                                                                            @if ($post->category->type == 1)
+                                                                            @if ($post?->category->type == 1)
                                                                                 Vente
-                                                                            @elseif($post->category->type == 2)
+                                                                            @elseif($post?->category->type == 2)
                                                                                 Location
                                                                             @else
                                                                             @endif
@@ -740,17 +745,17 @@
                                                                                 class="far fa-bookmark"></i></span>
                                                                         <div
                                                                             class="swiper-container noo carousel-2 img-style">
-                                                                            <a href="/posts/details/{{ $post->id }}"
+                                                                            <a href="/posts/details/{{ $post?->id }}"
                                                                                 class="icon-plus"><img
                                                                                     src="/front/assets/images/icon/plus.svg"
                                                                                     alt="images"></a>
                                                                             <div class="swiper-wrapper ">
                                                                                 <div class="swiper-slide"><img
-                                                                                        src="{{ $post->photo }}"
+                                                                                        src="{{ $post?->photo }}"
                                                                                         alt="images"
                                                                                         style="height: 250px">
                                                                                 </div>
-                                                                                @foreach ($post->photos as $image)
+                                                                                @foreach ($post?->photos as $image)
                                                                                     <div class="swiper-slide"><img
                                                                                             src="{{ $image->photo }}"
                                                                                             alt="images"
@@ -772,15 +777,15 @@
                                                                     </div>
                                                                     <div class="content">
                                                                         <h3 class="link-style-1"><a
-                                                                                href="/posts/details/{{ $post->id }}">{{ $post->label }}</a>
+                                                                                href="/posts/details/{{ $post?->id }}">{{ $post?->label }}</a>
                                                                         </h3>
                                                                         <div class="text-address">
-                                                                            <p class="p-12">{{ $post->place }}
+                                                                            <p class="p-12">{{ $post?->place }}
                                                                             </p>
                                                                         </div>
                                                                         <div class="money fs-18 fw-6 text-color-3">
                                                                             <a
-                                                                                href="/posts/details/{{ $post->id }}">{{ $post->price }}
+                                                                                href="/posts/details/{{ $post?->id }}">{{ $post?->price }}
                                                                                 Fcfa</a>
                                                                         </div>
                                                                         <div
@@ -788,13 +793,13 @@
 
                                                                             <div class="img-author hv-tool"
                                                                                 data-tooltip="Kathryn Murphy"><img
-                                                                                    src="{{ $post->user->avatar }}"
+                                                                                    src="{{ $post?->user->avatar }}"
                                                                                     class="rounded-circle"
                                                                                     style="width: 35px"
                                                                                     alt="images">
                                                                             </div>
                                                                             <div class="days">
-                                                                                {{ formatDate($post->created_at) }}
+                                                                                {{ formatDate($post?->created_at) }}
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -812,15 +817,15 @@
                                         <div class="three-carousel owl-carousel owl-theme ">
                                             @foreach ($categories2 as $item)
                                                 @if ($item->type == 1)
-                                                    @foreach ($item->posts as $post)
-                                                        @if ($post->status == 1)
+                                                    @foreach ($item->posts as $post?)
+                                                        @if ($post?->status == 1)
                                                             <div class="slide-item">
                                                                 <div class="box box-dream hv-one">
                                                                     <div class="image-group relative ">
                                                                         <span class="featured fs-12 fw-6">
-                                                                            @if ($post->category->type == 1)
+                                                                            @if ($post?->category->type == 1)
                                                                                 Vente
-                                                                            @elseif($post->category->type == 2)
+                                                                            @elseif($post?->category->type == 2)
                                                                                 Location
                                                                             @else
                                                                             @endif
@@ -829,17 +834,17 @@
                                                                                 class="far fa-bookmark"></i></span>
                                                                         <div
                                                                             class="swiper-container noo carousel-2 img-style">
-                                                                            <a href="/posts/details/{{ $post->id }}"
+                                                                            <a href="/posts/details/{{ $post?->id }}"
                                                                                 class="icon-plus"><img
                                                                                     src="/front/assets/images/icon/plus.svg"
                                                                                     alt="images"></a>
                                                                             <div class="swiper-wrapper ">
                                                                                 <div class="swiper-slide"><img
-                                                                                        src="{{ $post->photo }}"
+                                                                                        src="{{ $post?->photo }}"
                                                                                         alt="images"
                                                                                         style="height: 250px">
                                                                                 </div>
-                                                                                @foreach ($post->photos as $image)
+                                                                                @foreach ($post?->photos as $image)
                                                                                     <div class="swiper-slide"><img
                                                                                             src="{{ $image->photo }}"
                                                                                             alt="images"
@@ -861,15 +866,15 @@
                                                                     </div>
                                                                     <div class="content">
                                                                         <h3 class="link-style-1"><a
-                                                                                href="/posts/details/{{ $post->id }}">{{ $post->label }}</a>
+                                                                                href="/posts/details/{{ $post?->id }}">{{ $post?->label }}</a>
                                                                         </h3>
                                                                         <div class="text-address">
-                                                                            <p class="p-12">{{ $post->place }}
+                                                                            <p class="p-12">{{ $post?->place }}
                                                                             </p>
                                                                         </div>
                                                                         <div class="money fs-18 fw-6 text-color-3">
                                                                             <a
-                                                                                href="/posts/details/{{ $post->id }}">{{ $post->price }}
+                                                                                href="/posts/details/{{ $post?->id }}">{{ $post?->price }}
                                                                                 Fcfa</a>
                                                                         </div>
                                                                         <div
@@ -877,13 +882,13 @@
 
                                                                             <div class="img-author hv-tool"
                                                                                 data-tooltip="Kathryn Murphy"><img
-                                                                                    src="{{ $post->user->avatar }}"
+                                                                                    src="{{ $post?->user->avatar }}"
                                                                                     class="rounded-circle"
                                                                                     style="width: 35px"
                                                                                     alt="images">
                                                                             </div>
                                                                             <div class="days">
-                                                                                {{ formatDate($post->created_at) }}
+                                                                                {{ formatDate($post?->created_at) }}
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -901,15 +906,15 @@
                                         <div class="three-carousel owl-carousel owl-theme ">
                                             @foreach ($categories2 as $item)
                                                 @if ($item->type == 3)
-                                                    @foreach ($item->posts as $post)
-                                                        @if ($post->status == 1)
+                                                    @foreach ($item->posts as $post?)
+                                                        @if ($post?->status == 1)
                                                             <div class="slide-item">
                                                                 <div class="box box-dream hv-one">
                                                                     <div class="image-group relative ">
                                                                         <span class="featured fs-12 fw-6">
-                                                                            @if ($post->category->type == 1)
+                                                                            @if ($post?->category->type == 1)
                                                                                 Vente
-                                                                            @elseif($post->category->type == 2)
+                                                                            @elseif($post?->category->type == 2)
                                                                                 Location
                                                                             @else
                                                                             @endif
@@ -918,17 +923,17 @@
                                                                                 class="far fa-bookmark"></i></span>
                                                                         <div
                                                                             class="swiper-container noo carousel-2 img-style">
-                                                                            <a href="/posts/details/{{ $post->id }}"
+                                                                            <a href="/posts/details/{{ $post?->id }}"
                                                                                 class="icon-plus"><img
                                                                                     src="/front/assets/images/icon/plus.svg"
                                                                                     alt="images"></a>
                                                                             <div class="swiper-wrapper ">
                                                                                 <div class="swiper-slide"><img
-                                                                                        src="{{ $post->photo }}"
+                                                                                        src="{{ $post?->photo }}"
                                                                                         alt="images"
                                                                                         style="height: 250px">
                                                                                 </div>
-                                                                                @foreach ($post->photos as $image)
+                                                                                @foreach ($post?->photos as $image)
                                                                                     <div class="swiper-slide"><img
                                                                                             src="{{ $image->photo }}"
                                                                                             alt="images"
@@ -950,15 +955,15 @@
                                                                     </div>
                                                                     <div class="content">
                                                                         <h3 class="link-style-1"><a
-                                                                                href="/posts/details/{{ $post->id }}">{{ $post->label }}</a>
+                                                                                href="/posts/details/{{ $post?->id }}">{{ $post?->label }}</a>
                                                                         </h3>
                                                                         <div class="text-address">
-                                                                            <p class="p-12">{{ $post->place }}
+                                                                            <p class="p-12">{{ $post?->place }}
                                                                             </p>
                                                                         </div>
                                                                         <div class="money fs-18 fw-6 text-color-3">
                                                                             <a
-                                                                                href="/posts/details/{{ $post->id }}">{{ $post->price }}
+                                                                                href="/posts/details/{{ $post?->id }}">{{ $post?->price }}
                                                                                 Fcfa</a>
                                                                         </div>
                                                                         <div
@@ -966,13 +971,13 @@
 
                                                                             <div class="img-author hv-tool"
                                                                                 data-tooltip="Kathryn Murphy"><img
-                                                                                    src="{{ $post->user->avatar }}"
+                                                                                    src="{{ $post?->user->avatar }}"
                                                                                     class="rounded-circle"
                                                                                     style="width: 35px"
                                                                                     alt="images">
                                                                             </div>
                                                                             <div class="days">
-                                                                                {{ formatDate($post->created_at) }}
+                                                                                {{ formatDate($post?->created_at) }}
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -992,15 +997,15 @@
                                     <div class="content-inner tab-content">
                                         <div class="swiper-container2">
                                             <div class="three-carousel owl-carousel owl-theme ">
-                                                @foreach ($categorie->posts as $post)
-                                                    @if ($post->status == 1)
+                                                @foreach ($categorie->posts as $post?)
+                                                    @if ($post?->status == 1)
                                                         <div class="slide-item">
                                                             <div class="box box-dream hv-one">
                                                                 <div class="image-group relative ">
                                                                     <span class="featured fs-12 fw-6">
-                                                                        @if ($post->category->type == 1)
+                                                                        @if ($post?->category->type == 1)
                                                                             Vente
-                                                                        @elseif($post->category->type == 2)
+                                                                        @elseif($post?->category->type == 2)
                                                                             Location
                                                                         @else
                                                                         @endif
@@ -1009,17 +1014,17 @@
                                                                             class="far fa-bookmark"></i></span>
                                                                     <div
                                                                         class="swiper-container noo carousel-2 img-style">
-                                                                        <a href="/posts/details/{{ $post->id }}"
+                                                                        <a href="/posts/details/{{ $post?->id }}"
                                                                             class="icon-plus"><img
                                                                                 src="/front/assets/images/icon/plus.svg"
                                                                                 alt="images"></a>
                                                                         <div class="swiper-wrapper ">
                                                                             <div class="swiper-slide"><img
-                                                                                    src="{{ $post->photo }}"
+                                                                                    src="{{ $post?->photo }}"
                                                                                     alt="images"
                                                                                     style="height: 250px">
                                                                             </div>
-                                                                            @foreach ($post->photos as $image)
+                                                                            @foreach ($post?->photos as $image)
                                                                                 <div class="swiper-slide"><img
                                                                                         src="{{ $image->photo }}"
                                                                                         alt="images"
@@ -1041,15 +1046,15 @@
                                                                 </div>
                                                                 <div class="content">
                                                                     <h3 class="link-style-1"><a
-                                                                            href="/posts/details/{{ $post->id }}">{{ $post->label }}</a>
+                                                                            href="/posts/details/{{ $post?->id }}">{{ $post?->label }}</a>
                                                                     </h3>
                                                                     <div class="text-address">
-                                                                        <p class="p-12">{{ $post->place }}
+                                                                        <p class="p-12">{{ $post?->place }}
                                                                         </p>
                                                                     </div>
                                                                     <div class="money fs-18 fw-6 text-color-3">
                                                                         <a
-                                                                            href="/posts/details/{{ $post->id }}">{{ $post->price }}
+                                                                            href="/posts/details/{{ $post?->id }}">{{ $post?->price }}
                                                                             Fcfa</a>
                                                                     </div>
 
@@ -1058,13 +1063,13 @@
 
                                                                         <div class="img-author hv-tool"
                                                                             data-tooltip="Kathryn Murphy"><img
-                                                                                src="{{ $post->user->avatar }}"
+                                                                                src="{{ $post?->user->avatar }}"
                                                                                 class="rounded-circle"
                                                                                 style="width: 35px"
                                                                                 alt="images">
                                                                         </div>
                                                                         <div class="days">
-                                                                            {{ formatDate($post->created_at) }}
+                                                                            {{ formatDate($post?->created_at) }}
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1081,14 +1086,14 @@
 
                             {{-- <div class="swiper-container">
                         <div class="four-carousel owl-carousel owl-theme ">
-                            @foreach ($lastPostsAuto as $post)
+                            @foreach ($lastPostsAuto as $post?)
                                 <div class="slide-item">
                                     <div class="box box-dream flex hv-one">
                                         <div class="image-group relative  ">
                                             <span class="featured fs-12 fw-6">
-                                                @if ($post->category->type == 1)
+                                                @if ($post?->category->type == 1)
                                                     Vente
-                                                @elseif ($post->category->type == 2)
+                                                @elseif ($post?->category->type == 2)
                                                     Location
                                                 @else
                                                 @endif
@@ -1096,14 +1101,14 @@
                                             <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
                                             <div class="swiper-container noo carousel-2 img-style "
                                                 data-chat="person1">
-                                                <a href="/posts/details/{{ $post->id }}"
+                                                <a href="/posts/details/{{ $post?->id }}"
                                                     class="icon-plus"><img
                                                         src="/front/assets/images/icon/plus.svg"
                                                         alt="images"></a>
                                                 <div class="swiper-wrapper ">
-                                                    <div class="swiper-slide"><img src="{{ $post->photo }}"
+                                                    <div class="swiper-slide"><img src="{{ $post?->photo }}"
                                                             alt="images" style="height: 250px"></div>
-                                                    @foreach ($post->photos as $image)
+                                                    @foreach ($post?->photos as $image)
                                                         <div class="swiper-slide"><img src="{{ $image->photo }}"
                                                                 alt="images" style="height: 250px"></div>
                                                     @endforeach
@@ -1121,20 +1126,20 @@
                                         </div>
                                         <div class="content">
                                             <h3 class="link-style-1"><a
-                                                    href="/posts/details/{{ $post->id }}">{{ $post->label }}</a>
+                                                    href="/posts/details/{{ $post?->id }}">{{ $post?->label }}</a>
                                             </h3>
                                             <div class="text-address">
-                                                <p class="p-12">{{ $post->place }}</p>
+                                                <p class="p-12">{{ $post?->place }}</p>
                                             </div>
                                             <div class="money fs-20 fw-8 font-2 text-color-3"><a
-                                                    href="/posts/details/{{ $post->id }}">{{ $post->price }}
+                                                    href="/posts/details/{{ $post?->id }}">{{ $post?->price }}
                                                     Fcfa</a></div>
                                             <div class="img-box flex justify-space align-center">
                                                 <div class="img-author flex align-center"><img
-                                                        src="{{ $post->user->avatar }}" alt="images">
+                                                        src="{{ $post?->user->avatar }}" alt="images">
                                                     <div class="fs-13 fw-6 link-style-1"><a
-                                                            href="#">{{ $post->user->first_name }}
-                                                            {{ $post->user->last_name }}</a></div>
+                                                            href="#">{{ $post?->user->first_name }}
+                                                            {{ $post?->user->last_name }}</a></div>
                                                 </div>
                                                 <a class="icon-repeat">
                                                     <svg width="16" height="16" viewBox="0 0 16 16"
