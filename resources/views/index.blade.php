@@ -183,9 +183,9 @@
                                                                         @endif
 
                                                                         {{-- Autres images --}}
-                                                                        @foreach($post->images?->path as $photo)
+                                                                        @foreach($post->images as $photo)
                                                                             <div class="swiper-slide">
-                                                                                <img src="{{ asset( $photo) }}" alt="image supplémentaire"
+                                                                                <img src="{{ asset( $photo->path) }}" alt="image supplémentaire"
                                                                                     style="height: 300px; width: 100%; object-fit: cover;">
                                                                             </div>
                                                                         @endforeach
