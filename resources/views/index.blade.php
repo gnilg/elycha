@@ -238,8 +238,8 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="heading-section ">
-                                <h2>Elycha – L’innovation au service de votre avenir</h2>
-                                <p class="text-color-4">Elycha est une entreprise dynamique et multidisciplinaire qui révolutionne plusieurs secteurs clés grâce à son expertise et son engagement envers l'excellence. Nous offrons des solutions sur mesure.
+                                <h2>Elycha – L’innovation au service de votre avenir au Togo (lomé) et au delà de nos frontières </h2>
+                                <p class="text-color-4">Elycha est une entreprise basé au Togo (lomé) dynamique et multidisciplinaire qui révolutionne plusieurs secteurs clés grâce à son expertise et son engagement envers l'excellence. Nous offrons des solutions sur mesure au Togo(lomé)
 
                                     Grâce à une équipe de professionnels qualifiés et des technologies de pointe, Elycha transforme vos projets en succès. Faires confiance à notre expertise pour des solutions innovantes, fiables et adaptées à vos besoins.
                                     <br>
