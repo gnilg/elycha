@@ -128,16 +128,16 @@
                                                                         alt="images"></a>
                                                                         <div class="swiper-wrapper">
                                                                             {{-- Photo principale --}}
-                                                                            @if ($post?->photo)
+                                                                            @if ($post?->photos)
                                                                                 <div class="swiper-slide">
-                                                                                    <img src="{{ $post->photo }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
+                                                                                    <img src="{{ $post->photos->first()->path }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
                                                                                 </div>
                                                                             @endif
 
                                                                             {{-- Autres photos --}}
                                                                             @foreach($post->photos as $photo)
                                                                                 <div class="swiper-slide">
-                                                                                    <img src="{{ asset('storage/' . $photo->path) }}" alt="image supplémentaire"
+                                                                                    <img src="{{ asset($photo->path) }}" alt="image supplémentaire"
                                                                                         style="height: 300px; width: 100%; object-fit: cover;">
                                                                                 </div>
                                                                             @endforeach
