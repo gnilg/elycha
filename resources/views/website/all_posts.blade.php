@@ -128,9 +128,9 @@
                                                                         alt="images"></a>
                                                                         <div class="swiper-wrapper">
                                                                             {{-- Photo principale --}}
-                                                                            @if ($post?->photos)
+                                                                            @if ($post?->photo)
                                                                                 <div class="swiper-slide">
-                                                                                    <img src="{{ $post->photos->first()->path }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
+                                                                                    <img src="{{ $post->photo->first()->path }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
                                                                                 </div>
                                                                             @endif
 
