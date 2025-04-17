@@ -170,45 +170,37 @@
                                                         </span>
                                                         <span class="icon-bookmark"><i class="far fa-bookmark"></i></span>
                                                         <div class="swiper-container noo carousel-2 img-style">
-                                                            <!-- Lien vers les détails -->
-                                                            <a href="/posts/details/{{ $post?->id }}" class="icon-plus">
-                                                              <img src="/front/assets/images/icon/plus.svg" alt="images">
-                                                            </a>
+                                                            <a href="/posts/details/{{ $post?->id }}"
+                                                                class="icon-plus"><img
+                                                                    src="/front/assets/images/icon/plus.svg"
+                                                                    alt="images"></a>
+                                                                    <div class="swiper-wrapper">
+                                                                        {{-- Photo principale --}}
+                                                                        @if ($post?->photos)
+                                                                            <div class="swiper-slide">
+                                                                                <img src="{{ asset($photos->first()->path) }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
+                                                                            </div>
+                                                                        @endif
 
-                                                            <div class="swiper-wrapper">
-                                                              {{-- Photo principale (affichée en premier si elle existe) --}}
-                                                              @if ($post?->photo)
-                                                                <div class="swiper-slide">
-                                                                  <img
-                                                                    src="{{ asset('storage/' . $post->photo->path) }}"
-                                                                    alt="image principale"
-                                                                    style="height: 300px; width: 100%; object-fit: cover;"
-                                                                  >
-                                                                </div>
-                                                              @endif
+                                                                        {{-- Autres photos --}}
+                                                                        @foreach($post->photos as $photo)
+                                                                            <div class="swiper-slide">
+                                                                                <img src="{{ asset( $photo->path) }}" alt="image supplémentaire"
+                                                                                    style="height: 300px; width: 100%; object-fit: cover;">
+                                                                            </div>
+                                                                        @endforeach
+                                                                    </div>
 
-                                                              {{-- Autres photos (ne pas réafficher la principale) --}}
-                                                              @foreach ($post->photos as $photo)
-                                                                @if (!$post->photo || $photo->id !== $post->photo->id)
-                                                                  <div class="swiper-slide">
-                                                                    <img
-                                                                      src="{{ asset('storage/' . $photo->path) }}"
-                                                                      alt="image supplémentaire"
-                                                                      style="height: 300px; width: 100%; object-fit: cover;"
-                                                                    >
-                                                                  </div>
-                                                                @endif
-                                                              @endforeach
-                                                            </div>
-
-                                                            <!-- Pagination et navigation -->
                                                             <div class="pagi2">
-                                                              <div class="swiper-pagination2"></div>
+                                                                <div class="swiper-pagination2"> </div>
                                                             </div>
-                                                            <div class="swiper-button-next2"><i class="fal fa-arrow-right"></i></div>
-                                                            <div class="swiper-button-prev2"><i class="fal fa-arrow-left"></i></div>
-                                                          </div>
-
+                                                            <div class="swiper-button-next2 "><i
+                                                                    class="fal fa-arrow-right"></i>
+                                                            </div>
+                                                            <div class="swiper-button-prev2 "><i
+                                                                    class="fal fa-arrow-left"></i>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="content">
                                                         <h3 class="link-style-1"><a

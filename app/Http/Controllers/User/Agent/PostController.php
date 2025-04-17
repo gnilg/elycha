@@ -72,14 +72,7 @@ class PostController extends Controller
 
     public function add(Request $request)
     {
-
-
-
-
         if ($request->isMethod('post')) {
-
-           
-
             $request->validate([
                 'label' => 'required|string|max:255',
                 'place' => 'required|string|max:255',
@@ -101,15 +94,19 @@ class PostController extends Controller
 
             if ($request->hasFile('photos')) {
                 foreach ($request->file('photos') as $photo) {
-                    $filename = $photo->store('publications', 'public');
-                    $publication->photos()->create([
-                        'path' => $filename,
+                    $extension = $photo->getClientOriginalExtension();
+                    $imageName = Str::slug($request->label) . '-' . uniqid() . '.' . $extension;
+                    $photo->move(public_path('photos'), $imageName);
+                    $path = "/photos/" . $imageName;
+                    $publication->images()->create([
+                        'path' => $path
                     ]);
                 }
             }
 
             return redirect("/agent/posts")->with('flash_message_success', 'Publication ajoutée avec succès!');
         }
+
         return view("agent.posts.add");
     }
 
