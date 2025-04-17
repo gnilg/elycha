@@ -26,17 +26,11 @@ class Publication extends Model
         return $this->belongsTo('App\Models\Category', 'category_id');
     }
 
-    public function photos()
-    {
-        return $this->hasMany(Image::class, 'publication_id', 'id');
-    }
 
-    public function images()
+    public function photos()
     {
         return $this->hasMany(Image::class);
     }
-
-
 
 
     public function likes(): MorphMany
