@@ -176,14 +176,14 @@
                                                                     alt="images"></a>
                                                                     <div class="swiper-wrapper">
                                                                         {{-- Photo principale --}}
-                                                                        @if ($post?->photos)
+                                                                        @if ($post?->images)
                                                                             <div class="swiper-slide">
-                                                                                <img src="{{ asset($post->photos->first()?->path) }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
+                                                                                <img src="{{ asset($post->images->first()?->path) }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
                                                                             </div>
                                                                         @endif
 
-                                                                        {{-- Autres photos --}}
-                                                                        @foreach($post->photos as $photo)
+                                                                        {{-- Autres images --}}
+                                                                        @foreach($post->images as $photo)
                                                                             <div class="swiper-slide">
                                                                                 <img src="{{ asset( $photo->path) }}" alt="image supplémentaire"
                                                                                     style="height: 300px; width: 100%; object-fit: cover;">
@@ -645,7 +645,7 @@
                                                 <div class="swiper-wrapper ">
                                                     <div class="swiper-slide"><img src="{{ $post?->photo }}"
                                                             alt="images" style="height: 300px"></div>
-                                                    @foreach ($post?->photos as $image)
+                                                    @foreach ($post?->images as $image)
                                                         <div class="swiper-slide"><img src="{{ $image->photo }}"
                                                                 alt="images" style="height: 300px"></div>
                                                     @endforeach
@@ -755,7 +755,7 @@
                                                                                         alt="images"
                                                                                         style="height: 250px">
                                                                                 </div>
-                                                                                @foreach ($post?->photos as $image)
+                                                                                @foreach ($post?->images as $image)
                                                                                     <div class="swiper-slide"><img
                                                                                             src="{{ $image->photo }}"
                                                                                             alt="images"
