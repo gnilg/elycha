@@ -89,8 +89,10 @@ class PostController extends Controller
                 'price' => $request->price,
                 'user_id' => auth()->id(),
                 'is_immo' => $request->category,
-                'type' => $request->type
+                'type' => $request->type,
+                'photo' => null // temporaire
             ]);
+
 
             if ($request->hasFile('photos')) {
                 foreach ($request->file('photos') as $photo) {
@@ -98,7 +100,7 @@ class PostController extends Controller
                     $imageName = Str::slug($request->label) . '-' . uniqid() . '.' . $extension;
                     $photo->move(public_path('photos'), $imageName);
                     $path = "/photos/" . $imageName;
-                    $publication->images()->create([
+                    $publication->photos()->create([
                         'path' => $path
                     ]);
                 }
