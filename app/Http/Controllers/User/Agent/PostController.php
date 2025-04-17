@@ -100,7 +100,7 @@ class PostController extends Controller
                     $imageName = Str::slug($request->label) . '-' . uniqid() . '.' . $extension;
                     $photo->move(public_path('photos'), $imageName);
                     $path = "/photos/" . $imageName;
-                    $publication->photos()->create([
+                    $publication->images()->create([
                         'path' => $path
                     ]);
                 }
