@@ -98,8 +98,8 @@ class PostController extends Controller
                 foreach ($request->file('photos') as $photo) {
                     $extension = $photo->getClientOriginalExtension();
                     $imageName = Str::slug($request->label) . '-philipe' . uniqid() . '.' . $extension;
-                    $photo->move(public_path('photos'), $imageName);
-                    $path = "/photos/" . $imageName;
+                    $photo->move(public_path('/photos'), $imageName);
+                    $path = "elycha/public/photos/" . $imageName;
                     $publication->images()->create([
                         'path' => $path
                     ]);
