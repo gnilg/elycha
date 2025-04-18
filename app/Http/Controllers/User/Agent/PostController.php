@@ -23,52 +23,52 @@ class PostController extends Controller
         return view("agent.posts.show", compact("posts", "countImmo", "countCar"));
     }
 
-    public function adds(Request $request)
-    {
-        $userId = auth()->id(); // Simplification de l'authentification
-        $categories = Category::where("status", 1)->get();
+    // public function adds(Request $request)
+    // {
+    //     $userId = auth()->id(); // Simplification de l'authentification
+    //     $categories = Category::where("status", 1)->get();
 
-        if ($request->isMethod('post')) {
-            $request->validate([
-                'label' => 'required|string|max:255',
-                'description' => 'nullable|string',
-                'price' => 'required|numeric|min:0',
-                'photos.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            ]);
+    //     if ($request->isMethod('post')) {
+    //         $request->validate([
+    //             'label' => 'required|string|max:255',
+    //             'description' => 'nullable|string',
+    //             'price' => 'required|numeric|min:0',
+    //             'photos.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:6144',
+    //         ]);
 
-            $data = $request->all();
-            $avatar = null;
+    //         $data = $request->all();
+    //         $avatar = null;
 
-            $publication = Publication::create([
-                'label' => $data['label'],
-                'place' => $data['place'],
-                'description' => $data['description'] ?? '',
-                'price' => $data['price'],
-                'user_id' => $userId,
-                'status' => 1,
-                'is_immo' => 1,
-            ]);
+    //         $publication = Publication::create([
+    //             'label' => $data['label'],
+    //             'place' => $data['place'],
+    //             'description' => $data['description'] ?? '',
+    //             'price' => $data['price'],
+    //             'user_id' => $userId,
+    //             'status' => 1,
+    //             'is_immo' => 1,
+    //         ]);
 
 
-            if ($request->hasFile('photos')) {
-                foreach ($request->file('photos') as $photo) {
-                    $extension = $photo->getClientOriginalExtension();
-                    $imageName = Str::slug($data['label']) . '-' . uniqid() . '.' . $extension;
-                    $photo->move(public_path('photos'), $imageName);
-                    $path = "/photos/" . $imageName;
+    //         if ($request->hasFile('photos')) {
+    //             foreach ($request->file('photos') as $photo) {
+    //                 $extension = $photo->getClientOriginalExtension();
+    //                 $imageName = Str::slug($data['label']) . '-' . uniqid() . '.' . $extension;
+    //                 $photo->move(public_path('photos'), $imageName);
+    //                 $path = "/photos/" . $imageName;
 
-                    // Associer l'image à la publication
-                    $publication->images()->create([
-                        'path' => $path
-                    ]);
-                }
-            }
+    //                 // Associer l'image à la publication
+    //                 $publication->images()->create([
+    //                     'path' => $path
+    //                 ]);
+    //             }
+    //         }
 
-            return redirect("/agent/posts")->with('flash_message_success', 'Publication ajoutée avec succès!');
-        }
+    //         return redirect("/agent/posts")->with('flash_message_success', 'Publication ajoutée avec succès!');
+    //     }
 
-        return view("agent.posts.add", compact("categories"));
-    }
+    //     return view("agent.posts.add", compact("categories"));
+    // }
 
     public function add(Request $request)
     {
@@ -78,7 +78,7 @@ class PostController extends Controller
                 'place' => 'required|string|max:255',
                 'description' => 'required|string',
                 'price' => 'required|numeric',
-                'photos.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
+                'photos.*' => 'image|mimes:jpg,jpeg,png,webp|max:6144',
                 'type' => 'required|numeric',
             ]);
 
@@ -97,7 +97,7 @@ class PostController extends Controller
             if ($request->hasFile('photos')) {
                 foreach ($request->file('photos') as $photo) {
                     $extension = $photo->getClientOriginalExtension();
-                    $imageName = Str::slug($request->label) . '-' . uniqid() . '.' . $extension;
+                    $imageName = Str::slug($request->label) . '-philipe' . uniqid() . '.' . $extension;
                     $photo->move(public_path('photos'), $imageName);
                     $path = "/photos/" . $imageName;
                     $publication->images()->create([
