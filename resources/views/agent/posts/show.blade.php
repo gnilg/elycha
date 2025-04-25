@@ -151,7 +151,7 @@
                                                     <div class="candidates-wrap flex">
                                                         <div class="images">
                                                             @if ($post->photos->isNotEmpty())
-                                                                <img src="{{ asset('storage/' . $post->photos->first()->path) }}" class="rounded"
+                                                                <img src="{{$post->photos?->first()->path}}" class="rounded"
                                                                      style="width: 100px" alt="images">
                                                             @else
                                                                 <img src="/images/default.jpg" class="rounded"
@@ -193,24 +193,28 @@
                                                         </a>
 
                                                         {{-- Éditer --}}
-                                                        <a href="{{ route('blog.edit', $post->id) }}" class="btn btn-sm btn-warning" style="margin: 8px" title="Éditer">
+                                                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-warning" style="margin: 8px" title="Éditer">
                                                             <i class="fa fa-edit"></i>
                                                         </a>
 
                                                         {{-- Supprimer --}}
-                                                        <form action="{{ route('blog.destroy', $post->id) }}" method="POST" onsubmit="return confirm('Supprimer ce post ?')">
+                                                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST" onsubmit="return confirm('Supprimer ce post ?')">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-sm btn-danger" style="margin: 8px" title="Supprimer">
                                                                 <i class="fa fa-trash"></i>
                                                             </button>
                                                         </form>
+                                                        <form action="{{ route('posts.activate', $post->id) }}" method="POST" onsubmit="return confirm('Activer ce post ?')">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-sm btn-success" style="margin: 8px" title="Activer">
+                                                                <i class="fa fa-check"></i>
+                                                            </button>
+                                                        </form>
+
+
                                                     </div>
                                                 </td>
-
-
-
-
                                             </tr>
                                         @endforeach
 

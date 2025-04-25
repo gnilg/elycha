@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\User\FrontController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -57,7 +58,19 @@ Route::group(['middleware' => ['agent']], function () {
         Route::prefix('posts')->group(function () {
             Route::match(['get', 'post'], '', 'App\Http\Controllers\User\Agent\PostController@index');
             Route::match(['get', 'post'], '/add', 'App\Http\Controllers\User\Agent\PostController@add');
+
+
         });
+        Route::post('posts/{publication}/activate', [\App\Http\Controllers\User\Agent\PostController::class, 'activate'])
+        ->name('posts.activate');
+
+
+
+        Route::resource('posts', \App\Http\Controllers\User\Agent\PostController::class)
+            ->only(['create', 'edit', 'update', 'destroy',])
+            ->parameters([
+                'posts' => 'publication'
+            ]);
     });
 });
 
@@ -170,6 +183,8 @@ Route::prefix('admin')->group(function () {
 
     });
 });
+
+Route::get('/search', [SearchController::class, 'index'])->name('search.index');
 
 
 
