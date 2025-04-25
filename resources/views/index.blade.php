@@ -302,8 +302,10 @@
                                 <h2>IMMOBILIER & GESTION FONCIÈRE</h2>
                                 <p class="text-color-4"> ✔ Achat, Vente & Location : Accompagnement des clients dans l’acquisition, la cession ou la location de biens immobiliers.
                                     <br>
-                                    ✔ Gestion immobilière : l'assurance et la rentabilité de vos investissements fait notre priorité même avec des retard de paiement chez le locataire la société ELYCHA vous verse votre loyer.<br>
-                                    ✔ Topographie : Études et levés topographiques pour la délimitation des terrains et la planification des projets immobiliers. </p>
+                                    ✔ Achat, Vente & Location au Togo (lomé? Accompagnement des clients dans l’acquisition, la cession ou la location de biens immobiliers au Togo)<br>
+                                    ✔ Gestion immobilière : l'assurance et la rentabilité de vos investissements au Togo (lomé)  fait notre priorité même avec des retard de paiement chez le locataire la société ELYCHA vous verse votre loyer <br>
+                                    ✔ Topographie : Études et levés topographiques pour la délimitation des terrains et la planification des projets immobiliers partout sur le territoire togolais
+                                </p>
                             </div>
                             <div class="swiper-container2">
                                 <div class="one-carousel owl-carousel owl-theme">
@@ -360,13 +362,14 @@
                             <div class="heading-section ">
                                 <h2>BTP & INFRASTRUCTURES</h2>
                                 <p class="text-color-4">
-                                    ✔ Bâtiment et Travaux Publics (BTP) : Conception, construction et rénovation de bâtiments résidentiels, commerciaux et industriels.
+                                    ✔ Bâtiment et Travaux Publics (BTP) : Conception, construction et rénovation de bâtiments résidentiels, commerciaux et industriels.>
                                     <br>
                                     ✔ Génie civil : Études et réalisations d’infrastructures comme les routes, ponts, barrages et bâtiments publics.
                                     <br>
                                     ✔ Forage : Installation de puits et systèmes d’approvisionnement en eau potable ou industrielle.
                                     <br>
-                                    ✔ Piscine : Conception, construction et entretien de piscines privées et publiques pour le bien-être et le loisir.
+
+                                    ✔ Piscine : Conception, construction et entretien de piscines privées et publiques pour le bien-être des togolais
                                  </p>
                             </div>
                             <div class="swiper-container2">
@@ -494,10 +497,12 @@
                                     ✔ Contrôle d’accès : Sécurisation des bâtiments et sites sensibles via des systèmes de surveillance et d’accès intelligents.
                                     <br>
                                     <br>
-                                    Avec cette expertise variée, Elycha se positionne comme un acteur clé pour accompagner ses clients dans leurs projets, en garantissant qualité, innovation et satisfaction.
+                                    Avec cette expertise variée au Togo (lomé), Elycha se positionne comme un acteur clé pour accompagner ses clients dans leurs projets, en garantissant qualité, innovation et satisfaction.
+
                                     <br>
                                     <br>
                                     Contacter-nous des aujourd'hui pour concrétiser vos projets avec succès !
+                                    Lomé-Togo
                                      </b>
                                  </p>
                             </div>

@@ -88,11 +88,23 @@
                                             @foreach ($posts as $post)
                                                 <tr class="file-delete">
                                                     <td>
-                                                        <div class="images">
-                                                            <img src="{{ asset('storage/' . $post->image) }}" class="rounded"
-                                                                style="width: 100px" alt="images">
-                                                        </div>
+                                                        <div class="candidates-wrap flex">
+                                                            <div class="images">
 
+                                                                    <img src="{{ asset('storage/' . $post->image) }}" class="rounded"
+                                                                         style="width: 100px" alt="images">
+
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4 class="link-style-1">
+                                                                    <a href="property-detail-v1.html">{{ $post->label }}</a>
+                                                                </h4>
+                                                                <div class="text-date">
+                                                                    <p class="p-12 text-color-2 lh-18">Publié le: {{ formatDate($post->created_at) }}</p>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <div class="status-wrap">
