@@ -10,8 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     function profile(Request $request){
-        $id = session('id');
-        $user = User::where(['id' => $id])->first();
+        $user = auth()->user();
         if ($request->isMethod('post')) {
             $data = $request->all();
             $avatar = $user->avatar;
@@ -23,7 +22,7 @@ class UserController extends Controller
                 $ulpoadImageSuccess = $imageIcon->move($destinationPath, $imageIconName);
                 $avatar = "/avatars/" . $imageIconName;
             }
-            User::where(['id' => $id])->update([
+            User::where(['id' => $user->id])->update([
                 'email' => $data['email'],
                 'telephone' => $data['telephone'],
                 'last_name' => $data['last_name'],

@@ -15,7 +15,7 @@
                 <!-- Page header with logo and tagline-->
 
                 <!-- Page content-->
-                <div class="container">
+             <div class="container">
                     <div class="row">
                         <!-- Blog entries-->
                         @foreach ($blogPosts as $post)

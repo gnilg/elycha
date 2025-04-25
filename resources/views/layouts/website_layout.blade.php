@@ -25,6 +25,7 @@
 
 </head>
 
+
 <body class="body ">
     @if (session('flash_message_error'))
         <div class="alert alert-danger">

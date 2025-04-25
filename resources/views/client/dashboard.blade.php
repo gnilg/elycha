@@ -140,7 +140,7 @@
         </div>
     </section>
 
-    <section class="flat-dashboard">
+    {{-- <section class="flat-dashboard">
         <div class="container7">
             <div class="row">
                 <div class="col-lg-12 flex post-col">
@@ -1277,5 +1277,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 @endsection

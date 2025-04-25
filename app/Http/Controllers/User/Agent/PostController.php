@@ -15,8 +15,7 @@ class PostController extends Controller
     function index(Request $request)
     {
         $userId = auth()->user()->id;
-        $posts = Publication::where("status", ">=", 1)->where(["user_id" => $userId])->get();
-
+        $posts = Publication::where('user_id', $userId)->latest()->get();
         $countImmo = Publication::where("status", ">=", 1)->where(["user_id" => $userId])->where(["is_immo" => 1])->get()->count();
         $countCar = Publication::where("status", ">=", 1)->where(["user_id" => $userId])->where(["is_immo" => 2])->get()->count();
 
@@ -70,6 +69,69 @@ class PostController extends Controller
     //     return view("agent.posts.add", compact("categories"));
     // }
 
+    public function edit(Publication $publication){
+
+        return view('agent.posts.edit', compact('publication'));
+    }
+
+    public function update(Request $request, Publication $publication)
+    {
+
+        $request->validate([
+            'label' => 'required|string|max:255',
+            'place' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric',
+            'photos.*' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:6144',
+            'type' => 'required|numeric',
+            'category' => 'required|numeric',
+        ]);
+
+        $publication->update([
+            'label' => $request->label,
+            'place' => $request->place,
+            'description' => $request->description,
+            'price' => $request->price,
+            'is_immo' => $request->category,
+            'type' => $request->type,
+        ]);
+
+        if ($request->hasFile('photos')) {
+            foreach ($request->file('photos') as $photo) {
+                $extension = $photo->getClientOriginalExtension();
+                $imageName = Str::slug($request->label) . '-philipe' . uniqid() . '.' . $extension;
+                $photo->move(public_path('/photos'), $imageName);
+                $path = "/photos/" . $imageName;
+
+                $publication->images()->create([
+                    'path' => $path
+                ]);
+            }
+        }
+
+        return redirect("/agent/posts")->with('flash_message_success', 'Publication mise à jour avec succès!');
+    }
+
+    public function destroy(Publication $publication)
+    {
+        $publication->status = 0;
+        $publication->save();
+
+        return redirect("/agent/posts")->with('flash_message_success', 'Publication désactivée avec succès!');
+    }
+
+    public function activate(Publication $publication){
+
+        $publication->update([
+            'status' => 1
+        ]);
+
+
+        return redirect("/agent/posts")->with('flash_message_success', 'Publication activé avec succès!');
+    }
+
+
+
     public function add(Request $request)
     {
         if ($request->isMethod('post')) {
@@ -99,7 +161,8 @@ class PostController extends Controller
                     $extension = $photo->getClientOriginalExtension();
                     $imageName = Str::slug($request->label) . '-philipe' . uniqid() . '.' . $extension;
                     $photo->move(public_path('/photos'), $imageName);
-                    $path = "elycha/public/photos/" . $imageName;
+                    $path = "/photos/" . $imageName;
+                    // $path = "elycha/public/photos/" . $imageName; pour deployer
                     $publication->images()->create([
                         'path' => $path
                     ]);
