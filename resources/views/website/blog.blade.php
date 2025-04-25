@@ -10,51 +10,59 @@
                 </div>
             </div>
 
-
-            <div>
                 <!-- Page header with logo and tagline-->
 
                 <!-- Page content-->
-             <div class="container">
+
+                <div class="container">
                     <div class="row">
-                        <!-- Blog entries-->
-                        @foreach ($blogPosts as $post)
-                        <div class="col-lg-12" style="padding-bottom: 30px;">
-                            <!-- Featured blog post-->
+                        <div class="col-lg-12" >
+                            <div class="swiper-container2">
+                                <div class="vertical-list">
+                                    @foreach ($blogPosts as $post)
+                                    <div class="slide-item">
+                                        <div class="box box-dream hv-one">
+                                            <a href="{{ route('blog.show', $post->id) }}"><img class="card-img-top" src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" />
+                                            </a>
+                                            <div class="card-body" style="padding: 4px ">
+                                                <div class="small text-muted">{{ $post->created_at->format('F d, Y') }}</div>
+                                                <h2 class="card-title h4">{{ $post->title }}</h2>
+                                                <p class="card-text">{{ Str::limit($post->content, 150) }}</p>
+                                                <div style="padding-left: 4px; padding-right: 30px">
+                                                    <a class="btn btn-warning" href="{{ route('blog.show', $post->id) }}">Lire plus →</a>
 
-                            <div class="card mb-4">
-                                <a href="{{ route('blog.show', $post->id) }}"><img class="card-img-top" src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" />
-                                </a>
-                                <div class="card-body" style="padding: 4px">
-                                    <div class="small text-muted">{{ $post->created_at->format('F d, Y') }}</div>
-                                    <h2 class="card-title h4">{{ $post->title }}</h2>
-                                    <p class="card-text">{{ Str::limit($post->content, 150) }}</p>
-                                    <div style="padding-left: 4px; padding-right: 30px">
-                                        <a class="btn btn-warning" href="{{ route('blog.show', $post->id) }}">Lire plus →</a>
-
-                                        <!-- Bouton J'aime -->
-                                        <button class="btn btn-outline-primary" onclick="likePost({{ $post->id }})" id="like-btn-{{ $post->id }}">
-                                            ❤️ (<span id="like-count-{{ $post->id }}">{{ $post->likes->count() }}</span>)
-                                        </button>
+                                                    <!-- Bouton J'aime -->
+                                                    <button class="btn btn-outline-primary" onclick="likePost({{ $post->id }})" id="like-btn-{{ $post->id }}">
+                                                        ❤️ (<span id="like-count-{{ $post->id }}">{{ $post->likes->count() }}</span>)
+                                                    </button>
 
 
-                                        <!-- Bouton Commentaire -->
-                                        <a class="btn btn-outline-secondary" href="{{ route('blog.show', $post->id) }}#comments">
-                                            💬
-                                        </a>
+                                                    <!-- Bouton Commentaire -->
+                                                    <a class="btn btn-outline-secondary" href="{{ route('blog.show', $post->id) }}#comments">
+                                                        💬
+                                                    </a>
 
-                                        <!-- Bouton Partage -->
-                                        <button class="btn btn-outline-success" onclick="sharePost({{ $post->id }})">
-                                            🔗
-                                        </button>
+                                                    <!-- Bouton Partage -->
+
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
                                     </div>
-
-
+                                    @endforeach
                                 </div>
+
                             </div>
 
+
+                            <!-- Featured blog post-->
+
+
+
                         </div>
-                        @endforeach
+
                         <!-- Side widgets-->
 
                             <!-- Categories widget-->
@@ -64,7 +72,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
+
+
 
 
             {{-- <div class="col d-flex pb-2 gap-3 justify-content-center mb-4">
