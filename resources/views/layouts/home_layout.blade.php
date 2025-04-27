@@ -190,8 +190,14 @@
                                         </fieldset>
                                         <fieldset class="">
                                             <label class="fw-6">Mot de passe</label>
-                                            <input type="password" name="password" class="input-form password-input"
-                                                placeholder="**********" required>
+                                            <div style="position: relative;">
+                                                <input type="password" name="password" id="password" class="input-form password-input"
+                                                       placeholder="**********" required>
+                                                <span onclick="togglePassword()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                                                  👁️
+                                                </span>
+                                              </div>
+
                                             <img class="img-icon" src="/front/assets/images/icon/icon-password.svg"
                                                 alt="images">
                                         </fieldset>
@@ -269,6 +275,17 @@
     <script src={{asset('/front/app/js/price-ranger.js')}}></script>
 
     <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        }
+    </script>
+
+    <script>
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
         function likePost(postId) {
@@ -319,6 +336,10 @@
         document.getElementById('popup_bid').style.display = 'block';
     }
 </script>
+
+
+
+
 @endif
 
 </body>
