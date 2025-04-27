@@ -510,8 +510,14 @@
                                         </fieldset>
                                         <fieldset class="">
                                             <label class="fw-6">Mot de passe</label>
-                                            <input type="password" name="password" class="input-form password-input"
-                                                placeholder="**********" required>
+                                            <div style="position: relative;">
+                                                <input type="password" name="password" id="password" class="input-form password-input"
+                                                       placeholder="**********" required>
+                                                <span onclick="togglePassword()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                                                  👁️
+                                                </span>
+                                              </div>
+
                                             <img class="img-icon" src="/front/assets/images/icon/icon-password.svg"
                                                 alt="images">
                                         </fieldset>
@@ -587,6 +593,17 @@
     <script src={{asset('/front/app/js/main.js')}}></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Script pour le filtrage -->
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        }
+    </script>
+
 
     <script>
         function likePost(postId) {
