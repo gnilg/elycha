@@ -159,7 +159,7 @@ class PostController extends Controller
             if ($request->hasFile('photos')) {
                 foreach ($request->file('photos') as $photo) {
                     $extension = $photo->getClientOriginalExtension();
-                    $imageName = Str::slug($request->label) . '-philipe' . uniqid() . '.' . $extension;
+                    $imageName = Str::slug($request->label) . '-' . uniqid() . '.' . $extension;
                     $photo->move(public_path('/photos'), $imageName);
                     // $path = "/photos/" . $imageName;
                     $path = "elycha/public/photos/" . $imageName;
