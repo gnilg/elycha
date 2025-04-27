@@ -151,7 +151,7 @@
                                                     <div class="candidates-wrap flex">
                                                         <div class="images">
                                                             @if ($post->photos->isNotEmpty())
-                                                                <img src="{{$post->photos?->first()->path}}" class="rounded"
+                                                                <img src="{{$post->photo?->first()->path}}" class="rounded"
                                                                      style="width: 100px" alt="images">
                                                             @else
                                                                 <img src="/images/default.jpg" class="rounded"
