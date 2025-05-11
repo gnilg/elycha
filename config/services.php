@@ -30,5 +30,14 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'vonage' => [
+        'key' => env('VONAGE_KEY'),
+        'secret' => env('VONAGE_SECRET'),
+        'sms_from' => env('VONAGE_SMS_FROM', 'Vonage'), // fallback if not set in .env
+    ],
+    'firebase' => [
+        'credentials_file' => env('FIREBASE_CREDENTIALS', storage_path('app/firebase/firebase_credentials.json')),
+    ],
+    
 
 ];

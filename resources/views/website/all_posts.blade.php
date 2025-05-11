@@ -144,7 +144,7 @@
                                                                                             style="height: 300px; width: 100%; object-fit: cover;">
                                                                                     </div>
                                                                                 @endforeach
-                                                                            </div>
+                                                                        </div>
 
                                                                     <div class="pagi2">
                                                                         <div class="swiper-pagination2"> </div>
@@ -412,7 +412,7 @@
                     </section>
                 </div>
 
-                
+
             </div>
         </div>
 

@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Version\PublicationController;
+use App\Http\Controllers\Api\NotificationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +17,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('publications', PublicationController::class);
+    Route::post('/pub/create', [PublicationController::class, 'createPublication']);
+    Route::get('/pub/read', [PublicationController::class, 'getUserPublications']);
+   // Route::delete('/pub/{id}/', [PublicationController::class, 'destroy']);
+    Route::get('/pub-get/{id}/', [PublicationController::class, 'getPublicationbyId']);
+    Route::post('/pub-update/{id}/', [PublicationController::class, 'editPublication']);
+    Route::post('/pub/{publication}/like', [PublicationController::class, 'like']);
+    Route::get('/pub-paginate-search-likes', [PublicationController::class, 'paginateSearchLikes']);
+    Route::post('/store-token', [NotificationController::class, 'storeToken']);
+    Route::post('/notify-user', [NotificationController::class, 'notify']);
+    Route::post('/fetch-notifications', [NotificationController::class, 'fetchNotifications']);
+    Route::get('/pub-search-favorite', [PublicationController::class, 'searchFavorite']);
+    Route::post("/update-infos", "App\Http\Controllers\Api\Version\AuthController@updateUserInfo");
+
+    Route::get('/pub-search-user', [PublicationController::class, 'searchUser']);
 });
 
 Route::post("callback-payment", "App\Http\Controllers\Api\ApiController@callbackPayment");
@@ -32,6 +54,13 @@ Route::prefix('auth')->group(function () {
     Route::post("check-password", "App\Http\Controllers\Api\AuthController@checkPassword");
     Route::post("send-code", "App\Http\Controllers\Api\AuthController@sendCode");
     Route::post("reinitialize-password", "App\Http\Controllers\Api\AuthController@reinitializePassword");
+
+
+       //New version api implementation
+       Route::post("login-new", "App\Http\Controllers\Api\Version\AuthController@login");
+       Route::post("register-new", "App\Http\Controllers\Api\Version\AuthController@register");
+       Route::post("request-password-reset-new", "App\Http\Controllers\Api\Version\AuthController@requestPasswordReset");
+       Route::post("password-reset-new", "App\Http\Controllers\Api\Version\AuthController@resetPassword");
 });
 
 Route::get("posts/categories", "App\Http\Controllers\Api\PostController@categories");
@@ -42,6 +71,9 @@ Route::get("posts/paginate", "App\Http\Controllers\Api\PostController@allPosts")
 Route::post("posts/search", "App\Http\Controllers\Api\PostController@search");
 Route::post("posts/new-search", "App\Http\Controllers\Api\PostController@newSearch");
 
+// New version Api implementation
+Route::get('/pub-search', [PublicationController::class, 'search']);
+Route::get('/pub-paginate', [PublicationController::class, 'paginate']);
 
 Route::prefix('notifications')->group(function () {
     Route::get("all-clients", "App\Http\Controllers\Api\NotificationController@clients");
