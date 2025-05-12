@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Publication;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 
@@ -142,9 +143,11 @@ class PostController extends Controller
                 'price' => 'required|numeric',
                 'photos.*' => 'image|mimes:jpg,jpeg,png,webp|max:6144',
                 'type' => 'required|numeric',
+                'category' => 'required|in:0,1'
             ]);
 
-            $publication = Publication::create([
+
+            $publicationData = [
                 'label' => $request->label,
                 'place' => $request->place,
                 'description' => $request->description,
@@ -152,19 +155,43 @@ class PostController extends Controller
                 'user_id' => auth()->id(),
                 'is_immo' => $request->category,
                 'type' => $request->type,
-                'photo' => null // temporaire
-            ]);
+                'photo' => null
+            ];
+
+            $publication = Publication::create($publicationData);
 
 
             if ($request->hasFile('photos')) {
-                foreach ($request->file('photos') as $photo) {
-                    $extension = $photo->getClientOriginalExtension();
-                    $imageName = Str::slug($request->label) . '-' . uniqid() . '.' . $extension;
-                    $photo->move(public_path('/photos'), $imageName);
-                    // $path = "/photos/" . $imageName;
-                    $path = "elycha/public/photos/" . $imageName;
-                    $publication->images()->create([
-                        'path' => $path
+                $firstImagePath = null;
+
+                foreach ($request->file('photos') as $index => $photo) {
+                    try {
+                        $extension = $photo->getClientOriginalExtension();
+                        $imageName = Str::slug($request->label) . '-' . uniqid() . '.' . $extension;
+                        $path = $photo->storeAs('photos', $imageName, 'public');
+
+                        $imagePath = 'storage/'.$path;
+
+
+                        $publication->images()->create([
+                            'path' => $imagePath
+                        ]);
+
+
+                        if ($index === 0) {
+                            $firstImagePath = $imagePath;
+                        }
+                    } catch (\Exception $e) {
+                        report($e);
+                        DB::rollBack();
+                        return back()->with('flash_message_error', 'Erreur lors de l’envoi des images.');
+                    }
+                }
+
+                
+                if ($firstImagePath) {
+                    $publication->update([
+                        'photo' => $firstImagePath
                     ]);
                 }
             }
@@ -172,7 +199,7 @@ class PostController extends Controller
             return redirect("/agent/posts")->with('flash_message_success', 'Publication ajoutée avec succès!');
         }
 
-        return view("agent.posts.add");
+        return view('agent.posts.add');
     }
 
 
