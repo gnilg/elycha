@@ -10,7 +10,7 @@
 @section('content')
     <section class="flat-title ">
         <div class="container">
-            <div class="row"> 
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="title-inner style-detail">
                         <div class="title-group fs-12"><a class="home fw-6 text-color-3"
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="image-detail">
-                                        <img src="{{ $photo->path }}" style="width: 100%" alt="images">
+                                        <img src="{{ asset($photo->path) }}" style="width: 100%" alt="images">
                                     </div>
                                 </div>
                             @endforeach
