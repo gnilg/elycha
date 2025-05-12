@@ -133,14 +133,14 @@
                                                                                 {{-- Photo principale --}}
                                                                                 @if ($post?->photo)
                                                                                     <div class="swiper-slide">
-                                                                                        <img src="{{ asset($post->photo) }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
+                                                                                        <img src="{{ asset('storage/'.$post->photo) }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
                                                                                     </div>
                                                                                 @endif
 
                                                                                 {{-- Autres photos --}}
                                                                                 @foreach($post->photos as $photo)
                                                                                     <div class="swiper-slide">
-                                                                                        <img src="{{ asset($photo->path) }}" alt="image supplémentaire"
+                                                                                        <img src="{{ asset('storage/'.$photo->path) }}" alt="image supplémentaire"
                                                                                             style="height: 300px; width: 100%; object-fit: cover;">
                                                                                     </div>
                                                                                 @endforeach
