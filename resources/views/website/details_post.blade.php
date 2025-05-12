@@ -29,7 +29,7 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="image-detail"
-                                    style="height: 500px;background-color:black;background-image:url({{ $post->photo }});background-size:cover;background-position:center">
+                                    style="height: 500px;background-color:black;background-image:url({{ asset('storage/'.$post->photo) }});background-size:cover;background-position:center">
                                     {{-- <img src="{{ $post->photo }}" style="width: 100%;" alt="images"> --}}
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="image-detail">
-                                        <img src="{{ asset($photo->path) }}" style="width: 100%" alt="images">
+                                        <img src="{{ asset('/storage'.$photo->path) }}" style="width: 100%" alt="images">
                                     </div>
                                 </div>
                             @endforeach
@@ -158,7 +158,7 @@
                                 @foreach ($posts as $post)
                                     <div class="box-listings flex hover-img3">
                                         <div class="img-listings img-style3">
-                                            <img src="{{ asset( $post->photos?->first()->path) }}" style="width:80px;" alt="images">
+                                            <img src="{{ asset( 'storage/'.$post->photos?->first()->path) }}" style="width:80px;" alt="images">
                                         </div>
                                         <div class="content link-style-1">
                                             <a class="fs-16 lh-24" href="/posts/details/{{ $post->id }}">
