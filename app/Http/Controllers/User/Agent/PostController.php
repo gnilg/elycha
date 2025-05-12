@@ -170,7 +170,7 @@ class PostController extends Controller
                         $imageName = Str::slug($request->label) . '-' . uniqid() . '.' . $extension;
                         $path = $photo->storeAs('photos', $imageName, 'public');
 
-                        $imagePath = 'storage/'.$path;
+                        $imagePath = $path;
 
 
                         $publication->images()->create([
@@ -188,7 +188,7 @@ class PostController extends Controller
                     }
                 }
 
-                
+
                 if ($firstImagePath) {
                     $publication->update([
                         'photo' => $firstImagePath
