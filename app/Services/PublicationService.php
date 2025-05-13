@@ -58,10 +58,10 @@ class PublicationService
 
         $deleted = $publication->delete();
 
-        if (!$deleted) {
+        if (! $deleted) {
             throw new \Exception("La suppression a échoué.");
         }
-    
+
         return $deleted;
     }
 
@@ -71,52 +71,84 @@ class PublicationService
         info('Search request');
         $query = Publication::query();
 
-        if ($request->has('search')) {
+        $search = trim($request->input('search'));
 
-            $search = trim($request->input('search'));
+        if (! empty($search)) {
+            $search = strtolower(str_replace(' ', '', $search)); // Normalize
 
-            if($search == "locationimmobilier") {
-                info('locationimmobilier');
-                $query->where('category_id', 1)
-                      ->where('category_type_id', 1);
-            } else if($search == "locationautomobile") {
-                info('locationautomobile');
-                $query->where('category_id', 2)
-                      ->where('category_type_id', 1);
+            // Define shortcut keyword mappings
+            $shortcutMappings = [
+                'locationimmobilier' => ['category_id' => 1, 'category_type_id' => 1],
+                'locationautomobile' => ['category_id' => 2, 'category_type_id' => 1],
+                'venteautomobile'    => ['category_id' => 2, 'category_type_id' => 3],
+                'venteimmobilier'    => ['category_id' => 1, 'category_type_id' => 3],
+                'bailimmobilier'     => ['category_id' => 1, 'category_type_id' => 2],
+            ];
 
-            } else if($search == "venteautomobile") {
-                info('venteautomobile');
-                $query->where('category_id', 2)
-                      ->where('category_type_id', 3);
-
-            } else if($search == "venteimmobilier") {
-                info('venteimmobilier');
-                $query->where('category_id', 1)
-                      ->where('category_type_id', 3);
-
-            } else if($search == "bailimmobilier") {
-                info('bailimmobilier');
-                $query->where('category_id', 1)
-                      ->where('category_type_id', 2);
-
+            if (isset($shortcutMappings[$search])) {
+                info($search);
+                $query->where('category_id', $shortcutMappings[$search]['category_id'])
+                    ->where('category_type_id', $shortcutMappings[$search]['category_type_id']);
             } else {
+                // Standard search
                 $query->where(function ($q) use ($search) {
                     $q->where('label', 'like', "%{$search}%")
                         ->orWhere('place', 'like', "%{$search}%")
                         ->orWhere('description', 'like', "%{$search}%");
                 });
-
             }
-           
         }
 
-       
-
-        // 👉 Add with('likes') here
-        $publications = $query->with('category', 'user', 'likess', 'photos')->orderBy('created_at', 'desc')->get();
-
+// Add eager loading
+        $publications = $query->with('category', 'user', 'likess', 'photos')
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return response()->json($publications);
+
+        // if ($request->has('search')) {
+
+        //     $search = trim($request->input('search'));
+
+        //     if($search == "locationimmobilier") {
+        //         info('locationimmobilier');
+        //         $query->where('category_id', 1)
+        //               ->where('category_type_id', 1);
+        //     } else if($search == "locationautomobile") {
+        //         info('locationautomobile');
+        //         $query->where('category_id', 2)
+        //               ->where('category_type_id', 1);
+
+        //     } else if($search == "venteautomobile") {
+        //         info('venteautomobile');
+        //         $query->where('category_id', 2)
+        //               ->where('category_type_id', 3);
+
+        //     } else if($search == "venteimmobilier") {
+        //         info('venteimmobilier');
+        //         $query->where('category_id', 1)
+        //               ->where('category_type_id', 3);
+
+        //     } else if($search == "bailimmobilier") {
+        //         info('bailimmobilier');
+        //         $query->where('category_id', 1)
+        //               ->where('category_type_id', 2);
+
+        //     } else {
+        //         $query->where(function ($q) use ($search) {
+        //             $q->where('label', 'like', "%{$search}%")
+        //                 ->orWhere('place', 'like', "%{$search}%")
+        //                 ->orWhere('description', 'like', "%{$search}%");
+        //         });
+
+        //     }
+
+        // }
+
+        // // 👉 Add with('likes') here
+        // $publications = $query->with('category', 'user', 'likess', 'photos')->orderBy('created_at', 'desc')->get();
+
+        // return response()->json($publications);
     }
 
     public function searchUser(Request $request)
@@ -130,22 +162,18 @@ class PublicationService
             info('Search user request param reeived');
             $search = trim($request->input('search'));
 
-            
-                $query->where('user_id', auth()->user()->id);
-            
-                $query->where(function ($q) use ($search) {
-                    $q->where('label', 'like', "%{$search}%")
-                        ->orWhere('place', 'like', "%{$search}%")
-                        ->orWhere('description', 'like', "%{$search}%");
-                });
+            $query->where('user_id', auth()->user()->id);
 
-            
-           
+            $query->where(function ($q) use ($search) {
+                $q->where('label', 'like', "%{$search}%")
+                    ->orWhere('place', 'like', "%{$search}%")
+                    ->orWhere('description', 'like', "%{$search}%");
+            });
+
         }
 
         // 👉 Add with('likes') here
         $publications = $query->with('category', 'user', 'likess', 'photos')->latest()->get();
-
 
         return response()->json($publications);
     }
@@ -215,22 +243,22 @@ class PublicationService
         $userId = auth()->user()->id;
 
         info("Paginate search favorite request received");
-    
+
         // Default items per page: 10, but customizable via the request
         $perPage = $request->input('per_page', 10);
-    
+
         // Initialize the publications query with necessary relationships
         $publications = Publication::with('category', 'user', 'likess', 'photos')
             ->whereHas('likes', function ($query) use ($userId) {
                 $query->where('user_id', $userId);
             });
-    
+
         // Check if there is a 'search' query parameter
         if ($request->has('search')) {
             info('Search request param received');
-    
+
             $search = trim($request->input('search'));
-    
+
             // Apply search filters for 'label', 'place', and 'description' fields
             $publications->where(function ($query) use ($search) {
                 $query->where('label', 'like', "%{$search}%")
@@ -238,19 +266,19 @@ class PublicationService
                     ->orWhere('description', 'like', "%{$search}%");
             });
         }
-    
+
         // Order by the most recent publications and paginate
         $publications = $publications->orderBy('created_at', 'desc')
             ->paginate($perPage);
-    
+
         // Return the response with the publications data and pagination info
         return response()->json([
-            'data' => $publications->items(),
+            'data'       => $publications->items(),
             'pagination' => [
-                'total' => $publications->total(),
-                'per_page' => $publications->perPage(),
-                'current_page' => $publications->currentPage(),
-                'last_page' => $publications->lastPage(),
+                'total'         => $publications->total(),
+                'per_page'      => $publications->perPage(),
+                'current_page'  => $publications->currentPage(),
+                'last_page'     => $publications->lastPage(),
                 'next_page_url' => $publications->nextPageUrl(),
                 'prev_page_url' => $publications->previousPageUrl(),
             ],
@@ -281,9 +309,9 @@ class PublicationService
         } else {
             Like::create([
                 'publication_id' => $publication->id,
-                'likeable_id' => $publication->id,
+                'likeable_id'    => $publication->id,
                 'user_id'        => $user->id,
-                'likeable_type'        => 'App\Models\Publication',
+                'likeable_type'  => 'App\Models\Publication',
             ]);
             return response()->json(['liked' => true]);
         }
