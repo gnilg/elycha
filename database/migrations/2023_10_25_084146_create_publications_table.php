@@ -26,6 +26,7 @@ return new class extends Migration
             $table->unsignedBigInteger('views')->default(0);
             $table->unsignedBigInteger('status')->default(1);
             $table->unsignedBigInteger('type')->default(1);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
