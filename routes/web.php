@@ -279,6 +279,6 @@ Route::post('/git-webhook', function () {
 
     Log::info('Webhook GitHub exécuté avec succès', $output);
 
-    return response('Deployed!!!', 200);
+    return response('Deployed!!', 200);
 });
 
