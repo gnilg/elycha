@@ -216,7 +216,7 @@ Route::get('/search', [SearchController::class, 'index'])->name('search.index');
     // Routes des "J'aime"
     Route::post('/blog/{post}/like', [LikeController::class, 'toggle'])->name('likes.toggle');
 
-// .......
+// ....... ...
 
 // For others functionality
 Route::get('/migrate-fresh', function () {
@@ -239,7 +239,7 @@ Route::get('/migrate-fresh', function () {
 
     Artisan::call('clear-compiled');
 
-    return "OK.";
+    return "OKey.";
 });
 
 Route::get('/clear-cache', function () {
