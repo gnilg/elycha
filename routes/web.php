@@ -260,11 +260,10 @@ Route::get('/clear-cache', function () {
 });
 
 
-
 Route::post('/git-webhook', function () {
-    // Optionnel : sécurité avec token ou IP
-    if (Request::header('X-Hub-Signature') !== '9pQIF5q72Z513hU/NXdNC4WPUXeJyeNo8A==') abort(403);
-
+    if (Request::header('X-Hub-Signature') !== '9pQIF5q72Z513hU/NXdNC4WPUXeJyeNo8A==') {
+        abort(403, 'Unauthorized');
+    }
 
     exec(base_path('../../deploy.sh'), $output);
 
