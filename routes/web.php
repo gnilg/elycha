@@ -259,16 +259,26 @@ Route::get('/clear-cache', function () {
     return "OK.";
 });
 
-
 Route::post('/git-webhook', function () {
-    if (Request::header('X-Hub-Signature') !== '9pQIF5q72Z513hU/NXdNC4WPUXeJyeNo8A==') {
-        abort(403, 'Unauthorized');
+    $secret = env('GITHUB_WEBHOOK_SECRET', 'mon_super_secret_webhook_token');
+
+    $signature = Request::header('X-Hub-Signature');
+
+    if (! $signature || ! str_starts_with($signature, 'sha1=')) {
+        abort(403, 'Signature manquante ou mal formée');
+    }
+
+    $payload = file_get_contents('php://input');
+    $hash = 'sha1=' . hash_hmac('sha1', $payload, $secret);
+
+    if (! hash_equals($signature, $hash)) {
+        abort(403, 'Signature invalide');
     }
 
     exec(base_path('../../deploy.sh'), $output);
 
-    Log::info('Webhook triggered:', $output);
+    Log::info('Webhook GitHub exécuté avec succès', $output);
 
-    return 'Deployed!!!';
+    return response('Deployed!', 200);
 });
 
