@@ -8,6 +8,8 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\User\FrontController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Request;
 
 
 /*
@@ -256,3 +258,18 @@ Route::get('/clear-cache', function () {
 
     return "OK.";
 });
+
+
+
+Route::post('/git-webhook', function () {
+    // Optionnel : sécurité avec token ou IP
+    if (Request::header('X-Hub-Signature') !== '9pQIF5q72Z513hU/NXdNC4WPUXeJyeNo8A==') abort(403);
+
+
+    exec(base_path('../../deploy.sh'), $output);
+
+    Log::info('Webhook triggered:', $output);
+
+    return 'Deployed!';
+});
+
