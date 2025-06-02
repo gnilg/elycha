@@ -104,10 +104,10 @@ class PostController extends Controller
         if ($request->hasFile('photos')) {
             foreach ($request->file('photos') as $photo) {
                 $extension = $photo->getClientOriginalExtension();
-                $imageName = Str::slug($request->label) . '-philipe-' . uniqid() . '.' . $extension;
+                $imageName = Str::slug($request->label) . '-' . uniqid() . '.' . $extension;
 
                 // Chemin absolu vers le dossier externe
-                $destination = base_path('../../public_html/photos');
+                $destination = base_path('../../public_html/storage/photos');
 
                 // Crée le dossier s’il n’existe pas
                 if (!File::exists($destination)) {
@@ -182,7 +182,7 @@ class PostController extends Controller
                 $firstImagePath = null;
 
                 // Chemin absolu vers le dossier externe
-                $externalPath = base_path('../../public_html/photos');
+                $externalPath = base_path('../../public_html/storage/photos');
 
                 // Crée le dossier s’il n’existe pas
                 if (!File::exists($externalPath)) {
@@ -192,16 +192,17 @@ class PostController extends Controller
                 foreach ($request->file('photos') as $index => $photo) {
                     try {
                         $extension = $photo->getClientOriginalExtension();
-                        $imageName = Str::slug($request->label) . '-philipe-' . uniqid() . '.' . $extension;
+                        $imageName = Str::slug($request->label) . '-' . uniqid() . '.' . $extension;
 
                         // Déplacement physique du fichier
                         $photo->move($externalPath, $imageName);
 
                         // Chemin relatif accessible publiquement
-                        $publicPath = 'photos/' . $imageName;
+                        $publicPath = 'photos/'.$imageName;
 
                         $publication->images()->create([
-                            'path' => $publicPath
+                            'path' => $publicPath,
+                            'photo' =>$publicPath
                         ]);
 
                         if ($index === 0) {
