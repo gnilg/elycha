@@ -19,8 +19,4 @@ yarn-error.log
 /.vscode
 
 
-./app/Http/Controllers/User/Agent/PostController.php
 
-./resources/views/website/details_post.blade.php
-
-resources/views/website/all_posts.blade.php
