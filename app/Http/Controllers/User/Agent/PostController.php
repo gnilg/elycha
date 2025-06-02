@@ -8,6 +8,7 @@ use App\Models\Publication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 
 
@@ -97,19 +98,26 @@ class PostController extends Controller
             'type' => $request->type,
         ]);
 
+
+
         if ($request->hasFile('photos')) {
             foreach ($request->file('photos') as $photo) {
                 $extension = $photo->getClientOriginalExtension();
                 $imageName = Str::slug($request->label) . '-philipe-' . uniqid() . '.' . $extension;
 
                 // Chemin absolu vers le dossier externe
-                $destination = '../../public_html/storage/photos';
+                $destination = base_path('../../public_html/storage/photos');
+
+                // Crée le dossier s’il n’existe pas
+                if (!File::exists($destination)) {
+                    File::makeDirectory($destination, 0755, true);
+                }
 
                 // Déplacement physique du fichier
                 $photo->move($destination, $imageName);
 
-                // Chemin à enregistrer dans la BDD (chemin public relatif)
-                $path = "/photos/" . $imageName;
+                // Chemin relatif public à enregistrer
+                $path = "/storage/photos/" . $imageName;
 
                 $publication->images()->create([
                     'path' => $path,
@@ -117,6 +125,7 @@ class PostController extends Controller
                 ]);
             }
         }
+
 
 
         return redirect("/agent/posts")->with('flash_message_success', 'Publication mise à jour avec succès!');
