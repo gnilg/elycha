@@ -133,7 +133,7 @@
                                                                                 {{-- Photo principale --}}
                                                                                 @if ($post?->photo)
                                                                                     <div class="swiper-slide">
-                                                                                        <img src="{{ asset('storage'.$post->photo) }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
+                                                                                        <img src="{{ asset('storage/'.$post->photo) }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
                                                                                     </div>
                                                                                 @endif
 
