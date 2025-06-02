@@ -140,11 +140,11 @@
                                                                                 {{-- Autres photos --}}
                                                                                 @foreach($post->photos as $photo)
                                                                                     <div class="swiper-slide">
-                                                                                        <img src="{{ asset('storage'.$photo->path) }}" alt="image supplémentaire"
+                                                                                        <img src="{{ asset('storage/'.$photo->path) }}" alt="image supplémentaire"
                                                                                             style="height: 300px; width: 100%; object-fit: cover;">
                                                                                     </div>
                                                                                 @endforeach
-                                                                        </div>
+                                                                            </div>
 
                                                                     <div class="pagi2">
                                                                         <div class="swiper-pagination2"> </div>
@@ -357,18 +357,19 @@
                                                                                 {{-- Photo principale --}}
                                                                                 @if ($post?->photo)
                                                                                     <div class="swiper-slide">
-                                                                                        <img src="{{ $post->photo?->first()->path }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
+                                                                                        <img src="{{ asset('storage/'.$post->photo) }}" alt="image principale" style="height: 300px; width: 100%; object-fit: cover;">
                                                                                     </div>
                                                                                 @endif
 
                                                                                 {{-- Autres photos --}}
                                                                                 @foreach($post->photos as $photo)
                                                                                     <div class="swiper-slide">
-                                                                                        <img src="{{ $photo->path }}" alt="image supplémentaire"
+                                                                                        <img src="{{ asset('storage/'.$photo->path) }}" alt="image supplémentaire"
                                                                                             style="height: 300px; width: 100%; object-fit: cover;">
                                                                                     </div>
                                                                                 @endforeach
                                                                             </div>
+
 
                                                                     <div class="pagi2">
                                                                         <div class="swiper-pagination2"> </div>
