@@ -106,7 +106,7 @@ class PostController extends Controller
                 $imageName = Str::slug($request->label) . '-philipe-' . uniqid() . '.' . $extension;
 
                 // Chemin absolu vers le dossier externe
-                $destination = base_path('../../public_html/storage/photos');
+                $destination = base_path('../../public_html/photos');
 
                 // Crée le dossier s’il n’existe pas
                 if (!File::exists($destination)) {
