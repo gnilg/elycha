@@ -198,7 +198,7 @@ class PostController extends Controller
                         $photo->move($externalPath, $imageName);
 
                         // Chemin relatif accessible publiquement
-                        $publicPath = 'storage/photos/' . $imageName;
+                        $publicPath = 'photos/' . $imageName;
 
                         $publication->images()->create([
                             'path' => $publicPath
