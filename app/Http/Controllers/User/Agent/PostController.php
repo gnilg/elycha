@@ -100,16 +100,24 @@ class PostController extends Controller
         if ($request->hasFile('photos')) {
             foreach ($request->file('photos') as $photo) {
                 $extension = $photo->getClientOriginalExtension();
-                $imageName = Str::slug($request->label) . '-philipe' . uniqid() . '.' . $extension;
-                $photo->move(public_path('/photos'), $imageName);
+                $imageName = Str::slug($request->label) . '-philipe-' . uniqid() . '.' . $extension;
+
+                // Chemin absolu vers le dossier externe
+                $destination = '../../public_html/storage/photos';
+
+                // Déplacement physique du fichier
+                $photo->move($destination, $imageName);
+
+                // Chemin à enregistrer dans la BDD (chemin public relatif)
                 $path = "/photos/" . $imageName;
 
                 $publication->images()->create([
                     'path' => $path,
-                    'photo' =>$path
+                    'photo' => $path
                 ]);
             }
         }
+
 
         return redirect("/agent/posts")->with('flash_message_success', 'Publication mise à jour avec succès!');
     }
