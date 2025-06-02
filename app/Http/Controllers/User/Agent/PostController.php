@@ -178,7 +178,7 @@ class PostController extends Controller
 
             $publication = Publication::create($publicationData);
 
-
+//jj
             if ($request->hasFile('photos')) {
                 $firstImagePath = null;
 
