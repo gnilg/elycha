@@ -10,7 +10,7 @@ class Image extends Model
     use HasFactory;
 
     protected $fillable = [
-        'photo', 'publication_id','path'
+        'photo', 'publication_id','path','photo'
     ];
 
     public function publication()
@@ -18,4 +18,3 @@ class Image extends Model
         return $this->belongsTo(Publication::class);
     }
 }
-    
