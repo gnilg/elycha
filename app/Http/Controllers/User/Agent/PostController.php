@@ -105,7 +105,8 @@ class PostController extends Controller
                 $path = "/photos/" . $imageName;
 
                 $publication->images()->create([
-                    'path' => $path
+                    'path' => $path,
+                    'photo' =>$path
                 ]);
             }
         }
