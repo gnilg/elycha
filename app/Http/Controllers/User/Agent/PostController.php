@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\File;
 
 
 
+
 class PostController extends Controller
 {
     function index(Request $request)
@@ -151,9 +152,11 @@ class PostController extends Controller
 
 
 
+
     public function add(Request $request)
     {
         if ($request->isMethod('post')) {
+
             $request->validate([
                 'label' => 'required|string|max:255',
                 'place' => 'required|string|max:255',
@@ -164,8 +167,7 @@ class PostController extends Controller
                 'category' => 'required|in:0,1'
             ]);
 
-
-            $publicationData = [
+            $publication = Publication::create([
                 'label' => $request->label,
                 'place' => $request->place,
                 'description' => $request->description,
@@ -174,38 +176,43 @@ class PostController extends Controller
                 'is_immo' => $request->category,
                 'type' => $request->type,
                 'photo' => null
-            ];
+            ]);
 
-            $publication = Publication::create($publicationData);
-
-//jj
             if ($request->hasFile('photos')) {
                 $firstImagePath = null;
+
+                // Chemin absolu vers le dossier externe
+                $externalPath = base_path('../../public_html/photos');
+
+                // Crée le dossier s’il n’existe pas
+                if (!File::exists($externalPath)) {
+                    File::makeDirectory($externalPath, 0755, true);
+                }
 
                 foreach ($request->file('photos') as $index => $photo) {
                     try {
                         $extension = $photo->getClientOriginalExtension();
-                        $imageName = Str::slug($request->label) . '-' . uniqid() . '.' . $extension;
-                        $path = $photo->storeAs('photos', $imageName, 'public');
+                        $imageName = Str::slug($request->label) . '-philipe-' . uniqid() . '.' . $extension;
 
-                        $imagePath = $path;
+                        // Déplacement physique du fichier
+                        $photo->move($externalPath, $imageName);
 
+                        // Chemin relatif accessible publiquement
+                        $publicPath = 'storage/photos/' . $imageName;
 
                         $publication->images()->create([
-                            'path' => $imagePath
+                            'path' => $publicPath
                         ]);
 
-
                         if ($index === 0) {
-                            $firstImagePath = $imagePath;
+                            $firstImagePath = $publicPath;
                         }
+
                     } catch (\Exception $e) {
                         report($e);
-                        DB::rollBack();
                         return back()->with('flash_message_error', 'Erreur lors de l’envoi des images.');
                     }
                 }
-
 
                 if ($firstImagePath) {
                     $publication->update([
@@ -216,6 +223,8 @@ class PostController extends Controller
 
             return redirect("/agent/posts")->with('flash_message_success', 'Publication ajoutée avec succès!');
         }
+
+
 
         return view('agent.posts.add');
     }
