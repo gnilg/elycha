@@ -90,7 +90,7 @@
                         </div>
                         <div class="box-2 text-end">
                             <div class="icon-boxs flex">
-                                <a href="https://wa.me/{{ $post->user->telephone }}?text=Bonjour {{ $post->user->last_name }}, votre annonce publiée sur Alkebulan-Eca m'intéresse. https://alkebulan-eca.com/posts/details/{{ $post->id }}""
+                                <a href="https://wa.me/{{ $post->user->telephone }}?text=Bonjour {{ $post->user->last_name }}, votre annonce publiée sur Alkebulan-Eca m'intéresse. https://alkebulan-eca.com/posts/details/{{ $post->id }}"
                                     target="_blank" style="padding:10px;">
                                     <svg fill="#25d366" height="800px" width="800px" version="1.1" id="Layer_1"
                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -158,7 +158,7 @@
                                 @foreach ($posts as $post)
                                     <div class="box-listings flex hover-img3">
                                         <div class="img-listings img-style3">
-                                            <img src="{{ asset( 'storage/'.$post->photos?->first()->path) }}" style="width:80px;" alt="images">
+                                            <img src="{{ asset( 'storage/'.$post->photo) }}" style="width:80px;" alt="images">
                                         </div>
                                         <div class="content link-style-1">
                                             <a class="fs-16 lh-24" href="/posts/details/{{ $post->id }}">
